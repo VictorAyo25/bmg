@@ -41,7 +41,7 @@ export function DesignB({ photo }: { photo: boolean }) {
       {/* Opening spread */}
       <section className="mx-auto max-w-[80rem] px-6 pt-14 pb-20 sm:px-10 sm:pt-20 sm:pb-28">
         <p className={CAPS} style={{ color: SKY }}>
-          One &nbsp;&mdash;&nbsp; The programme
+          One &nbsp;/&nbsp; The programme
         </p>
 
         <h1 className="mt-12 max-w-5xl font-serif text-[3.25rem] leading-[0.94] tracking-[-0.015em] text-balance sm:text-[5.5rem] lg:text-[6.75rem]">
@@ -171,7 +171,7 @@ export function DesignB({ photo }: { photo: boolean }) {
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-3">
               <p className={CAPS} style={{ color: BRIGHT }}>
-                Two &nbsp;&mdash;&nbsp; Contents
+                Two &nbsp;/&nbsp; Contents
               </p>
               <p className="mt-8 font-serif text-3xl leading-tight">
                 {PROGRAMME.promise}
@@ -216,7 +216,7 @@ export function DesignB({ photo }: { photo: boolean }) {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className={CAPS} style={{ color: SKY }}>
-              Three &nbsp;&mdash;&nbsp; Selected work
+              Three &nbsp;/&nbsp; Selected work
             </p>
             <h2 className="mt-8 font-serif text-[2.5rem] leading-[1.05] text-balance sm:text-[3.25rem]">
               {PROJECT_COUNT} projects, delivered.
