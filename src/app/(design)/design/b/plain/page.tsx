@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { DesignA } from "@/components/designs/design-a";
+import { DesignB } from "@/components/designs/design-b";
 
 export const metadata: Metadata = {
-  title: "Option A, Blueprint, with photograph",
+  title: "Option B, Editorial, without photograph",
   robots: { index: false, follow: false },
 };
 
 export default function Page() {
-  return <DesignA photo />;
+  return <DesignB photo={false} />;
 }
