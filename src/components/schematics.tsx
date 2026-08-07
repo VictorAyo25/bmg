@@ -12,6 +12,20 @@
 
 const LABEL = "font-mono text-[9px] tracking-[0.14em] uppercase";
 
+type SchematicProps = {
+  className?: string;
+  style?: React.CSSProperties;
+  /**
+   * Colour for the annotation text only.
+   *
+   * The linework stays brand blue because graphics need 3:1 and it clears
+   * that on both paper and near black. The labels are 9px, which needs
+   * 4.5:1, and brand blue misses it on either background. So the two are
+   * coloured separately rather than compromising the drawing.
+   */
+  labelColor?: string;
+};
+
 /** Small filled triangle marking flow direction along a pipe or duct. */
 function Flow({
   x,
@@ -35,7 +49,7 @@ function Flow({
  * Chilled water circuit. Chiller, primary pump, air handling coil, return.
  * The loop taught in module 04.
  */
-export function ChilledWaterLoop({ className, style }: { className?: string; style?: React.CSSProperties }) {
+export function ChilledWaterLoop({ className, style, labelColor = "currentColor" }: SchematicProps) {
   return (
     <svg
       viewBox="0 0 480 250"
@@ -50,7 +64,7 @@ export function ChilledWaterLoop({ className, style }: { className?: string; sty
       {/* Chiller */}
       <rect x="18" y="70" width="108" height="86" />
       <path d="M18 92h108" opacity={0.45} />
-      <text x="72" y="86" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="72" y="86" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         Chiller
       </text>
       <path d="M38 112h22M38 124h22M38 136h22" opacity={0.4} />
@@ -67,14 +81,14 @@ export function ChilledWaterLoop({ className, style }: { className?: string; sty
       <circle cx="227" cy="96" r="17" />
       <path d="M227 79v34" opacity={0.5} />
       <polygon points="227,84 240,96 227,108" fill="currentColor" opacity={0.75} stroke="none" />
-      <text x="227" y="140" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="227" y="140" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         Pump
       </text>
       <path d="M227 118v14" opacity={0.35} strokeDasharray="2 3" />
 
       {/* Air handling unit with coil */}
       <rect x="352" y="58" width="110" height="110" />
-      <text x="407" y="50" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="407" y="50" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         AHU coil
       </text>
       <path
@@ -86,7 +100,7 @@ export function ChilledWaterLoop({ className, style }: { className?: string; sty
       {/* Return line */}
       <path d="M352 150H126v-54" opacity={0.9} />
       <Flow x={250} y={150} dir="left" />
-      <text x="238" y="168" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none" opacity={0.75}>
+      <text x="238" y="168" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none" opacity={0.75}>
         Return
       </text>
 
@@ -94,7 +108,7 @@ export function ChilledWaterLoop({ className, style }: { className?: string; sty
       <g opacity={0.5}>
         <path d="M18 208h444" strokeWidth={0.9} />
         <path d="M18 202v12M462 202v12M126 204v8M352 204v8" strokeWidth={0.9} />
-        <text x="240" y="228" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+        <text x="240" y="228" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
           Primary circuit
         </text>
       </g>
@@ -106,7 +120,7 @@ export function ChilledWaterLoop({ className, style }: { className?: string; sty
  * Supply duct run off an air handling unit, with branch takeoffs and
  * diffusers. Module 02, laid out the way it appears on a floor plan.
  */
-export function DuctRun({ className, style }: { className?: string; style?: React.CSSProperties }) {
+export function DuctRun({ className, style, labelColor = "currentColor" }: SchematicProps) {
   return (
     <svg
       viewBox="0 0 480 230"
@@ -120,7 +134,7 @@ export function DuctRun({ className, style }: { className?: string; style?: Reac
     >
       {/* Plant */}
       <rect x="16" y="46" width="76" height="64" />
-      <text x="54" y="38" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="54" y="38" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         AHU
       </text>
       <path d="M30 62h48M30 78h48M30 94h48" opacity={0.4} />
@@ -150,7 +164,7 @@ export function DuctRun({ className, style }: { className?: string; style?: Reac
         </g>
       ))}
 
-      <text x="196" y="176" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none" opacity={0.75}>
+      <text x="196" y="176" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none" opacity={0.75}>
         Ceiling diffusers
       </text>
 
@@ -158,7 +172,7 @@ export function DuctRun({ className, style }: { className?: string; style?: Reac
       <g opacity={0.55}>
         <path d="M272 64l44-26h58" strokeWidth={0.9} />
         <circle cx="272" cy="64" r="2.5" fill="currentColor" stroke="none" />
-        <text x="380" y="35" className={LABEL} fill="currentColor" stroke="none">
+        <text x="380" y="35" className={LABEL} fill={labelColor} stroke="none">
           Pressure drop
         </text>
       </g>
@@ -166,7 +180,7 @@ export function DuctRun({ className, style }: { className?: string; style?: Reac
       <g opacity={0.5}>
         <path d="M16 206h448" strokeWidth={0.9} />
         <path d="M16 200v12M464 200v12M92 202v8" strokeWidth={0.9} />
-        <text x="240" y="226" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+        <text x="240" y="226" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
           Supply air distribution
         </text>
       </g>
@@ -178,7 +192,7 @@ export function DuctRun({ className, style }: { className?: string; style?: Reac
  * Air handling unit in section: filter, cooling coil, fan. Drawn the way it
  * appears in a plant room layout, air travelling left to right.
  */
-export function AhuSection({ className, style }: { className?: string; style?: React.CSSProperties }) {
+export function AhuSection({ className, style, labelColor = "currentColor" }: SchematicProps) {
   return (
     <svg
       viewBox="0 0 480 200"
@@ -196,7 +210,7 @@ export function AhuSection({ className, style }: { className?: string; style?: R
       {/* Intake */}
       <path d="M20 78h40M20 110h40" opacity={0.8} />
       <Flow x={44} y={94} />
-      <text x="26" y="66" className={LABEL} fill="currentColor" stroke="none" opacity={0.75}>
+      <text x="26" y="66" className={LABEL} fill={labelColor} stroke="none" opacity={0.75}>
         Return
       </text>
 
@@ -209,7 +223,7 @@ export function AhuSection({ className, style }: { className?: string; style?: R
           strokeWidth={0.9}
         />
       ))}
-      <text x="116" y="170" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="116" y="170" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         Filter
       </text>
 
@@ -217,7 +231,7 @@ export function AhuSection({ className, style }: { className?: string; style?: R
       <path d="M196 60v68M212 60v68M228 60v68M244 60v68M260 60v68" strokeWidth={1.4} />
       <path d="M196 60h64M196 128h64" strokeWidth={1.4} />
       <path d="M188 74h-16M188 114h-16" opacity={0.6} />
-      <text x="228" y="170" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="228" y="170" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         Cooling coil
       </text>
 
@@ -232,14 +246,14 @@ export function AhuSection({ className, style }: { className?: string; style?: R
           opacity={0.65}
         />
       ))}
-      <text x="352" y="170" textAnchor="middle" className={LABEL} fill="currentColor" stroke="none">
+      <text x="352" y="170" textAnchor="middle" className={LABEL} fill={labelColor} stroke="none">
         Supply fan
       </text>
 
       {/* Discharge */}
       <path d="M420 78h40M420 110h40" opacity={0.8} />
       <Flow x={452} y={94} />
-      <text x="424" y="66" className={LABEL} fill="currentColor" stroke="none" opacity={0.75}>
+      <text x="424" y="66" className={LABEL} fill={labelColor} stroke="none" opacity={0.75}>
         Supply
       </text>
     </svg>

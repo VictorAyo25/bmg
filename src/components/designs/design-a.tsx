@@ -101,7 +101,7 @@ export function DesignA({ photo }: { photo: boolean }) {
             </div>
 
             <div className="relative flex flex-col justify-center bg-[#f7f9fb] px-6 py-12 sm:px-10 lg:col-span-5">
-              <DuctRun className="w-full" style={{ color: BRAND.ON_LIGHT }} />
+              <DuctRun className="w-full" style={{ color: BRAND.BLUE }} labelColor={BRAND.ON_LIGHT} />
               <div
                 className="mt-10 flex items-end justify-between border-t pt-4"
                 style={{ borderColor: `${LINE}1f` }}
@@ -171,14 +171,15 @@ export function DesignA({ photo }: { photo: boolean }) {
                 <figure>
                   <ChilledWaterLoop
                     className="w-full"
-                    style={{ color: BRAND.ON_LIGHT }}
+                    style={{ color: BRAND.BLUE }}
+                    labelColor={BRAND.ON_LIGHT}
                   />
                   <figcaption className={`${MONO} mt-3 block text-[#5a606a]`}>
                     Fig 02 / Chilled water circuit
                   </figcaption>
                 </figure>
                 <figure>
-                  <AhuSection className="w-full" style={{ color: BRAND.ON_LIGHT }} />
+                  <AhuSection className="w-full" style={{ color: BRAND.BLUE }} labelColor={BRAND.ON_LIGHT} />
                   <figcaption className={`${MONO} mt-3 block text-[#5a606a]`}>
                     Fig 03 / AHU section
                   </figcaption>

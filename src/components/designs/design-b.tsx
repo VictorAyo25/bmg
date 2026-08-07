@@ -52,7 +52,32 @@ export function DesignB({ photo }: { photo: boolean }) {
           get built.
         </h1>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-12">
+        <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:items-start">
+          {/* Without the portrait the left column would sit empty for the
+              height of the offset measure, which reads as a hole rather than
+              as air. The specification fills it and earns its place. */}
+          {!photo && (
+            <dl className="lg:col-span-4">
+              {[
+                ["Duration", PROGRAMME.duration],
+                ["Mode", PROGRAMME.mode],
+                ["Commitment", PROGRAMME.commitment],
+                ["On completion", PROGRAMME.outcome],
+              ].map(([k, v]) => (
+                <div
+                  key={k}
+                  className="flex items-baseline justify-between gap-6 border-t py-3"
+                  style={{ borderColor: `${INK}1f` }}
+                >
+                  <dt className={CAPS} style={{ opacity: 0.45 }}>
+                    {k}
+                  </dt>
+                  <dd className="font-serif text-xl">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+
           <p className="max-w-md text-lg leading-[1.7] lg:col-span-5 lg:col-start-6">
             <span className="float-left mt-2 mr-3 font-serif text-[3.5rem] leading-[0.72]">
               S
@@ -62,7 +87,8 @@ export function DesignB({ photo }: { photo: boolean }) {
             calculate a load, size a system, select the plant, and defend every
             decision in a design review.
           </p>
-          <div className="lg:col-span-3 lg:col-start-11">
+
+          <div className="lg:col-span-2 lg:col-start-11">
             <a
               href={CONTACT.mailto}
               className="inline-block border-b pb-1 text-lg"
@@ -74,10 +100,30 @@ export function DesignB({ photo }: { photo: boolean }) {
         </div>
       </section>
 
-      {/* Statement, with or without the portrait beside it */}
+      {/* Statement.
+          With the portrait it is a two column spread. Without it the quote
+          runs wide and the supporting text hangs off the right, so the row
+          fills either way and neither version has a gap in it. */}
       <section className="mx-auto max-w-[78rem] px-6 py-16 sm:px-10 sm:py-24">
+        {!photo ? (
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <blockquote className="lg:col-span-7">
+              <p className="font-serif text-[2.25rem] leading-[1.14] tracking-[-0.015em] text-balance sm:text-[3.5rem]">
+                Most buildings are cooled by systems nobody calculated.
+              </p>
+            </blockquote>
+            <p
+              className="max-w-sm text-lg leading-[1.7] lg:col-span-4 lg:col-start-9 lg:pt-3"
+              style={{ opacity: 0.72 }}
+            >
+              Every uncomfortable room and every ruinous energy bill was a
+              decision somebody made at design stage, usually without realising
+              they were making it. That is the gap this programme exists to
+              close.
+            </p>
+          </div>
+        ) : (
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          {photo ? (
             <figure className="lg:col-span-5">
               {/* Shot on white, so multiplying it into the paper drops the
                   studio background out and he reads as printed on the page. */}
@@ -101,34 +147,8 @@ export function DesignB({ photo }: { photo: boolean }) {
                 Taught by practising engineers
               </figcaption>
             </figure>
-          ) : (
-            /* Without the photograph the column becomes a specification,
-               set in the same serif so it reads as part of the page. */
-            <dl className="lg:col-span-4">
-              {[
-                ["Duration", PROGRAMME.duration],
-                ["Mode", PROGRAMME.mode],
-                ["Commitment", PROGRAMME.commitment],
-                ["On completion", PROGRAMME.outcome],
-                ["Projects delivered", String(PROJECT_COUNT)],
-              ].map(([k, v]) => (
-                <div
-                  key={k}
-                  className="border-t py-5"
-                  style={{ borderColor: `${INK}1f` }}
-                >
-                  <dt className={CAPS} style={{ opacity: 0.45 }}>
-                    {k}
-                  </dt>
-                  <dd className="mt-2 font-serif text-2xl">{v}</dd>
-                </div>
-              ))}
-            </dl>
-          )}
 
-          <blockquote
-            className={photo ? "lg:col-span-6 lg:col-start-7" : "lg:col-span-7 lg:col-start-6"}
-          >
+          <blockquote className="lg:col-span-6 lg:col-start-7">
             <p className="font-serif text-[2rem] leading-[1.2] tracking-[-0.01em] text-balance sm:text-[2.75rem]">
               Most buildings are cooled by systems nobody calculated.
             </p>
@@ -143,6 +163,7 @@ export function DesignB({ photo }: { photo: boolean }) {
             </p>
           </blockquote>
         </div>
+        )}
       </section>
 
       {/* Contents */}

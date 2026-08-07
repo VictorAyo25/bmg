@@ -173,7 +173,7 @@ export function DesignC({ photo }: { photo: boolean }) {
           className="flex flex-col justify-center border-b p-8 sm:p-14 lg:border-r lg:border-b-0"
           style={{ borderColor: EDGE }}
         >
-          <AhuSection className="w-full" style={{ color: BRAND.ON_DARK }} />
+          <AhuSection className="w-full" style={{ color: BRAND.BLUE }} labelColor={BRAND.ON_DARK} />
           <p className={`${MONO} mt-8 text-white/35`}>
             Air handling unit / section
           </p>
@@ -204,7 +204,8 @@ export function DesignC({ photo }: { photo: boolean }) {
           <div className="flex min-h-90 flex-col justify-center p-8 sm:p-14">
             <ChilledWaterLoop
               className="w-full"
-              style={{ color: BRAND.ON_DARK }}
+              style={{ color: BRAND.BLUE }}
+              labelColor={BRAND.ON_DARK}
             />
             <p className={`${MONO} mt-8 text-white/35`}>
               Chilled water / primary circuit
