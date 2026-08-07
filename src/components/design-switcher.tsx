@@ -3,23 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const OPTIONS = [
-  { key: "a", label: "A", name: "Blueprint" },
-  { key: "b", label: "B", name: "Editorial" },
-  { key: "c", label: "C", name: "Field" },
-];
+const OPTIONS = ["1", "2", "3"];
 
 const CHIP =
-  "px-3 py-1.5 font-mono text-[0.625rem] tracking-[0.16em] uppercase transition-colors";
+  "px-3.5 py-1.5 font-mono text-[0.625rem] tracking-[0.16em] uppercase transition-colors";
 
 /**
  * Scaffolding for the review, not part of any design. Lets the client move
- * between the three directions and flip the photograph on and off without
- * losing their place. All of this comes out once one is chosen.
+ * between the options and flip the photograph on and off without losing
+ * their place. All of it comes out once one is chosen.
  */
 export function DesignSwitcher() {
   const pathname = usePathname();
-  const match = pathname.match(/^\/design\/([abc])(\/plain)?$/);
+  const match = pathname.match(/^\/design\/([123])(\/plain)?$/);
   const current = match?.[1];
   const isPlain = Boolean(match?.[2]);
 
@@ -34,21 +30,21 @@ export function DesignSwitcher() {
 
       <div className="flex flex-wrap items-center gap-x-1 gap-y-2">
         <nav aria-label="Design options" className="flex items-center gap-1">
-          {OPTIONS.map((o) => {
-            const active = current === o.key;
+          {OPTIONS.map((n) => {
+            const active = current === n;
             return (
               <Link
-                key={o.key}
-                href={`/design/${o.key}${isPlain ? "/plain" : ""}`}
+                key={n}
+                href={`/design/${n}${isPlain ? "/plain" : ""}`}
                 aria-current={active ? "page" : undefined}
+                aria-label={`Option ${n}`}
                 className={`${CHIP} ${
                   active
                     ? "bg-white text-[#101318]"
                     : "text-white/60 hover:bg-white/10 hover:text-white"
                 }`}
               >
-                {o.label}
-                <span className="ml-2 hidden sm:inline">{o.name}</span>
+                {n}
               </Link>
             );
           })}

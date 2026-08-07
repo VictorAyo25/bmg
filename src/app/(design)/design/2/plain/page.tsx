@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DesignB } from "@/components/designs/design-b";
 
 export const metadata: Metadata = {
-  title: "Option B, Editorial, without photograph",
+  title: "Option 2, without photograph",
   robots: { index: false, follow: false },
 };
 

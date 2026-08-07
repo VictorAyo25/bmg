@@ -8,27 +8,21 @@ export const metadata: Metadata = {
 
 const OPTIONS = [
   {
-    key: "A",
-    href: "/design/a",
-    name: "Blueprint",
-    line: "The document, committed to properly.",
-    body: "Hand drawn technical schematics, a ruled sheet border, registration marks, a revision table and a title block. Dense where the drawings are, near empty at the statement. This one could only belong to an engineering firm.",
+    n: "1",
+    line: "Deep blue, white drawings.",
+    body: "A real blueprint is white linework on deep blue, which is where the word comes from. So the page is blue and the technical drawings are white, with the duct schematic sitting on a white card the way the panels on your flyers do. The angled section tabs are lifted from the flyers too.",
     best: "Engineers and technical buyers",
   },
   {
-    key: "B",
-    href: "/design/b",
-    name: "Editorial",
-    line: "Quiet, expensive, senior.",
-    body: "A serif set very large on warm paper, an asymmetric measure, a drop cap and a lot of air. Closer to an architecture monograph than to a website. The least shouty of the three and the most confident.",
+    n: "2",
+    line: "Navy and cream, set large.",
+    body: "Deep navy with a serif running very big, and one cream section partway down so the blue reads as a decision rather than a default. The quietest of the three and the most senior. It looks like a company that has been doing this for twenty years.",
     best: "Developers, architects, tender boards",
   },
   {
-    key: "C",
-    href: "/design/c",
-    name: "Field",
-    line: "Hard contrast, high energy.",
-    body: "Near black, oversized numerals, a specification ticker and a dense module matrix. Industrial rather than corporate. Reads younger and moves faster than the other two.",
+    n: "3",
+    line: "Brand blue at full strength.",
+    body: "The logo blue as the page itself, with near black panels cut into it and numerals set enormous. The loudest of the three and the closest in energy to your flyers. Reads younger and moves faster than the other two.",
     best: "Engineers choosing a training programme",
   },
 ];
@@ -44,7 +38,7 @@ export default function DesignIndex() {
           BMG Engineering Limited
         </p>
         <h1 className="mt-6 max-w-3xl text-4xl leading-[1.08] font-semibold tracking-tight text-balance sm:text-5xl">
-          Three directions, two versions of each. Same content and same words
+          Three options, two versions of each. Same content and same words
           throughout.
         </h1>
         <p className="mt-6 max-w-xl leading-relaxed text-white/60">
@@ -55,25 +49,23 @@ export default function DesignIndex() {
           page.
         </p>
         <p className="mt-4 max-w-xl leading-relaxed text-white/60">
-          The brand blue is the same in all three, taken from the logo file
-          itself.
+          All three are built on the logo blue, taken from the artwork itself.
         </p>
 
         <ul className="mt-16 border-t border-white/12">
           {OPTIONS.map((o) => (
-            <li key={o.key} className="border-b border-white/12">
+            <li key={o.n} className="border-b border-white/12">
               <div className="grid gap-5 py-10 md:grid-cols-12 md:gap-10">
                 <div className="md:col-span-1">
-                  <span className="font-mono text-sm text-[#5fb6fa]">
-                    {o.key}
+                  <span className="font-mono text-2xl text-[#5fb6fa]">
+                    {o.n}
                   </span>
                 </div>
 
                 <div className="md:col-span-4">
-                  <h2 className="text-2xl font-semibold tracking-tight">
-                    {o.name}
-                  </h2>
-                  <p className="mt-2 text-white/50">{o.line}</p>
+                  <p className="text-xl font-semibold tracking-tight text-balance">
+                    {o.line}
+                  </p>
                 </div>
 
                 <div className="md:col-span-7">
@@ -82,10 +74,10 @@ export default function DesignIndex() {
                     Suits: {o.best}
                   </p>
                   <div className="mt-6 flex flex-wrap gap-2">
-                    <Link href={o.href} className={CHIP}>
+                    <Link href={`/design/${o.n}`} className={CHIP}>
                       With photo
                     </Link>
-                    <Link href={o.href + "/plain"} className={CHIP}>
+                    <Link href={`/design/${o.n}/plain`} className={CHIP}>
                       Without photo
                     </Link>
                   </div>
