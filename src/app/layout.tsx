@@ -27,7 +27,14 @@ const mono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-const SITE = "https://bmgengineering.vercel.app";
+/**
+ * Canonical origin. Set NEXT_PUBLIC_SITE_URL in Vercel to the preview origin
+ * while DNS is still propagating, so share previews and canonical tags do not
+ * point at a domain that is not answering yet. Remove the override once the
+ * custom domain is live and this value stands on its own.
+ */
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bmgengineeringlimited.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),

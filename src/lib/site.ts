@@ -10,8 +10,10 @@ export const COMPANY = {
   tagline: "Creating your vision, one design at a time.",
 } as const;
 
+export const DOMAIN = "bmgengineeringlimited.com";
+
 export const CONTACT = {
-  // TODO: move off Gmail once the domain mailbox exists.
+  // TODO: swap to info@bmgengineeringlimited.com once the mailbox is set up.
   email: "bmgengineeringlimited@gmail.com",
   mailto: "mailto:bmgengineeringlimited@gmail.com",
   phone: "+234 906 331 7044",
