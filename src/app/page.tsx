@@ -1,96 +1,148 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Button, Container, Eyebrow, Lead, SectionHeading } from "@/components/ui";
+import {
+  Arrow,
+  Button,
+  Container,
+  Note,
+  SectionHead,
+  TextLink,
+} from "@/components/ui";
 import { CONTACT } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { MODULES, PROGRAMME } from "@/lib/training";
 import { PROJECTS, PROJECT_COUNT } from "@/lib/projects";
 
+const DISCIPLINES = [
+  "Cooling load calculation",
+  "Duct design",
+  "Chilled water",
+  "VRF and DX",
+  "Air handling units",
+  "Life safety",
+  "Ventilation",
+  "Commissioning",
+];
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden border-b rule bg-white">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60rem_40rem_at_78%_-12%,var(--color-brand-50),transparent_62%)]"
+          className="blueprint pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(70rem_45rem_at_72%_0%,#000,transparent_75%)]"
         />
-        <Container className="pt-16 pb-20 sm:pt-24 sm:pb-28 lg:pt-32">
-          <Eyebrow>MEP training and engineering consultancy</Eyebrow>
 
-          <h1 className="font-display mt-7 max-w-4xl text-[2.6rem] leading-[1.03] font-semibold tracking-display text-balance text-ink-950 sm:text-6xl lg:text-[4.5rem]">
-            Learn to design building systems that actually get built.
-          </h1>
-
-          <Lead className="mt-7 max-w-xl sm:text-xl">
-            Structured mechanical, electrical and plumbing training that closes
-            the gap between an architect&rsquo;s drawing and a system that works
-            on site. Taught by engineers who design them for a living.
-          </Lead>
-
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button href="/training">Explore the programme</Button>
-            <Button href="/projects" variant="secondary">
-              See the work
-            </Button>
+        <Container className="relative pt-12 pb-0 sm:pt-16">
+          <div className="flex items-center gap-5">
+            <Note className="text-brand-700">Sheet 01</Note>
+            <span aria-hidden className="h-px flex-1 bg-ink-950/12" />
+            <Note className="text-ink-500">MEP training and consultancy</Note>
           </div>
 
-          <dl className="mt-16 grid max-w-3xl grid-cols-2 gap-x-8 gap-y-9 border-t border-ink-200 pt-10 sm:grid-cols-4">
-            {[
-              { value: PROGRAMME.duration, label: "Programme length" },
-              { value: `${PROJECT_COUNT}`, label: "Projects delivered" },
-              { value: `${MODULES.length}`, label: "Design modules" },
-              { value: "Live", label: "Virtual classes" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <dt className="sr-only">{stat.label}</dt>
-                <dd>
-                  <span className="font-display block text-3xl font-semibold tracking-display text-ink-950 sm:text-4xl">
-                    {stat.value}
-                  </span>
-                  <span className="mt-1.5 block text-sm text-ink-500">
-                    {stat.label}
-                  </span>
-                </dd>
+          <div className="grid gap-14 pt-14 pb-16 lg:grid-cols-12 lg:gap-12 lg:pt-20 lg:pb-24">
+            <div className="lg:col-span-7">
+              <h1 className="text-[2.5rem] leading-[1.02] font-semibold tracking-display text-balance text-ink-950 sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem]">
+                Learn to design building systems that actually get built.
+              </h1>
+
+              <p className="mt-8 max-w-lg text-[1.0625rem] leading-relaxed text-ink-600 sm:text-lg">
+                Structured mechanical, electrical and plumbing training that
+                closes the gap between an architect&rsquo;s drawing and a system
+                that works on site. Taught by engineers who design them for a
+                living.
+              </p>
+
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Button href="/training">
+                  Explore the programme
+                  <Arrow />
+                </Button>
+                <Button href="/projects" variant="outline">
+                  See the work
+                  <Arrow />
+                </Button>
               </div>
-            ))}
-          </dl>
+            </div>
+
+            {/* Spec panel, read as the schedule block on a drawing. */}
+            <aside className="lg:col-span-4 lg:col-start-9">
+              <div className="border rule bg-white/70 backdrop-blur-sm">
+                <div className="border-b rule px-6 py-4">
+                  <Note className="text-ink-500">Programme at a glance</Note>
+                </div>
+                <dl>
+                  {[
+                    ["Discipline", "HVAC design"],
+                    ["Duration", PROGRAMME.duration],
+                    ["Modules", String(MODULES.length).padStart(2, "0")],
+                    ["Mode", PROGRAMME.mode],
+                    ["Commitment", PROGRAMME.commitment],
+                    ["Projects delivered", String(PROJECT_COUNT)],
+                  ].map(([label, value]) => (
+                    <div
+                      key={label}
+                      className="flex items-baseline justify-between gap-6 border-b rule px-6 py-3.5 last:border-0"
+                    >
+                      <dt className="text-sm text-ink-500">{label}</dt>
+                      <dd className="text-sm font-medium text-ink-950">
+                        {value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            </aside>
+          </div>
         </Container>
+
+        {/* Disciplines strip, the marginalia along the edge of a sheet. */}
+        <div className="border-t rule bg-paper">
+          <Container>
+            <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 py-4">
+              {DISCIPLINES.map((d) => (
+                <li key={d} className="flex items-center gap-2.5">
+                  <span
+                    aria-hidden
+                    className="h-1 w-1 rounded-full bg-brand-600"
+                  />
+                  <Note className="text-ink-500">{d}</Note>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </div>
       </section>
 
       {/* Services */}
-      <section className="border-t border-ink-200">
-        <Container className="py-20 sm:py-28">
-          <div className="max-w-2xl">
-            <Eyebrow>What we do</Eyebrow>
-            <SectionHeading className="mt-6">
-              Four disciplines, one engineering standard.
-            </SectionHeading>
-          </div>
+      <section className="bg-paper">
+        <Container className="py-14 sm:py-28">
+          <SectionHead
+            sheet="Sec 02"
+            label="Capability"
+            title="Four disciplines, one engineering standard."
+            lead="Training is where we put most of our weight, because the shortage in this market is not equipment. It is engineers who can calculate."
+          />
 
-          <ul className="mt-14 grid gap-px overflow-hidden rounded-2xl bg-ink-200 sm:grid-cols-2">
+          <ul className="mt-16 border-t rule">
             {SERVICES.map((service) => (
-              <li key={service.slug} className="bg-white">
+              <li key={service.slug} className="border-b rule">
                 <Link
                   href={service.href}
-                  className="group flex h-full flex-col p-8 transition-colors hover:bg-ink-50/70 sm:p-10"
+                  className="group grid items-start gap-4 py-9 transition-colors duration-200 hover:bg-white lg:grid-cols-12 lg:gap-12 lg:px-6"
                 >
-                  <span className="font-display text-sm font-semibold text-brand-600">
-                    {service.index}
-                  </span>
-                  <h3 className="font-display mt-5 text-xl font-semibold text-ink-950 sm:text-2xl">
+                  <div className="lg:col-span-1">
+                    <Note className="text-brand-600">{service.index}</Note>
+                  </div>
+                  <h3 className="text-2xl leading-tight font-semibold tracking-display text-ink-950 lg:col-span-4 lg:text-[1.75rem]">
                     {service.title}
                   </h3>
-                  <p className="mt-4 text-[0.975rem] leading-relaxed text-ink-600">
+                  <p className="max-w-xl leading-relaxed text-ink-600 lg:col-span-6">
                     {service.summary}
                   </p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-700">
-                    Learn more
-                    <span
-                      aria-hidden
-                      className="transition-transform group-hover:translate-x-1"
-                    >
-                      &rarr;
-                    </span>
+                  <span className="text-ink-400 transition-colors group-hover:text-brand-600 lg:col-span-1 lg:justify-self-end">
+                    <Arrow />
                   </span>
                 </Link>
               </li>
@@ -101,141 +153,169 @@ export default function Home() {
 
       {/* Training */}
       <section className="bg-brand-950 text-white">
-        <Container className="py-20 sm:py-28">
-          <div className="grid gap-14 lg:grid-cols-[minmax(0,26rem)_1fr] lg:gap-20">
-            <div>
-              <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.14em] text-brand-300 uppercase">
-                <span aria-hidden className="h-px w-6 bg-brand-400" />
-                The programme
-              </p>
-              <h2 className="font-display mt-6 text-3xl leading-[1.1] font-semibold tracking-display text-balance sm:text-4xl lg:text-5xl">
+        <Container className="py-14 sm:py-28">
+          <SectionHead
+            invert
+            sheet="Sec 03"
+            label="The programme"
+            title={
+              <>
                 {PROGRAMME.name} in {PROGRAMME.duration}.
-              </h2>
-              <p className="font-display mt-5 text-xl text-brand-300">
-                {PROGRAMME.promise}
-              </p>
-              <p className="mt-6 leading-relaxed text-ink-300">
-                Six modules taught one day a week, built around live project
-                work rather than textbook exercises. You finish with a portfolio
-                and a certificate, and with the judgement to defend a design.
-              </p>
+                <span className="mt-4 block text-brand-400">
+                  {PROGRAMME.promise}
+                </span>
+              </>
+            }
+            lead="Six modules taught one day a week, built around live project work rather than textbook exercises. You finish with a portfolio and the judgement to defend a design."
+          />
 
-              <dl className="mt-10 space-y-4 border-t border-white/10 pt-8 text-sm">
-                {[
-                  ["Duration", PROGRAMME.duration],
-                  ["Mode", PROGRAMME.mode],
-                  ["Commitment", PROGRAMME.commitment],
-                  ["On completion", PROGRAMME.outcome],
-                ].map(([label, value]) => (
-                  <div key={label} className="flex justify-between gap-6">
-                    <dt className="text-ink-400">{label}</dt>
-                    <dd className="text-right font-medium text-white">
-                      {value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+          <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-12">
+            {/* Portrait, framed as a figure with a caption. */}
+            <figure className="lg:col-span-4">
+              <div className="relative aspect-4/5 overflow-hidden bg-brand-900">
+                <Image
+                  src="/founder.jpg"
+                  alt="An engineer from the BMG team"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 24rem"
+                  className="object-cover object-top grayscale contrast-105"
+                  priority
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-brand-600 mix-blend-color"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-linear-to-t from-brand-950 via-transparent to-transparent opacity-70"
+                />
+              </div>
+              <figcaption className="mt-4 flex items-center justify-between border-t rule-invert pt-4">
+                <Note className="text-white/40">Fig 01</Note>
+                <Note className="text-white/40">Taught by practitioners</Note>
+              </figcaption>
+            </figure>
 
-              <Button href="/training" variant="ghost" className="mt-10">
-                Full curriculum
-              </Button>
-            </div>
-
-            <ol className="grid gap-px self-start overflow-hidden rounded-2xl bg-white/10 sm:grid-cols-2">
+            <ol className="lg:col-span-8">
               {MODULES.map((module) => (
-                <li key={module.index} className="bg-brand-950 p-7">
-                  <span className="font-display text-sm font-semibold text-brand-400">
+                <li
+                  key={module.index}
+                  className="group grid gap-3 border-t rule-invert py-6 last:border-b sm:grid-cols-12 sm:gap-6"
+                >
+                  <Note className="pt-1.5 text-brand-400 sm:col-span-1">
                     {module.index}
-                  </span>
-                  <h3 className="font-display mt-3 text-lg font-semibold text-white">
+                  </Note>
+                  <h3 className="text-xl font-semibold text-white sm:col-span-5">
                     {module.title}
                   </h3>
-                  {module.tools && (
-                    <p className="mt-2 text-xs tracking-wide text-brand-300 uppercase">
-                      {module.tools}
+                  <div className="sm:col-span-6">
+                    <p className="leading-relaxed text-white/60">
+                      {module.description}
                     </p>
-                  )}
+                    {module.tools && (
+                      <p className="mt-3">
+                        <Note className="text-brand-400">{module.tools}</Note>
+                      </p>
+                    )}
+                  </div>
                 </li>
               ))}
             </ol>
           </div>
+
+          <div className="mt-12">
+            <Button href="/training" variant="invert">
+              Full curriculum
+              <Arrow />
+            </Button>
+          </div>
         </Container>
       </section>
 
-      {/* Projects */}
-      <section>
-        <Container className="py-20 sm:py-28">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div className="max-w-2xl">
-              <Eyebrow>Delivered work</Eyebrow>
-              <SectionHeading className="mt-6">
-                {PROJECT_COUNT} projects, from private homes to industrial
-                plant.
-              </SectionHeading>
+      {/* Projects, presented as a drawing schedule */}
+      <section className="bg-paper">
+        <Container className="py-14 sm:py-28">
+          <SectionHead
+            sheet="Sec 04"
+            label="Delivered work"
+            title={`${PROJECT_COUNT} projects, from private homes to industrial plant.`}
+            lead="Client names are withheld throughout. We would rather show you the engineering than trade on somebody else's letterhead."
+          />
+
+          <div className="mt-16">
+            <div className="hidden grid-cols-12 gap-6 border-b rule pb-3 lg:grid">
+              <Note className="col-span-1 text-ink-400">Ref</Note>
+              <Note className="col-span-4 text-ink-400">Building</Note>
+              <Note className="col-span-3 text-ink-400">System</Note>
+              <Note className="col-span-4 text-ink-400">Scope</Note>
             </div>
-            <Link
-              href="/projects"
-              className="shrink-0 text-sm font-medium text-brand-700 hover:text-brand-800"
-            >
-              All projects &rarr;
-            </Link>
+
+            <ul>
+              {PROJECTS.slice(0, 6).map((project, i) => (
+                <li
+                  key={project.slug}
+                  className="grid gap-2 border-b rule py-6 transition-colors duration-200 hover:bg-white lg:grid-cols-12 lg:items-baseline lg:gap-6 lg:px-4"
+                >
+                  <div className="flex items-center gap-3 lg:col-span-1">
+                    <Note className="text-brand-600">
+                      {String(i + 1).padStart(2, "0")}
+                    </Note>
+                    <Note className="text-ink-400 lg:hidden">
+                      {project.sector}
+                    </Note>
+                  </div>
+                  <h3 className="text-lg leading-snug font-medium text-ink-950 lg:col-span-4">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-ink-500 lg:col-span-3">
+                    {project.system}
+                  </p>
+                  <p className="text-sm leading-relaxed text-ink-600 lg:col-span-4">
+                    {project.summary}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <Lead className="mt-6 max-w-2xl">
-            Client names are withheld throughout. This work was delivered under
-            confidentiality, and we would rather show you the engineering than
-            trade on somebody else&rsquo;s letterhead.
-          </Lead>
-
-          <ul className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.slice(0, 6).map((project) => (
-              <li
-                key={project.slug}
-                className="border-t border-ink-200 pt-6"
-              >
-                <p className="text-xs font-medium tracking-wide text-brand-700 uppercase">
-                  {project.sector}
-                </p>
-                <h3 className="font-display mt-3 text-lg leading-snug font-semibold text-ink-950">
-                  {project.title}
-                </h3>
-                <p className="mt-2 text-sm text-ink-500">{project.system}</p>
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-600">
-                  {project.summary}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-10">
+            <TextLink href="/projects">Read the full record</TextLink>
+          </div>
         </Container>
       </section>
 
       {/* Contact */}
-      <section className="border-t border-ink-200 bg-ink-50/60">
-        <Container className="py-20 sm:py-24">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div className="max-w-2xl">
-              <Eyebrow>Get in touch</Eyebrow>
-              <SectionHeading className="mt-6">
+      <section className="border-t rule bg-white">
+        <Container className="py-14 sm:py-28">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-7">
+              <Note className="text-brand-700">Sec 05</Note>
+              <p className="mt-8 text-[2rem] leading-[1.1] font-semibold tracking-display text-balance text-ink-950 sm:text-[2.75rem] lg:text-[3.25rem]">
                 Tell us what you are building, or what you want to learn.
-              </SectionHeading>
-              <Lead className="mt-6">
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 lg:col-start-9">
+              <p className="leading-relaxed text-ink-600">
                 Every enquiry reaches an engineer, not a contact form. Write to
                 us and you will get a considered answer.
-              </Lead>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a
-                href={CONTACT.mailto}
-                className="inline-flex items-center justify-center rounded-full bg-brand-600 px-7 py-3.5 text-base font-medium text-white transition-colors hover:bg-brand-700"
-              >
-                Email us
-              </a>
-              <a
-                href={CONTACT.tel}
-                className="inline-flex items-center justify-center rounded-full border border-ink-200 bg-white px-7 py-3.5 text-base font-medium text-ink-800 transition-colors hover:border-ink-300"
-              >
-                {CONTACT.phone}
-              </a>
+              </p>
+              <div className="mt-8 border-t rule">
+                <a
+                  href={CONTACT.mailto}
+                  className="group flex items-center justify-between border-b rule py-5 transition-colors hover:text-brand-700"
+                >
+                  <span className="text-sm break-all">{CONTACT.email}</span>
+                  <Arrow />
+                </a>
+                <a
+                  href={CONTACT.tel}
+                  className="group flex items-center justify-between border-b rule py-5 transition-colors hover:text-brand-700"
+                >
+                  <span className="text-sm">{CONTACT.phone}</span>
+                  <Arrow />
+                </a>
+              </div>
             </div>
           </div>
         </Container>

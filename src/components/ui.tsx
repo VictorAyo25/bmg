@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-/** Page gutter. Every full width section wraps its content in this. */
 export function Container({
   className = "",
   children,
@@ -10,96 +9,174 @@ export function Container({
   children: ReactNode;
 }) {
   return (
-    <div className={`mx-auto w-full max-w-6xl px-5 sm:px-8 ${className}`}>
+    <div className={`mx-auto w-full max-w-[86rem] px-5 sm:px-8 ${className}`}>
       {children}
     </div>
   );
 }
 
-/**
- * Section label. The small blue line plus caps sets the rhythm of the page
- * and echoes the numbered sections in the company profile.
- */
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <p className="flex items-center gap-3 text-xs font-semibold tracking-[0.14em] text-brand-700 uppercase">
-      <span aria-hidden className="h-px w-6 bg-brand-600" />
-      {children}
-    </p>
-  );
-}
-
-export function SectionHeading({
-  as: Tag = "h2",
+/** Monospace annotation, the drawing callout of the system. */
+export function Note({
   className = "",
   children,
 }: {
-  as?: "h1" | "h2" | "h3";
   className?: string;
   children: ReactNode;
 }) {
   return (
-    <Tag
-      className={`font-display text-3xl leading-[1.1] font-semibold tracking-display text-balance text-ink-950 sm:text-4xl lg:text-5xl ${className}`}
+    <span
+      className={`font-mono text-[0.6875rem] leading-none tracking-note uppercase ${className}`}
     >
       {children}
-    </Tag>
+    </span>
   );
 }
 
-export function Lead({
-  className = "",
-  children,
+/**
+ * Section header. A sheet reference sits on the left of a full width rule,
+ * the title hangs below it. Replaces the eyebrow, heading, lead stack that
+ * every other site uses.
+ */
+export function SectionHead({
+  sheet,
+  label,
+  title,
+  lead,
+  aside,
+  invert = false,
 }: {
-  className?: string;
-  children: ReactNode;
+  sheet: string;
+  label: string;
+  title: ReactNode;
+  lead?: ReactNode;
+  aside?: ReactNode;
+  invert?: boolean;
 }) {
   return (
-    <p className={`text-lg leading-relaxed text-ink-600 ${className}`}>
-      {children}
-    </p>
+    <header>
+      <div
+        className={`flex items-center gap-5 border-t pt-4 ${
+          invert ? "rule-invert" : "rule"
+        }`}
+      >
+        <Note className={invert ? "text-brand-400" : "text-brand-700"}>
+          {sheet}
+        </Note>
+        <Note className={invert ? "text-white/45" : "text-ink-500"}>
+          {label}
+        </Note>
+      </div>
+
+      <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <h2
+          className={`text-[2rem] leading-[1.06] font-semibold tracking-display text-balance sm:text-[2.75rem] lg:col-span-7 lg:text-[3.25rem] ${
+            invert ? "text-white" : "text-ink-950"
+          }`}
+        >
+          {title}
+        </h2>
+        {(lead || aside) && (
+          <div className="lg:col-span-4 lg:col-start-9 lg:pt-2">
+            {lead && (
+              <p
+                className={`text-[1.0625rem] leading-relaxed ${
+                  invert ? "text-white/65" : "text-ink-600"
+                }`}
+              >
+                {lead}
+              </p>
+            )}
+            {aside}
+          </div>
+        )}
+      </div>
+    </header>
   );
 }
 
 type ButtonProps = {
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "solid" | "outline" | "invert";
 } & ComponentProps<typeof Link>;
 
+/**
+ * Square cornered by design. Pill buttons are the single loudest tell of a
+ * template, and they sit badly next to hairline rules.
+ */
 export function Button({
-  variant = "primary",
+  variant = "solid",
   className = "",
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center rounded-full px-7 py-3.5 text-base font-medium transition-colors";
+    "group inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium transition-colors duration-200";
   const looks = {
-    primary: "bg-brand-600 text-white hover:bg-brand-700",
-    secondary:
-      "border border-ink-200 text-ink-800 hover:border-ink-300 hover:bg-ink-50",
-    ghost: "border border-white/25 text-white hover:bg-white/10",
+    solid: "bg-ink-950 text-white hover:bg-brand-700",
+    outline: "border rule text-ink-900 hover:border-ink-950 hover:bg-white",
+    invert: "border rule-invert text-white hover:bg-white hover:text-ink-950",
   } as const;
 
-  return <Link className={`${base} ${looks[variant]} ${className}`} {...props} />;
+  return (
+    <Link className={`${base} ${looks[variant]} ${className}`} {...props} />
+  );
 }
 
-/** Page header used by every route except the home page. */
+/** The small travelling arrow used inside buttons and links. */
+export function Arrow() {
+  return (
+    <span
+      aria-hidden
+      className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+    >
+      &rarr;
+    </span>
+  );
+}
+
+export function TextLink({
+  className = "",
+  children,
+  ...props
+}: ComponentProps<typeof Link>) {
+  return (
+    <Link
+      className={`group inline-flex items-center gap-2 text-sm font-medium text-ink-950 ${className}`}
+      {...props}
+    >
+      <span className="link-draw">{children}</span>
+      <Arrow />
+    </Link>
+  );
+}
+
+/** Page header for every route except the home page. */
 export function PageHero({
-  eyebrow,
+  sheet,
+  label,
   title,
   lead,
 }: {
-  eyebrow: string;
+  sheet: string;
+  label: string;
   title: string;
   lead: string;
 }) {
   return (
-    <section className="border-b border-ink-200 bg-ink-50/60">
-      <Container className="py-16 sm:py-24">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <SectionHeading as="h1" className="mt-6 max-w-3xl">
-          {title}
-        </SectionHeading>
-        <Lead className="mt-6 max-w-2xl">{lead}</Lead>
+    <section className="border-b rule bg-white">
+      <Container className="pt-14 pb-16 sm:pt-20 sm:pb-24">
+        <div className="flex items-center gap-5">
+          <Note className="text-brand-700">{sheet}</Note>
+          <span aria-hidden className="h-px flex-1 bg-ink-950/12" />
+          <Note className="text-ink-500">{label}</Note>
+        </div>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <h1 className="text-[2.25rem] leading-[1.04] font-semibold tracking-display text-balance text-ink-950 sm:text-[3.25rem] lg:col-span-7 lg:text-[4rem]">
+            {title}
+          </h1>
+          <p className="text-[1.0625rem] leading-relaxed text-ink-600 lg:col-span-4 lg:col-start-9 lg:pt-3">
+            {lead}
+          </p>
+        </div>
       </Container>
     </section>
   );

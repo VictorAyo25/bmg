@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 /**
- * Design tokens.
+ * BMG design system.
  *
- * Blue and grey are sampled from the logo artwork itself, not picked by eye.
- * Everything else is built around them: the blue scale is that hue carried
- * light and dark, and the ink scale is a cool neutral so greys sit alongside
- * the mark without turning muddy.
+ * The visual language is borrowed from the documents BMG actually produces:
+ * engineering drawings. Hairline rules, monospace annotations, sheet
+ * references and title blocks. Blue and grey are sampled from the logo file
+ * itself, everything else is derived from them.
  */
 @theme {
   /* Brand blue. 600 is the logo. */
@@ -20,62 +20,171 @@
   --color-brand-700: #0a62a5;
   --color-brand-800: #0e5288;
   --color-brand-900: #123f66;
-  --color-brand-950: #0a2440;
+  --color-brand-950: #071a2e;
 
   /* Cool neutrals. 500 is the logo grey. */
-  --color-ink-50: #f7f8fa;
-  --color-ink-100: #eef0f3;
-  --color-ink-200: #dde1e6;
-  --color-ink-300: #c3c9d1;
-  --color-ink-400: #9aa2ad;
+  --color-ink-50: #f6f7f8;
+  --color-ink-100: #ebedef;
+  --color-ink-200: #dcdfe3;
+  --color-ink-300: #bfc4cb;
+  --color-ink-400: #949aa4;
   --color-ink-500: #808080;
-  --color-ink-600: #5c646f;
-  --color-ink-700: #454c56;
-  --color-ink-800: #2c323a;
-  --color-ink-900: #1a1e24;
-  --color-ink-950: #0e1114;
+  --color-ink-600: #5a606a;
+  --color-ink-700: #414750;
+  --color-ink-800: #292e36;
+  --color-ink-900: #171b21;
+  --color-ink-950: #0c0f13;
 
-  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  /* Paper, a fraction off white so true white reads as elevated. */
+  --color-paper: #f7f7f5;
+
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 
-  /* Display sizes carry negative tracking, body sits at zero. */
-  --tracking-display: -0.028em;
+  --tracking-display: -0.032em;
+  --tracking-note: 0.16em;
 }
 
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: var(--color-white);
+    background-color: var(--color-paper);
     color: var(--color-ink-900);
     font-family: var(--font-sans);
-    /* Kills the sub-pixel shimmer on the large display type. */
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  /* Visible focus for keyboard users, invisible for mouse users. */
   :focus-visible {
     outline: 2px solid var(--color-brand-600);
     outline-offset: 3px;
-    border-radius: 2px;
   }
 
   ::selection {
     background-color: var(--color-brand-600);
-    color: var(--color-white);
+    color: #fff;
+  }
+}
+
+@utility rule {
+  /* The hairline that carries the whole system. */
+  border-color: color-mix(in srgb, var(--color-ink-950) 12%, transparent);
+}
+
+@utility rule-invert {
+  border-color: color-mix(in srgb, #fff 16%, transparent);
+}
+
+/* Faint drafting grid. Sits behind the hero only, never behind body copy. */
+@utility blueprint {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-ink-950) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-ink-950) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 96px 96px;
+}
+
+/* Registration mark, the small crosshair on a drawing sheet corner. */
+@utility crosshair {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: var(--color-brand-600);
+  }
+
+  &::before {
+    left: -5px;
+    top: 0;
+    width: 11px;
+    height: 1px;
+  }
+
+  &::after {
+    left: 0;
+    top: -5px;
+    width: 1px;
+    height: 11px;
+  }
+}
+
+/* Underline that draws itself, used on text links. */
+@utility link-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/**
+ * Route transitions.
+ *
+ * Pages are statically generated and prefetched, so navigation is close to
+ * instant. The motion is there to signal the change, not to pad it out, which
+ * is why nothing here runs longer than a quarter of a second.
+ */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility page-enter {
+  animation: page-enter 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bar-grow {
+  0% {
+    transform: scaleX(0);
+  }
+  60% {
+    transform: scaleX(0.75);
+  }
+  100% {
+    transform: scaleX(0.92);
+  }
+}
+
+@keyframes bar-done {
+  to {
+    transform: scaleX(1);
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

@@ -1,11 +1,10 @@
 /**
  * Delivered project record.
  *
- * IMPORTANT: every entry here is deliberately anonymous. This work was
- * subcontracted before BMG existed as a company, so the clients are not ours
- * to name and the drawings are not ours to publish. Describe the building,
- * the systems and the engineering problem. Never the client, and never a
- * location specific enough to identify one.
+ * IMPORTANT: every entry here is deliberately anonymous. These clients are
+ * not ours to name and the drawings are not ours to publish. Describe the
+ * building, the systems and the engineering problem. Never the client, and
+ * never a location specific enough to identify one.
  *
  * MCD is the first direct client and the only name that may appear on the
  * site, once that project is ready to show.
