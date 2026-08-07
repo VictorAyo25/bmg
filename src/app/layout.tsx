@@ -1,38 +1,46 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import {
+  Archivo,
+  IBM_Plex_Mono,
+  Instrument_Serif,
+  Space_Grotesk,
+} from "next/font/google";
 import { NavProgress } from "@/components/nav-progress";
 import "./globals.css";
 
 /**
- * Archivo carries the whole page. It is a grotesque with enough width and
- * weight to hold a 4rem headline without looking like a default, and it still
- * reads cleanly at 15px on a phone.
- *
- * Plex Mono is the annotation layer: sheet references, labels, schedule
- * columns. It is doing the job the callout text does on a drawing.
+ * Four families are loaded while three design directions are being compared.
+ * Whichever the client picks ships with its own two, and the rest come out.
  */
-const sans = Archivo({
+const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
 
-const mono = IBM_Plex_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",
   weight: ["400", "500"],
 });
 
-/**
- * Canonical origin. Set NEXT_PUBLIC_SITE_URL in Vercel to the preview origin
- * while DNS is still propagating, so share previews and canonical tags do not
- * point at a domain that is not answering yet. Remove the override once the
- * custom domain is live and this value stands on its own.
- */
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://bmgengineeringlimited.com";
 
@@ -64,20 +72,13 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${plexMono.variable} ${instrumentSerif.variable} ${spaceGrotesk.variable}`}
+    >
       <body className="flex min-h-dvh flex-col">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-70 focus:bg-ink-950 focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"
-        >
-          Skip to content
-        </a>
         <NavProgress />
-        <SiteHeader />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <SiteFooter />
+        {children}
       </body>
     </html>
   );
