@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/**
+ * Design tokens.
+ *
+ * Blue and grey are sampled from the logo artwork itself, not picked by eye.
+ * Everything else is built around them: the blue scale is that hue carried
+ * light and dark, and the ink scale is a cool neutral so greys sit alongside
+ * the mark without turning muddy.
+ */
+@theme {
+  /* Brand blue. 600 is the logo. */
+  --color-brand-50: #eff8ff;
+  --color-brand-100: #dbeefe;
+  --color-brand-200: #bfe2fe;
+  --color-brand-300: #92d0fd;
+  --color-brand-400: #5fb6fa;
+  --color-brand-500: #2e97f0;
+  --color-brand-600: #097ccd;
+  --color-brand-700: #0a62a5;
+  --color-brand-800: #0e5288;
+  --color-brand-900: #123f66;
+  --color-brand-950: #0a2440;
+
+  /* Cool neutrals. 500 is the logo grey. */
+  --color-ink-50: #f7f8fa;
+  --color-ink-100: #eef0f3;
+  --color-ink-200: #dde1e6;
+  --color-ink-300: #c3c9d1;
+  --color-ink-400: #9aa2ad;
+  --color-ink-500: #808080;
+  --color-ink-600: #5c646f;
+  --color-ink-700: #454c56;
+  --color-ink-800: #2c323a;
+  --color-ink-900: #1a1e24;
+  --color-ink-950: #0e1114;
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Display sizes carry negative tracking, body sits at zero. */
+  --tracking-display: -0.028em;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    /* Kills the sub-pixel shimmer on the large display type. */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Visible focus for keyboard users, invisible for mouse users. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-600);
+    color: var(--color-white);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
