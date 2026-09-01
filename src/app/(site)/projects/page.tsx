@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Arrow, Container, Note, PageHero, SectionHead } from "@/components/ui";
 import { CONTACT } from "@/lib/site";
-import { PROJECTS, PROJECT_COUNT } from "@/lib/projects";
+import { DESIGN_PROJECTS, PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
       <PageHero
         sheet="Sheet 03"
         label="Delivered work"
-        title={`${PROJECT_COUNT} projects, from private homes to industrial plant.`}
+        title={`${DESIGN_PROJECTS} design projects, from private homes to industrial plant.`}
         lead="Warehouses, hotels, high-rise residential, government offices and private houses. Different buildings, the same approach: calculate first, then select, then lay it out against what is actually on site."
       />
 

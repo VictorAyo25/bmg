@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Arrow, Container, Note, PageHero } from "@/components/ui";
 import { COMPANY, CONTACT } from "@/lib/site";
-import { PROJECT_COUNT } from "@/lib/projects";
-import { MODULES } from "@/lib/training";
+import { DESIGN_PROJECTS } from "@/lib/projects";
+import { PROGRAMME } from "@/lib/training";
 
 export const metadata: Metadata = {
   title: "About",
@@ -63,11 +63,11 @@ export default function AboutPage() {
                   realising they were making it.
                 </p>
                 <p>
-                  BMG works on both sides of that gap. We design and deliver
-                  mechanical systems ourselves, across {PROJECT_COUNT} completed
-                  projects, and we train the engineers who will design the next
-                  ones. The training is not a side business. It is the same work
-                  done upstream.
+                  BMG works on both sides of that gap. We design mechanical
+                  systems ourselves, across {DESIGN_PROJECTS} design projects,
+                  and we train the engineers who will design the next ones. The
+                  training is not a side business. It is the same work done
+                  upstream.
                 </p>
               </div>
 
@@ -85,8 +85,8 @@ export default function AboutPage() {
             {[
               ["Registered name", COMPANY.legalName],
               ["RC number", COMPANY.rcNumber],
-              ["Projects delivered", String(PROJECT_COUNT)],
-              ["Design modules taught", String(MODULES.length).padStart(2, "0")],
+              ["Design projects", String(DESIGN_PROJECTS)],
+              ["Programme", PROGRAMME.name],
               ["Disciplines", "Mechanical, electrical, plumbing"],
               ["Contact", CONTACT.email],
             ].map(([label, value]) => (

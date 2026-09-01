@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Logo } from "@/components/logo";
-import { AhuSection, ChilledWaterLoop, DuctRun } from "@/components/schematics";
 import { COMPANY, CONTACT } from "@/lib/site";
+import { SERVICES } from "@/lib/services";
 import { MODULES, PROGRAMME } from "@/lib/training";
-import { PROJECTS, PROJECT_COUNT } from "@/lib/projects";
+import { DESIGN_PROJECTS, PROJECTS } from "@/lib/projects";
 
 /**
  * Option A, Cyanotype.
@@ -80,7 +80,7 @@ export function DesignA({ photo }: { photo: boolean }) {
 
         <div className="relative mx-auto grid max-w-[92rem] gap-12 px-5 pt-14 pb-16 sm:px-8 lg:grid-cols-12 lg:pt-20 lg:pb-24">
           <div className="lg:col-span-6">
-            <Tab>Drawing 01 / HVAC design programme</Tab>
+            <Tab>HVAC design programme</Tab>
 
             <h1 className="mt-9 text-[2.75rem] leading-[0.96] font-bold tracking-[-0.035em] text-balance sm:text-[4rem] xl:text-[4.75rem]">
               Learn to design building systems that{" "}
@@ -88,8 +88,9 @@ export function DesignA({ photo }: { photo: boolean }) {
             </h1>
 
             <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/70">
-              Six months. Six modules. Taught against live project conditions by
-              engineers who answer for these systems on site.
+              Taught against live project conditions by engineers who answer for
+              these systems on site. Scheduling is flexible, so ask us about the
+              next intake.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
@@ -112,22 +113,34 @@ export function DesignA({ photo }: { photo: boolean }) {
           {/* White card floating on the blue field, the flyer's core device. */}
           <div className="lg:col-span-5 lg:col-start-8">
             <div className="p-7 sm:p-8" style={{ backgroundColor: CARD }}>
-              <DuctRun
-                className="w-full"
-                style={{ color: MID }}
-                labelColor={DEEP}
-              />
-              <div
-                className="mt-7 flex flex-wrap items-center justify-between gap-2 border-t pt-4"
+              <p
+                className="text-[1.375rem] leading-[1.22] font-bold tracking-[-0.02em] text-balance sm:text-[1.625rem]"
+                style={{ color: DEEP }}
+              >
+                We design, install and manage the mechanical, electrical and
+                plumbing systems that make a building work. And we train the
+                engineers who do it.
+              </p>
+
+              <ul
+                className="mt-7 border-t"
                 style={{ borderColor: "rgba(6,33,71,0.15)" }}
               >
-                <span className={MONO} style={{ color: BRIGHT }}>
-                  Fig 01 / Supply duct run
-                </span>
-                <span className={MONO} style={{ color: "#5a6b82" }}>
-                  Module 02
-                </span>
-              </div>
+                {SERVICES.map((service) => (
+                  <li
+                    key={service.slug}
+                    className="flex items-baseline gap-4 border-b py-3.5"
+                    style={{ borderColor: "rgba(6,33,71,0.1)" }}
+                  >
+                    <span className={MONO} style={{ color: BRIGHT }}>
+                      {service.index}
+                    </span>
+                    <span className="font-semibold" style={{ color: DEEP }}>
+                      {service.title}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -138,9 +151,9 @@ export function DesignA({ photo }: { photo: boolean }) {
         <dl className="mx-auto grid max-w-[92rem] grid-cols-2 gap-y-8 px-5 py-9 sm:px-8 lg:grid-cols-4">
           {[
             ["Duration", PROGRAMME.duration],
-            ["Modules", String(MODULES.length).padStart(2, "0")],
             ["Mode", PROGRAMME.mode],
-            ["Projects delivered", String(PROJECT_COUNT)],
+            ["Commitment", PROGRAMME.commitment],
+            ["Design projects", String(DESIGN_PROJECTS)],
           ].map(([k, v]) => (
             <div key={k}>
               <dt className={`${MONO} text-white/70`}>{k}</dt>
@@ -164,36 +177,29 @@ export function DesignA({ photo }: { photo: boolean }) {
       {/* Curriculum, drawings inverted to white on blue */}
       <section style={{ backgroundColor: MID }}>
         <div className="mx-auto max-w-[92rem] px-5 py-16 sm:px-8 sm:py-24">
-          <Tab>Drawing 02 / Curriculum</Tab>
+          <Tab>What you will cover</Tab>
           <h2 className="mt-8 max-w-2xl text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] sm:text-[3rem]">
             {PROGRAMME.promise}
           </h2>
 
           <div className="mt-14 grid gap-12 lg:grid-cols-12">
-            <div className="space-y-10 lg:col-span-5">
-              <figure>
-                <ChilledWaterLoop
-                  className="w-full"
-                  style={{ color: "#ffffff" }}
-                  labelColor={SKY}
-                />
-                <figcaption className={`${MONO} mt-4 block text-white/50`}>
-                  Fig 02 / Chilled water circuit
-                </figcaption>
-              </figure>
-              <figure>
-                <AhuSection
-                  className="w-full"
-                  style={{ color: "#ffffff" }}
-                  labelColor={SKY}
-                />
-                <figcaption className={`${MONO} mt-4 block text-white/50`}>
-                  Fig 03 / AHU section
-                </figcaption>
-              </figure>
+            <div className="lg:col-span-4">
+              <p className="text-lg leading-relaxed text-white/70">
+                Every topic below is taught against live project conditions. The
+                schedule is set around each intake rather than fixed in advance,
+                so tell us what you need and we will tell you what it takes.
+              </p>
+
+              <a
+                href={CONTACT.mailto}
+                className="mt-8 inline-block px-7 py-4 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                style={{ backgroundColor: BRIGHT }}
+              >
+                Ask about the next intake
+              </a>
             </div>
 
-            <ol className="lg:col-span-6 lg:col-start-7">
+            <ol className="lg:col-span-7 lg:col-start-6">
               {MODULES.map((m) => (
                 <li
                   key={m.index}
@@ -228,12 +234,14 @@ export function DesignA({ photo }: { photo: boolean }) {
         <div className="mx-auto max-w-[92rem]">
           <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
-              <Tab>Drawing 03 / Delivered work</Tab>
+              <Tab>Selected work</Tab>
               <h2 className="mt-8 text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem]">
-                {PROJECT_COUNT} projects, homes to industrial plant.
+                {DESIGN_PROJECTS} design projects, homes to industrial plant.
               </h2>
             </div>
-            <p className={`${MONO} text-white/45`}>Client names withheld</p>
+            <p className={`${MONO} text-white/45`}>
+              A selection. Client names withheld
+            </p>
           </div>
 
           <ul
@@ -324,7 +332,10 @@ export function DesignA({ photo }: { photo: boolean }) {
         </div>
       </section>
 
-      <footer className="border-t px-5 py-7 sm:px-8" style={{ borderColor: HAIR }}>
+      <footer
+        className="border-t px-5 py-7 sm:px-8"
+        style={{ borderColor: HAIR }}
+      >
         <div className="mx-auto flex max-w-[92rem] flex-wrap items-center justify-between gap-3">
           <span className={`${MONO} text-white/45`}>{COMPANY.legalName}</span>
           <span className={`${MONO} text-white/45`}>RC {COMPANY.rcNumber}</span>

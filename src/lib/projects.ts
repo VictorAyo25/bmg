@@ -14,7 +14,7 @@ export type Project = {
   slug: string;
   /** Building type, standing in for the client name. */
   title: string;
-  sector: "Commercial" | "Residential" | "Industrial" | "Hospitality" | "Public";
+  sector: string;
   system: string;
   summary: string;
   /** The engineering problem, which is the part worth reading. */
@@ -43,7 +43,11 @@ export const PROJECTS: Project[] = [
       "Retail, office and shared public space under one roof, on one plant.",
     detail:
       "Three occupancy patterns with almost nothing in common, served without oversizing for the worst case. The design balanced comfort against lifecycle cost by letting each use type run on its own schedule rather than holding the entire building at office conditions.",
-    highlights: ["Mixed occupancy", "Lifecycle cost", "Operational flexibility"],
+    highlights: [
+      "Mixed occupancy",
+      "Lifecycle cost",
+      "Operational flexibility",
+    ],
   },
   {
     slug: "hotel-chilled-water",
@@ -102,14 +106,19 @@ export const PROJECTS: Project[] = [
       "Careful zoning across offices, meeting rooms and public areas with very different occupancy.",
     detail:
       "Public areas load up unpredictably while offices stay steady, so a single zoning strategy would have meant permanent overcooling somewhere. Zones were split by occupancy behaviour rather than by floor plate, with extraction integrated so that air quality held up during peak public use.",
-    highlights: ["Occupancy zoning", "Indoor air quality", "Efficient operation"],
+    highlights: [
+      "Occupancy zoning",
+      "Indoor air quality",
+      "Efficient operation",
+    ],
   },
   {
     slug: "residential-apartments-vrf",
     title: "Residential apartments",
     sector: "Residential",
     system: "VRF with integrated ventilation",
-    summary: "Individual climate control per apartment, on shared infrastructure.",
+    summary:
+      "Individual climate control per apartment, on shared infrastructure.",
     detail:
       "Residents expect to control their own comfort and to be billed for what they use. The system gives each apartment independent control with ventilation and life safety integrated, without duplicating plant for every unit.",
     highlights: [
@@ -130,16 +139,26 @@ export const PROJECTS: Project[] = [
     highlights: ["Varied occupancy", "Quiet operation", "Usable controls"],
   },
   {
-    slug: "private-residence-mechanical",
-    title: "Private residence",
-    sector: "Residential",
-    system: "Mechanical systems design",
+    slug: "retrofit-buildings",
+    title: "Retrofit buildings",
+    sector: "Office or commercial",
+    system: "MEP",
     summary:
-      "Comfort, air quality and low noise, with servicing that does not need a specialist.",
+      "Existing buildings brought up to standard without taking them out of service.",
     detail:
-      "A whole house approach covering HVAC and ventilation, weighted towards low noise levels and straightforward long term maintenance. The brief was a comfortable, healthy home rather than a technically impressive one, and the design was judged on that.",
-    highlights: ["Indoor air quality", "Low noise", "Simple maintenance"],
+      "Retrofit is the hardest kind of mechanical work. The building is occupied, the risers sit where somebody put them decades ago, and the drawings, where they exist at all, stopped matching reality long ago. Survey first, then design against what is actually there rather than what the file says.",
+    highlights: [
+      "Occupied buildings",
+      "Surveyed, not assumed",
+      "Phased handover",
+    ],
   },
 ];
+
+/**
+ * Designs completed to date. Deliberately larger than PROJECTS.length, because
+ * the list above is a selection rather than the whole record.
+ */
+export const DESIGN_PROJECTS = 30;
 
 export const PROJECT_COUNT = PROJECTS.length;
