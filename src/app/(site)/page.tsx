@@ -11,7 +11,7 @@ import {
 import { CONTACT } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { MODULES, PROGRAMME } from "@/lib/training";
-import { PROJECTS, PROJECT_COUNT } from "@/lib/projects";
+import { DESIGN_PROJECTS, PROJECTS } from "@/lib/projects";
 
 const DISCIPLINES = [
   "Cooling load calculation",
@@ -76,10 +76,9 @@ export default function Home() {
                   {[
                     ["Discipline", "HVAC design"],
                     ["Duration", PROGRAMME.duration],
-                    ["Modules", String(MODULES.length).padStart(2, "0")],
                     ["Mode", PROGRAMME.mode],
                     ["Commitment", PROGRAMME.commitment],
-                    ["Projects delivered", String(PROJECT_COUNT)],
+                    ["Design projects", String(DESIGN_PROJECTS)],
                   ].map(([label, value]) => (
                     <div
                       key={label}
@@ -160,7 +159,7 @@ export default function Home() {
             label="The programme"
             title={
               <>
-                {PROGRAMME.name} in {PROGRAMME.duration}.
+                {PROGRAMME.name}, taught properly.
                 <span className="mt-4 block text-brand-400">
                   {PROGRAMME.promise}
                 </span>
@@ -238,8 +237,8 @@ export default function Home() {
           <SectionHead
             sheet="Sec 04"
             label="Delivered work"
-            title={`${PROJECT_COUNT} projects, from private homes to industrial plant.`}
-            lead="Client names are withheld throughout. We would rather show you the engineering than trade on somebody else's letterhead."
+            title={`${DESIGN_PROJECTS} design projects, from private homes to industrial plant.`}
+            lead="A selection. Client names are withheld throughout. We would rather show you the engineering than trade on somebody else's letterhead."
           />
 
           <div className="mt-16">
