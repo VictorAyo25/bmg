@@ -78,7 +78,15 @@ export function SiteFooter() {
           <Note className="text-white/40">
             &copy; {new Date().getFullYear()} {COMPANY.legalName}
           </Note>
-          <Note className="text-white/40">All rights reserved</Note>
+          <div className="flex items-center gap-6">
+            <Link
+              href="/credits"
+              className="font-mono text-[0.625rem] tracking-note text-white/40 uppercase transition-colors hover:text-white/70"
+            >
+              Image credits
+            </Link>
+            <Note className="text-white/40">All rights reserved</Note>
+          </div>
         </div>
       </div>
     </footer>

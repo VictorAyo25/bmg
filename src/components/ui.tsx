@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ComponentProps, ReactNode } from "react";
 
 export function Container({
@@ -110,13 +111,38 @@ export function PageHero({
   label,
   title,
   lead,
+  image,
 }: {
   label: string;
   title: string;
   lead: string;
+  /** Path under /img. Duotoned to the brand blue before it ever ships. */
+  image?: string;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-white/12">
+      {image && (
+        <>
+          <Image
+            src={image}
+            alt=""
+            aria-hidden
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
+          />
+          {/*
+            Scrim. The photograph is already darkened, but headline contrast
+            cannot depend on what happens to be in the top left of a photo,
+            so the gradient guarantees it regardless of the image.
+          */}
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-linear-to-r from-deep from-20% via-deep/75 to-deep/25"
+          />
+        </>
+      )}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.13]"

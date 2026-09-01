@@ -116,14 +116,44 @@ These are vector drawings, not Revit exports. If Favour supplies real exports
 from his own models they replace this directly, and that remains the better
 long term answer because it is unambiguously his own work.
 
+## Imagery
+
+Background photographs are licensed from Wikimedia Commons, four under CC
+BY-SA and one CC0. They are **atmosphere, not portfolio**.
+
+**The rule: never caption, describe or arrange them so as to suggest they are
+BMG projects.** They are other people's buildings. They sit behind text at low
+contrast, and each carries an empty alt attribute so screen readers treat them
+as decoration, which is what they are.
+
+Each is duotoned to the brand ramp before it ships, deep navy in the shadows
+through to sky in the highlights. That is why a green heat exchanger can sit
+beside grey ductwork without clashing, and it is what stops them reading as
+stock.
+
+The CC BY-SA licences oblige us to name the author, state the licence, link to
+it, and note that the image was modified. That is what the credits page is for
+and why the footer links to it. **Do not remove either without first removing
+the images.** The data lives in `src/lib/credits.ts`.
+
+Photographs are served through `next/image`, so Next produces WebP at the
+right width per device. Do not convert them to CSS backgrounds, which would
+ship the full JPEG to a phone.
+
+The hero photograph is a Scan-to-BIM point cloud, chosen because it depicts
+modelling rather than a finished installation. That is the one kind of stock
+image that does not misrepresent a practice which designs but does not build.
+
 ## Still open
 
 - **The portrait.** Favour deferred, wanting broader feedback on the complete
   layout. Victor advised against it, on the grounds that looking young invites
   clients to judge the work by age. Favour countered that youth can sell.
   Currently shipped without.
-- **Photography.** The single biggest remaining weakness. Real project
-  imagery, or Revit model exports, would do more than any further design work.
+- **Photography.** Licensed stock is now in place as atmosphere, which closes
+  the gap but does not fill it. Real project imagery, or Revit exports from
+  Favour's own models, would replace it and would let the images finally carry
+  captions, which is where their persuasive power actually is.
 - **"Remove references to engineering."** Appeared in a meeting summary, is
   unsupported by the transcript, and contradicts the registered company name.
   Not actioned pending clarification.
