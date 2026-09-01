@@ -2,15 +2,18 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    // The design options were lettered before they were numbered. Anyone who
-    // was sent an early link still lands in the right place.
-    return ["a", "b", "c"].flatMap((letter, i) => {
-      const n = i + 1;
-      return [
-        { source: `/design/${letter}`, destination: `/design/${n}`, permanent: false },
-        { source: `/design/${letter}/plain`, destination: `/design/${n}/plain`, permanent: false },
-      ];
-    });
+    // Option 1 was chosen, so the other two directions are gone. Early links
+    // went out lettered and later numbered, and both forms still exist in
+    // people's messages, so everything lands on the surviving design.
+    const stale = ["a", "b", "c", "2", "3"];
+    return stale.flatMap((key) => [
+      { source: `/design/${key}`, destination: "/design/1", permanent: false },
+      {
+        source: `/design/${key}/plain`,
+        destination: "/design/1/plain",
+        permanent: false,
+      },
+    ]);
   },
 };
 
