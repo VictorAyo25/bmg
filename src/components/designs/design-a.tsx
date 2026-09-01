@@ -148,11 +148,10 @@ export function DesignA({ photo }: { photo: boolean }) {
 
       {/* Spec band, solid bright blue */}
       <section style={{ backgroundColor: BRIGHT }}>
-        <dl className="mx-auto grid max-w-[92rem] grid-cols-2 gap-y-8 px-5 py-9 sm:px-8 lg:grid-cols-4">
+        <dl className="mx-auto grid max-w-[92rem] grid-cols-2 gap-y-8 px-5 py-9 sm:px-8 lg:grid-cols-3">
           {[
             ["Duration", PROGRAMME.duration],
             ["Mode", PROGRAMME.mode],
-            ["Commitment", PROGRAMME.commitment],
             ["Design projects", String(DESIGN_PROJECTS)],
           ].map(([k, v]) => (
             <div key={k}>

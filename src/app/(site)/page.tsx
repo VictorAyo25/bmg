@@ -77,7 +77,6 @@ export default function Home() {
                     ["Discipline", "HVAC design"],
                     ["Duration", PROGRAMME.duration],
                     ["Mode", PROGRAMME.mode],
-                    ["Commitment", PROGRAMME.commitment],
                     ["Design projects", String(DESIGN_PROJECTS)],
                   ].map(([label, value]) => (
                     <div

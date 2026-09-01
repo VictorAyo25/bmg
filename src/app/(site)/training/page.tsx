@@ -21,16 +21,15 @@ export default function TrainingPage() {
 
       <section className="border-b rule bg-white">
         <Container>
-          <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="grid sm:grid-cols-3">
             {[
               ["Duration", PROGRAMME.duration],
               ["Mode", PROGRAMME.mode],
-              ["Commitment", PROGRAMME.commitment],
               ["On completion", PROGRAMME.outcome],
             ].map(([label, value], i) => (
               <div
                 key={label}
-                className={`py-8 sm:px-8 ${i > 0 ? "border-t rule sm:border-t-0 sm:border-l" : ""} ${i === 2 ? "sm:border-t lg:border-t-0" : ""} ${i === 3 ? "sm:border-t lg:border-t-0" : ""}`}
+                className={`py-8 sm:px-8 ${i > 0 ? "border-t rule sm:border-t-0 sm:border-l" : ""}`}
               >
                 <dt>
                   <Note className="text-ink-500">{label}</Note>

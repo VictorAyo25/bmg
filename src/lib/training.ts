@@ -14,7 +14,6 @@ export const PROGRAMME = {
   // must not quote a figure. Flexible also pushes people to enquire.
   duration: "Flexible",
   mode: "Live virtual classes",
-  commitment: "One day per week",
   outcome: "Certificate of completion",
 } as const;
 
