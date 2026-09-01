@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Arrow, Container, Note, PageHero, SectionHead } from "@/components/ui";
+import { Container, Note, PageHero, SectionHead } from "@/components/ui";
+import { Reveal } from "@/components/reveal";
 import { CONTACT } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 
@@ -31,82 +32,91 @@ export default function ConsultancyPage() {
   return (
     <>
       <PageHero
-        sheet="Sheet 04"
         label="Consultancy and delivery"
         title="Mechanical systems as a driver of building value."
         lead="We work with developers, architects and contractors from concept through to handover. Design, installation, and the project management that keeps the two honest."
       />
 
-      <section className="bg-paper">
+      <section>
         <Container className="py-20 sm:py-28">
-          <SectionHead
-            sheet="Sec 01"
-            label="Services"
-            title="Three ways we work on your project."
-          />
+          <Reveal>
+            <SectionHead
+              label="Services"
+              title="Three ways we work on your project."
+            />
+          </Reveal>
 
-          <ul className="mt-16 border-t rule">
-            {SERVICES.filter((s) => s.slug !== "training").map((service) => (
-              <li
+          <ul className="mt-14">
+            {SERVICES.filter((s) => s.slug !== "training").map((service, i) => (
+              <Reveal
+                as="li"
                 key={service.slug}
-                className="grid gap-4 border-b rule py-9 lg:grid-cols-12 lg:gap-12"
+                delay={i * 60}
+                className="block border-t border-white/12 py-8 last:border-b"
               >
-                <div className="lg:col-span-1">
-                  <Note className="text-brand-600">{service.index}</Note>
+                <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
+                  <Note className="pt-2 text-sky lg:col-span-1">
+                    {service.index}
+                  </Note>
+                  <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] lg:col-span-4">
+                    {service.title}
+                  </h2>
+                  <p className="max-w-2xl leading-relaxed text-white/70 lg:col-span-7">
+                    {service.summary}
+                  </p>
                 </div>
-                <h2 className="text-2xl leading-tight font-semibold tracking-display text-ink-950 lg:col-span-4">
-                  {service.title}
-                </h2>
-                <p className="max-w-2xl leading-relaxed text-ink-600 lg:col-span-7">
-                  {service.summary}
-                </p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </Container>
       </section>
 
-      <section className="bg-brand-950 text-white">
+      <section className="bg-mid">
         <Container className="py-20 sm:py-28">
-          <SectionHead
-            invert
-            sheet="Sec 02"
-            label="How we work"
-            title="Three principles that decide every design."
-            lead="None of them are unusual. What is unusual is holding to them when the programme is tight and somebody wants a number by Friday."
-          />
+          <Reveal>
+            <SectionHead
+              label="How we work"
+              title="Three principles that decide every design."
+              lead="None of them are unusual. What is unusual is holding to them when the programme is tight and somebody wants a number by Friday."
+            />
+          </Reveal>
 
-          <ol className="mt-16 grid gap-px bg-white/12 lg:grid-cols-3">
-            {APPROACH.map((item) => (
-              <li key={item.index} className="bg-brand-950 py-8 lg:px-8">
-                <Note className="text-brand-400">{item.index}</Note>
-                <h3 className="mt-5 text-xl font-semibold tracking-display text-white">
+          <ol className="mt-14 grid gap-px bg-white/12 lg:grid-cols-3">
+            {APPROACH.map((item, i) => (
+              <Reveal
+                as="li"
+                key={item.index}
+                delay={i * 70}
+                className="block bg-mid py-8 lg:px-8"
+              >
+                <Note className="text-sky">{item.index}</Note>
+                <h3 className="mt-5 text-xl font-semibold tracking-tight">
                   {item.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-white/60">
+                <p className="mt-4 leading-relaxed text-white/65">
                   {item.body}
                 </p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </Container>
       </section>
 
-      <section className="border-t rule bg-white">
+      <section>
         <Container className="py-20 sm:py-28">
-          <SectionHead
-            sheet="Sec 03"
-            label="Get in touch"
-            title="Tell us about the building."
-            lead="Send us the scope, the drawings, or just the problem. We will come back with what is involved and what it will take."
-          />
-          <a
-            href={`${CONTACT.mailto}?subject=Consultancy%20enquiry`}
-            className="group mt-12 inline-flex items-center gap-3 bg-ink-950 px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-brand-700"
-          >
-            Email us
-            <Arrow />
-          </a>
+          <Reveal>
+            <SectionHead
+              label="Get in touch"
+              title="Tell us about the building."
+              lead="Send us the scope, the drawings, or just the problem. We will come back with what is involved and what it will take."
+            />
+            <a
+              href={`${CONTACT.mailto}?subject=Consultancy%20enquiry`}
+              className="mt-12 inline-flex bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            >
+              Email us
+            </a>
+          </Reveal>
         </Container>
       </section>
     </>

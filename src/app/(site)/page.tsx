@@ -1,111 +1,93 @@
-import Image from "next/image";
 import Link from "next/link";
-import {
-  Arrow,
-  Button,
-  Container,
-  Note,
-  SectionHead,
-  TextLink,
-} from "@/components/ui";
+import { Button, Container, Note, SectionHead, Tab } from "@/components/ui";
+import { MepPlan } from "@/components/mep-plan";
+import { Reveal } from "@/components/reveal";
 import { CONTACT } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { MODULES, PROGRAMME } from "@/lib/training";
-import { DESIGN_PROJECTS, PROJECTS } from "@/lib/projects";
-
-const DISCIPLINES = [
-  "Cooling load calculation",
-  "Duct design",
-  "Chilled water",
-  "VRF and DX",
-  "Air handling units",
-  "Life safety",
-  "Ventilation",
-  "Commissioning",
-];
+import { PROJECTS, DESIGN_PROJECTS } from "@/lib/projects";
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b rule bg-white">
+      {/*
+        Hero, as one composition rather than two.
+        The previous version put a second bold statement in a white card
+        beside the headline, so two claims competed and neither won. Now
+        there is a single headline, the services line supports it directly
+        underneath, the drawing sits alongside as evidence rather than as a
+        rival, and the four services anchor the bottom as one quiet strip.
+      */}
+      <section className="relative overflow-hidden border-b border-white/12">
         <div
           aria-hidden
-          className="blueprint pointer-events-none absolute inset-0 opacity-70 [mask-image:radial-gradient(70rem_45rem_at_72%_0%,#000,transparent_75%)]"
+          className="pointer-events-none absolute inset-0 opacity-[0.13]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-56 -right-56 h-[44rem] w-[44rem] rounded-full bg-mid opacity-55 blur-3xl"
         />
 
-        <Container className="relative pt-12 pb-0 sm:pt-16">
-          <div className="flex items-center gap-5">
-            <Note className="text-brand-700">Sheet 01</Note>
-            <span aria-hidden className="h-px flex-1 bg-ink-950/12" />
-            <Note className="text-ink-500">MEP training and consultancy</Note>
-          </div>
+        <Container className="relative pt-12 pb-14 sm:pt-16 lg:pb-16">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-6">
+              <Reveal>
+                <Tab>MEP design and training</Tab>
+              </Reveal>
 
-          <div className="grid gap-14 pt-14 pb-16 lg:grid-cols-12 lg:gap-12 lg:pt-20 lg:pb-24">
-            <div className="lg:col-span-7">
-              <h1 className="text-[2.5rem] leading-[1.02] font-semibold tracking-display text-balance text-ink-950 sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5rem]">
-                Learn to design building systems that actually get built.
-              </h1>
+              <Reveal delay={60}>
+                <h1 className="mt-9 text-[2.75rem] leading-[0.95] font-bold tracking-[-0.035em] text-balance sm:text-[4rem] xl:text-[4.75rem]">
+                  We design the systems that make a building work.
+                </h1>
+              </Reveal>
 
-              <p className="mt-8 max-w-lg text-[1.0625rem] leading-relaxed text-ink-600 sm:text-lg">
-                Structured mechanical, electrical and plumbing training that
-                closes the gap between an architect&rsquo;s drawing and a system
-                that works on site. Taught by engineers who design them for a
-                living.
-              </p>
+              <Reveal delay={120}>
+                <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
+                  Mechanical, electrical and plumbing, from load calculation
+                  through to handover. And we train the engineers who do it.
+                </p>
+              </Reveal>
 
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                <Button href="/training">
-                  Explore the programme
-                  <Arrow />
-                </Button>
-                <Button href="/projects" variant="outline">
-                  See the work
-                  <Arrow />
-                </Button>
-              </div>
+              <Reveal delay={180}>
+                <div className="mt-10 flex flex-wrap gap-3">
+                  <Button href="/training">Explore the training</Button>
+                  <Button href="/projects" variant="outline">
+                    See the work
+                  </Button>
+                </div>
+              </Reveal>
             </div>
 
-            {/* Spec panel, read as the schedule block on a drawing. */}
-            <aside className="lg:col-span-4 lg:col-start-9">
-              <div className="border rule bg-white/70 backdrop-blur-sm">
-                <div className="border-b rule px-6 py-4">
-                  <Note className="text-ink-500">Programme at a glance</Note>
-                </div>
-                <dl>
-                  {[
-                    ["Discipline", "HVAC design"],
-                    ["Duration", PROGRAMME.duration],
-                    ["Mode", PROGRAMME.mode],
-                    ["Design projects", String(DESIGN_PROJECTS)],
-                  ].map(([label, value]) => (
-                    <div
-                      key={label}
-                      className="flex items-baseline justify-between gap-6 border-b rule px-6 py-3.5 last:border-0"
-                    >
-                      <dt className="text-sm text-ink-500">{label}</dt>
-                      <dd className="text-sm font-medium text-ink-950">
-                        {value}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </aside>
+            {/* The drawing sits on the field itself, not in a card. */}
+            <Reveal delay={140} className="lg:col-span-6">
+              <MepPlan className="w-full text-white/70" />
+            </Reveal>
           </div>
         </Container>
 
-        {/* Disciplines strip, the marginalia along the edge of a sheet. */}
-        <div className="border-t rule bg-paper">
+        {/* Services strip, anchoring the composition. */}
+        <div className="border-t border-white/12">
           <Container>
-            <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 py-4">
-              {DISCIPLINES.map((d) => (
-                <li key={d} className="flex items-center gap-2.5">
-                  <span
-                    aria-hidden
-                    className="h-1 w-1 rounded-full bg-brand-600"
-                  />
-                  <Note className="text-ink-500">{d}</Note>
+            <ul className="grid sm:grid-cols-2 lg:grid-cols-4">
+              {SERVICES.map((service, i) => (
+                <li
+                  key={service.slug}
+                  className="border-b border-white/10 sm:border-b-0 lg:border-l lg:border-white/10 lg:first:border-l-0"
+                >
+                  <Link
+                    href={service.href}
+                    className="flex items-baseline gap-4 px-0 py-5 transition-colors hover:text-sky lg:px-6"
+                  >
+                    <Note className="text-sky">
+                      {String(i + 1).padStart(2, "0")}
+                    </Note>
+                    <span className="font-semibold">{service.title}</span>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -113,209 +95,142 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-paper">
-        <Container className="py-14 sm:py-28">
-          <SectionHead
-            sheet="Sec 02"
-            label="Capability"
-            title="Four disciplines, one engineering standard."
-            lead="Training is where we put most of our weight, because the shortage in this market is not equipment. It is engineers who can calculate."
-          />
-
-          <ul className="mt-16 border-t rule">
-            {SERVICES.map((service) => (
-              <li key={service.slug} className="border-b rule">
-                <Link
-                  href={service.href}
-                  className="group grid items-start gap-4 py-9 transition-colors duration-200 hover:bg-white lg:grid-cols-12 lg:gap-12 lg:px-6"
-                >
-                  <div className="lg:col-span-1">
-                    <Note className="text-brand-600">{service.index}</Note>
-                  </div>
-                  <h3 className="text-2xl leading-tight font-semibold tracking-display text-ink-950 lg:col-span-4 lg:text-[1.75rem]">
-                    {service.title}
-                  </h3>
-                  <p className="max-w-xl leading-relaxed text-ink-600 lg:col-span-6">
-                    {service.summary}
-                  </p>
-                  <span className="text-ink-400 transition-colors group-hover:text-brand-600 lg:col-span-1 lg:justify-self-end">
-                    <Arrow />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+      {/* Statement */}
+      <section className="bg-mid">
+        <Container className="py-20 sm:py-28">
+          <Reveal>
+            <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.2] font-bold tracking-[-0.028em] text-balance sm:text-[2.75rem]">
+              Most buildings are cooled by systems{" "}
+              <span className="text-sky">nobody calculated.</span> Every
+              uncomfortable room was a decision somebody made at design stage.
+            </p>
+          </Reveal>
         </Container>
       </section>
 
       {/* Training */}
-      <section className="bg-brand-950 text-white">
-        <Container className="py-14 sm:py-28">
-          <SectionHead
-            invert
-            sheet="Sec 03"
-            label="The programme"
-            title={
-              <>
-                {PROGRAMME.name}, taught properly.
-                <span className="mt-4 block text-brand-400">
-                  {PROGRAMME.promise}
-                </span>
-              </>
-            }
-            lead="Six modules taught one day a week, built around live project work rather than textbook exercises. You finish with a portfolio and the judgement to defend a design."
-          />
+      <section>
+        <Container className="py-20 sm:py-28">
+          <Reveal>
+            <SectionHead
+              label="The programme"
+              title={
+                <>
+                  {PROGRAMME.name}.
+                  <span className="mt-3 block text-sky">
+                    {PROGRAMME.promise}
+                  </span>
+                </>
+              }
+              lead="Taught against live project conditions by engineers who answer for these systems on site. Scheduling is flexible, so ask us about the next intake."
+            />
+          </Reveal>
 
-          <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-12">
-            {/* Portrait, framed as a figure with a caption. */}
-            <figure className="lg:col-span-4">
-              <div className="relative aspect-4/5 overflow-hidden bg-brand-900">
-                <Image
-                  src="/founder.jpg"
-                  alt="An engineer from the BMG team"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 24rem"
-                  className="object-cover object-top grayscale contrast-105"
-                  priority
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-brand-600 mix-blend-color"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-linear-to-t from-brand-950 via-transparent to-transparent opacity-70"
-                />
-              </div>
-              <figcaption className="mt-4 flex items-center justify-between border-t rule-invert pt-4">
-                <Note className="text-white/40">Fig 01</Note>
-                <Note className="text-white/40">Taught by practitioners</Note>
-              </figcaption>
-            </figure>
-
-            <ol className="lg:col-span-8">
-              {MODULES.map((module) => (
-                <li
-                  key={module.index}
-                  className="group grid gap-3 border-t rule-invert py-6 last:border-b sm:grid-cols-12 sm:gap-6"
-                >
-                  <Note className="pt-1.5 text-brand-400 sm:col-span-1">
-                    {module.index}
-                  </Note>
-                  <h3 className="text-xl font-semibold text-white sm:col-span-5">
-                    {module.title}
-                  </h3>
-                  <div className="sm:col-span-6">
-                    <p className="leading-relaxed text-white/60">
-                      {module.description}
+          <ol className="mt-14">
+            {MODULES.map((m, i) => (
+              <Reveal
+                as="li"
+                key={m.index}
+                delay={i * 40}
+                className="grid gap-3 border-t border-white/12 py-6 last:border-b sm:grid-cols-12 sm:gap-6"
+              >
+                <Note className="pt-2 text-sky sm:col-span-1">{m.index}</Note>
+                <h3 className="text-xl font-semibold tracking-tight sm:col-span-4">
+                  {m.title}
+                </h3>
+                <div className="sm:col-span-7">
+                  <p className="leading-relaxed text-white/65">
+                    {m.description}
+                  </p>
+                  {m.tools && (
+                    <p className="mt-3">
+                      <Note className="text-sky">{m.tools}</Note>
                     </p>
-                    {module.tools && (
-                      <p className="mt-3">
-                        <Note className="text-brand-400">{module.tools}</Note>
-                      </p>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
+                  )}
+                </div>
+              </Reveal>
+            ))}
+          </ol>
 
-          <div className="mt-12">
-            <Button href="/training" variant="invert">
+          <Reveal className="mt-12">
+            <Button href="/training" variant="outline">
               Full curriculum
-              <Arrow />
             </Button>
-          </div>
+          </Reveal>
         </Container>
       </section>
 
-      {/* Projects, presented as a drawing schedule */}
-      <section className="bg-paper">
-        <Container className="py-14 sm:py-28">
-          <SectionHead
-            sheet="Sec 04"
-            label="Delivered work"
-            title={`${DESIGN_PROJECTS} design projects, from private homes to industrial plant.`}
-            lead="A selection. Client names are withheld throughout. We would rather show you the engineering than trade on somebody else's letterhead."
-          />
+      {/* Work */}
+      <section className="bg-mid">
+        <Container className="py-20 sm:py-28">
+          <Reveal>
+            <SectionHead
+              label="Delivered work"
+              title={`${DESIGN_PROJECTS} design projects, homes to industrial plant.`}
+              lead="A selection is listed below. Client names are withheld throughout, because a firm that would publish somebody else's documents to win your work would publish yours to win the next."
+            />
+          </Reveal>
 
-          <div className="mt-16">
-            <div className="hidden grid-cols-12 gap-6 border-b rule pb-3 lg:grid">
-              <Note className="col-span-1 text-ink-400">Ref</Note>
-              <Note className="col-span-4 text-ink-400">Building</Note>
-              <Note className="col-span-3 text-ink-400">System</Note>
-              <Note className="col-span-4 text-ink-400">Scope</Note>
-            </div>
-
+          <Reveal className="mt-14 bg-card text-ink-950">
             <ul>
-              {PROJECTS.slice(0, 6).map((project, i) => (
+              {PROJECTS.map((p, i) => (
                 <li
-                  key={project.slug}
-                  className="grid gap-2 border-b rule py-6 transition-colors duration-200 hover:bg-white lg:grid-cols-12 lg:items-baseline lg:gap-6 lg:px-4"
+                  key={p.slug}
+                  className="grid gap-1.5 border-b border-ink-950/10 px-6 py-5 last:border-b-0 sm:px-8 lg:grid-cols-12 lg:items-baseline lg:gap-6"
                 >
-                  <div className="flex items-center gap-3 lg:col-span-1">
-                    <Note className="text-brand-600">
-                      {String(i + 1).padStart(2, "0")}
-                    </Note>
-                    <Note className="text-ink-400 lg:hidden">
-                      {project.sector}
-                    </Note>
-                  </div>
-                  <h3 className="text-lg leading-snug font-medium text-ink-950 lg:col-span-4">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-ink-500 lg:col-span-3">
-                    {project.system}
-                  </p>
-                  <p className="text-sm leading-relaxed text-ink-600 lg:col-span-4">
-                    {project.summary}
-                  </p>
+                  <Note className="text-brand-600 lg:col-span-1">
+                    {String(i + 1).padStart(2, "0")}
+                  </Note>
+                  <span className="font-semibold lg:col-span-4">{p.title}</span>
+                  <span className="text-sm text-ink-600 lg:col-span-3">
+                    {p.system}
+                  </span>
+                  <Note className="text-ink-500 lg:col-span-4">{p.sector}</Note>
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="mt-10">
-            <TextLink href="/projects">Read the full record</TextLink>
-          </div>
+          <Reveal className="mt-12">
+            <Button href="/projects" variant="outline">
+              Read the full record
+            </Button>
+          </Reveal>
         </Container>
       </section>
 
-      {/* Contact */}
-      <section className="border-t rule bg-white">
-        <Container className="py-14 sm:py-28">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-7">
-              <Note className="text-brand-700">Sec 05</Note>
-              <p className="mt-8 text-[2rem] leading-[1.1] font-semibold tracking-display text-balance text-ink-950 sm:text-[2.75rem] lg:text-[3.25rem]">
-                Tell us what you are building, or what you want to learn.
-              </p>
-            </div>
-
-            <div className="lg:col-span-4 lg:col-start-9">
-              <p className="leading-relaxed text-ink-600">
-                Every enquiry reaches an engineer, not a contact form. Write to
-                us and you will get a considered answer.
-              </p>
-              <div className="mt-8 border-t rule">
-                <a
-                  href={CONTACT.mailto}
-                  className="group flex items-center justify-between border-b rule py-5 transition-colors hover:text-brand-700"
-                >
-                  <span className="text-sm break-all">{CONTACT.email}</span>
-                  <Arrow />
-                </a>
-                <a
-                  href={CONTACT.tel}
-                  className="group flex items-center justify-between border-b rule py-5 transition-colors hover:text-brand-700"
-                >
-                  <span className="text-sm">{CONTACT.phone}</span>
-                  <Arrow />
-                </a>
+      {/* Close */}
+      <section>
+        <Container className="py-20 sm:py-28">
+          <Reveal>
+            <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
+              <div className="lg:col-span-7">
+                <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem]">
+                  Tell us what you are building, or what you want to learn.
+                </h2>
+              </div>
+              <div className="lg:col-span-4 lg:col-start-9">
+                <p className="leading-relaxed text-white/65">
+                  Every enquiry reaches an engineer, not a contact form. Write
+                  to us and you will get a considered answer.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a
+                    href={CONTACT.mailto}
+                    className="bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+                  >
+                    {CONTACT.email}
+                  </a>
+                  <a
+                    href={CONTACT.tel}
+                    className="border border-white/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-white/10"
+                  >
+                    {CONTACT.phone}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
     </>

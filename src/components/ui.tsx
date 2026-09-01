@@ -9,13 +9,13 @@ export function Container({
   children: ReactNode;
 }) {
   return (
-    <div className={`mx-auto w-full max-w-[86rem] px-5 sm:px-8 ${className}`}>
+    <div className={`mx-auto w-full max-w-[92rem] px-5 sm:px-8 ${className}`}>
       {children}
     </div>
   );
 }
 
-/** Monospace annotation, the drawing callout of the system. */
+/** Monospace annotation. The drawing callout of the system. */
 export function Note({
   className = "",
   children,
@@ -25,7 +25,7 @@ export function Note({
 }) {
   return (
     <span
-      className={`font-mono text-[0.6875rem] leading-none tracking-note uppercase ${className}`}
+      className={`font-mono text-[0.625rem] leading-none tracking-note uppercase ${className}`}
     >
       {children}
     </span>
@@ -33,61 +33,49 @@ export function Note({
 }
 
 /**
- * Section header. A sheet reference sits on the left of a full width rule,
- * the title hangs below it. Replaces the eyebrow, heading, lead stack that
- * every other site uses.
+ * Angled section label, lifted from the flyers. The cut corner is the one
+ * device on those flyers that nothing else in this market is using.
  */
+export function Tab({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <span
+      className={`inline-block bg-brand-600 px-4 py-2 font-mono text-[0.625rem] tracking-note text-white uppercase ${className}`}
+      style={{
+        clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
+      }}
+    >
+      {children}
+    </span>
+  );
+}
+
+/** Section header. Tab, then the title, with an optional column alongside. */
 export function SectionHead({
-  sheet,
   label,
   title,
   lead,
-  aside,
-  invert = false,
 }: {
-  sheet: string;
   label: string;
   title: ReactNode;
   lead?: ReactNode;
-  aside?: ReactNode;
-  invert?: boolean;
 }) {
   return (
     <header>
-      <div
-        className={`flex items-center gap-5 border-t pt-4 ${
-          invert ? "rule-invert" : "rule"
-        }`}
-      >
-        <Note className={invert ? "text-brand-400" : "text-brand-700"}>
-          {sheet}
-        </Note>
-        <Note className={invert ? "text-white/45" : "text-ink-500"}>
-          {label}
-        </Note>
-      </div>
-
-      <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <h2
-          className={`text-[2rem] leading-[1.06] font-semibold tracking-display text-balance sm:text-[2.75rem] lg:col-span-7 lg:text-[3.25rem] ${
-            invert ? "text-white" : "text-ink-950"
-          }`}
-        >
+      <Tab>{label}</Tab>
+      <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance lg:col-span-7 lg:text-[3rem]">
           {title}
         </h2>
-        {(lead || aside) && (
-          <div className="lg:col-span-4 lg:col-start-9 lg:pt-2">
-            {lead && (
-              <p
-                className={`text-[1.0625rem] leading-relaxed ${
-                  invert ? "text-white/65" : "text-ink-600"
-                }`}
-              >
-                {lead}
-              </p>
-            )}
-            {aside}
-          </div>
+        {lead && (
+          <p className="leading-relaxed text-white/65 lg:col-span-4 lg:col-start-9 lg:pt-2">
+            {lead}
+          </p>
         )}
       </div>
     </header>
@@ -95,85 +83,60 @@ export function SectionHead({
 }
 
 type ButtonProps = {
-  variant?: "solid" | "outline" | "invert";
+  variant?: "solid" | "outline";
 } & ComponentProps<typeof Link>;
 
-/**
- * Square cornered by design. Pill buttons are the single loudest tell of a
- * template, and they sit badly next to hairline rules.
- */
+/** Square cornered. Pill buttons are the loudest template tell there is. */
 export function Button({
   variant = "solid",
   className = "",
   ...props
 }: ButtonProps) {
-  const base =
-    "group inline-flex items-center gap-3 px-6 py-3.5 text-sm font-medium transition-colors duration-200";
   const looks = {
-    solid: "bg-ink-950 text-white hover:bg-brand-700",
-    outline: "border rule text-ink-900 hover:border-ink-950 hover:bg-white",
-    invert: "border rule-invert text-white hover:bg-white hover:text-ink-950",
+    solid: "bg-brand-600 text-white hover:bg-brand-700",
+    outline: "border border-white/30 text-white hover:bg-white/10",
   } as const;
 
   return (
-    <Link className={`${base} ${looks[variant]} ${className}`} {...props} />
-  );
-}
-
-/** The small travelling arrow used inside buttons and links. */
-export function Arrow() {
-  return (
-    <span
-      aria-hidden
-      className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
-    >
-      &rarr;
-    </span>
-  );
-}
-
-export function TextLink({
-  className = "",
-  children,
-  ...props
-}: ComponentProps<typeof Link>) {
-  return (
     <Link
-      className={`group inline-flex items-center gap-2 text-sm font-medium text-ink-950 ${className}`}
+      className={`inline-flex items-center px-7 py-4 text-sm font-semibold transition-colors duration-200 ${looks[variant]} ${className}`}
       {...props}
-    >
-      <span className="link-draw">{children}</span>
-      <Arrow />
-    </Link>
+    />
   );
 }
 
 /** Page header for every route except the home page. */
 export function PageHero({
-  sheet,
   label,
   title,
   lead,
 }: {
-  sheet: string;
   label: string;
   title: string;
   lead: string;
 }) {
   return (
-    <section className="border-b rule bg-white">
-      <Container className="pt-14 pb-16 sm:pt-20 sm:pb-24">
-        <div className="flex items-center gap-5">
-          <Note className="text-brand-700">{sheet}</Note>
-          <span aria-hidden className="h-px flex-1 bg-ink-950/12" />
-          <Note className="text-ink-500">{label}</Note>
-        </div>
-
-        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <h1 className="text-[2.25rem] leading-[1.04] font-semibold tracking-display text-balance text-ink-950 sm:text-[3.25rem] lg:col-span-7 lg:text-[4rem]">
+    <section className="relative overflow-hidden border-b border-white/12">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.13]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-mid opacity-50 blur-3xl"
+      />
+      <Container className="relative pt-14 pb-16 sm:pt-20 sm:pb-24">
+        <Tab>{label}</Tab>
+        <div className="mt-9 grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <h1 className="text-[2.5rem] leading-[0.98] font-bold tracking-[-0.035em] text-balance lg:col-span-7 lg:text-[4rem]">
             {title}
           </h1>
-          <p className="text-[1.0625rem] leading-relaxed text-ink-600 lg:col-span-4 lg:col-start-9 lg:pt-3">
+          <p className="text-lg leading-relaxed text-white/70 lg:col-span-4 lg:col-start-9 lg:pt-3">
             {lead}
           </p>
         </div>
