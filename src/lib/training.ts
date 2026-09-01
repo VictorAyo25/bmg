@@ -10,7 +10,9 @@
 export const PROGRAMME = {
   name: "HVAC Design",
   promise: "Design. Calculate. Select. Deliver.",
-  duration: "6 months",
+  // Favour may move to four months and run it twice a year, so the site
+  // must not quote a figure. Flexible also pushes people to enquire.
+  duration: "Flexible",
   mode: "Live virtual classes",
   commitment: "One day per week",
   outcome: "Certificate of completion",
