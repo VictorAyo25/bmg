@@ -159,6 +159,6 @@ export const PROJECTS: Project[] = [
  * Designs completed to date. Deliberately larger than PROJECTS.length, because
  * the list above is a selection rather than the whole record.
  */
-export const DESIGN_PROJECTS = 30;
+export const DESIGN_PROJECTS = "30+";
 
 export const PROJECT_COUNT = PROJECTS.length;

@@ -176,8 +176,20 @@ export default function Home() {
       </section>
 
       {/* Work */}
-      <section className="bg-mid">
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-white/12">
+        <Image
+          src="/img/projects.jpg"
+          alt=""
+          aria-hidden
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-deep/80"
+        />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <SectionHead
               label="Delivered work"
