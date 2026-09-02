@@ -18,8 +18,12 @@ export function SiteHeader() {
           href="/"
           aria-label="BMG Engineering Limited, home"
           onClick={() => setOpen(false)}
+          className="flex items-center gap-2"
         >
           <Logo mono className="h-6 w-auto text-white sm:h-7" />
+          <span className="text-lg font-bold tracking-tight text-white sm:text-xl">
+            ENGINEERING
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">

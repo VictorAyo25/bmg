@@ -25,7 +25,12 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[92rem] px-5 sm:px-8">
         <div className="flex flex-col gap-10 py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <Logo mono className="h-7 w-auto text-white" />
+            <div className="flex items-center gap-2">
+              <Logo mono className="h-7 w-auto text-white" />
+              <span className="text-xl font-bold tracking-tight text-white">
+                ENGINEERING
+              </span>
+            </div>
             <p className="mt-6 max-w-sm text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] sm:text-[1.875rem]">
               {COMPANY.tagline}
             </p>
