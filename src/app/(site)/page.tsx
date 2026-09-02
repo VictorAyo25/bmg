@@ -129,7 +129,6 @@ export default function Home() {
                   </span>
                 </>
               }
-              lead="Taught against live project conditions by engineers who answer for these systems on site. Scheduling is flexible, so ask us about the next intake."
             />
           </Reveal>
 
@@ -186,7 +185,6 @@ export default function Home() {
             <SectionHead
               label="Delivered work"
               title={`${DESIGN_PROJECTS} design projects, homes to industrial plant.`}
-              lead="A selection is listed below. Client names are withheld throughout, because a firm that would publish somebody else's documents to win your work would publish yours to win the next."
             />
           </Reveal>
 

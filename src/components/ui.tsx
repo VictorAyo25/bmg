@@ -134,7 +134,7 @@ export function PageHero({
         aria-hidden
         className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-brand-500 opacity-20 blur-3xl"
       />
-      <Container className="relative pt-16 pb-20 sm:pt-28 sm:pb-32">
+      <Container className="relative z-10 pt-16 pb-20 sm:pt-28 sm:pb-32">
         <Tab>{label}</Tab>
         <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
           <h1 className="text-[3rem] leading-[0.95] font-bold tracking-tight text-balance lg:col-span-8 lg:text-[4.5rem]">

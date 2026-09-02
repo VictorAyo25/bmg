@@ -76,7 +76,6 @@ export default function ProjectsPage() {
             <SectionHead
               label="Your project"
               title="Bring us the drawing and the constraint."
-              lead="A load calculation, a full mechanical design, or a second opinion on somebody else's. Write to us and we will tell you plainly what is involved."
             />
             <Link
               href="/contact"

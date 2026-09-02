@@ -78,7 +78,6 @@ export default function ConsultancyPage() {
             <SectionHead
               label="How we work"
               title="Three principles that decide every design."
-              lead="None of them are unusual. What is unusual is holding to them when the programme is tight and somebody wants a number by Friday."
             />
           </Reveal>
 
@@ -109,7 +108,6 @@ export default function ConsultancyPage() {
             <SectionHead
               label="Get in touch"
               title="Tell us about the building."
-              lead="Send us the scope, the drawings, or just the problem. We will come back with what is involved and what it will take."
             />
             <Link
               href="/contact"

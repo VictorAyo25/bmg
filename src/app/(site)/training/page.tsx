@@ -52,7 +52,6 @@ export default function TrainingPage() {
             <SectionHead
               label="Curriculum"
               title={PROGRAMME.promise}
-              lead="Each module builds on the last. By the final one you are working the way a design office works, not the way a classroom does."
             />
           </Reveal>
 
@@ -92,7 +91,6 @@ export default function TrainingPage() {
             <SectionHead
               label="Who it is for"
               title="Built for engineers who want to design, not just install."
-              lead="If you can already read a drawing but could not produce one from first principles, this is aimed squarely at you."
             />
           </Reveal>
 

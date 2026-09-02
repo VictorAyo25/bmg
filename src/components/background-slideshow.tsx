@@ -55,11 +55,11 @@ export function BackgroundSlideshow({ images }: { images: string[] }) {
       })}
       <div
         aria-hidden
-        className="absolute inset-0 z-10 bg-linear-to-r from-deep from-30% via-deep/60 to-transparent pointer-events-none"
+        className="absolute inset-0 z-0 bg-linear-to-r from-deep from-30% via-deep/60 to-transparent pointer-events-none"
       />
       <div
         aria-hidden
-        className="absolute inset-0 z-10 bg-linear-to-t from-deep/80 via-transparent to-transparent pointer-events-none"
+        className="absolute inset-0 z-0 bg-linear-to-t from-deep/80 via-transparent to-transparent pointer-events-none"
       />
     </>
   );
