@@ -45,11 +45,10 @@ export default function AboutPage() {
               <Reveal delay={80}>
                 <div className="mt-8 space-y-6 text-lg leading-relaxed text-white/80">
                   <p>
-                    There is a gap in this industry between an
-                    architect&rsquo;s drawing and a building that works. It gets
-                    filled by rules of thumb, by equipment sized to whatever was
-                    installed last time, and by engineers who were never taught
-                    the difference.
+                    There is a gap in this industry between an architect&rsquo;s
+                    drawing and a building that works. It gets filled by rules
+                    of thumb, by equipment sized to whatever was installed last
+                    time, and by engineers who were never taught the difference.
                   </p>
                   <p>
                     The result is buildings that are uncomfortable, expensive to
@@ -85,7 +84,10 @@ export default function AboutPage() {
               ["Registered name", COMPANY.legalName],
               ["RC number", COMPANY.rcNumber],
               ["Design projects", String(DESIGN_PROJECTS)],
-              ["Design modules taught", String(MODULES.length).padStart(2, "0")],
+              [
+                "Design modules taught",
+                String(MODULES.length).padStart(2, "0"),
+              ],
               ["Disciplines", "Mechanical, electrical, plumbing"],
               ["Contact", CONTACT.email],
             ].map(([label, value]) => (
@@ -108,9 +110,14 @@ export default function AboutPage() {
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
               <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] lg:col-span-7">
-                An engineer will read it, and an engineer will reply.
+                That is the standard we work to. Hold us to it.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">
+                <p className="leading-relaxed text-white/75">
+                  Send us a drawing, a scope, or a problem you have not been
+                  able to solve. We will tell you plainly what is involved and
+                  what it will take.
+                </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link

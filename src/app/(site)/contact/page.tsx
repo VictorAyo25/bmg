@@ -17,7 +17,7 @@ export default function ContactPage() {
           <Reveal>
             <SectionHead
               label="Contact"
-              title="An engineer will read it, and an engineer will reply."
+              title="Every message here is read and answered by an engineer."
             />
           </Reveal>
         </Container>
