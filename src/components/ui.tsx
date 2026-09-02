@@ -146,31 +146,22 @@ export function PageHero({
             fill
             sizes="100vw"
             priority
-            className="object-cover"
+            className="object-cover opacity-80"
           />
-          {/*
-            Scrim. The photograph is already darkened, but headline contrast
-            cannot depend on what happens to be in the top left of a photo,
-            so the gradient guarantees it regardless of the image.
-          */}
           <div
             aria-hidden
-            className="absolute inset-0 bg-linear-to-r from-deep from-20% via-deep/75 to-deep/25"
+            className="absolute inset-0 bg-linear-to-r from-deep from-30% via-deep/60 to-transparent"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-linear-to-t from-deep/80 via-transparent to-transparent"
           />
         </>
       ) : null}
+
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.13]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
-          backgroundSize: "72px 72px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-mid opacity-50 blur-3xl"
+        className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-brand-500 opacity-20 blur-3xl"
       />
       <Container className="relative pt-14 pb-16 sm:pt-20 sm:pb-24">
         <Tab>{label}</Tab>

@@ -18,7 +18,7 @@ export default function ProjectsPage() {
         label="Delivered work"
         title={`${DESIGN_PROJECTS} design projects, homes to industrial plant.`}
         lead="Warehouses, hotels, high-rise residential, government offices, retrofits and private houses. Different buildings, the same approach: calculate first, then select, then lay it out against what is actually on site."
-        image="/img/projects.mp4"
+        image="/img/projects.jpg"
       />
 
 

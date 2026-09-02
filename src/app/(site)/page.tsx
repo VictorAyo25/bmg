@@ -22,15 +22,7 @@ export default function Home() {
       */}
       <section className="relative overflow-hidden border-b border-white/12">
         <HeroSlideshow />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.13]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
-            backgroundSize: "72px 72px",
-          }}
-        />
+
         <div
           aria-hidden
           className="pointer-events-none absolute -top-56 -right-56 h-[44rem] w-[44rem] rounded-full bg-mid opacity-55 blur-3xl"

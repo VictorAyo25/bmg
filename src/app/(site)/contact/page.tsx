@@ -51,11 +51,11 @@ export default function ContactPage() {
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div>
                       <label htmlFor="name" className="block text-sm font-semibold text-white/70">Name</label>
-                      <input type="text" id="name" name="name" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Amaka Nwosu" />
+                      <input type="text" id="name" name="name" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Chinedu Okeke" />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-semibold text-white/70">Email</label>
-                      <input type="email" id="email" name="email" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="amaka@example.com" />
+                      <input type="email" id="email" name="email" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="chinedu@example.com" />
                     </div>
                   </div>
                   <div>
