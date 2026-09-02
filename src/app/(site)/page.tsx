@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, SectionHead, Tab } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
 import { Reveal } from "@/components/reveal";
@@ -20,24 +20,7 @@ export default function Home() {
         rival, and the four services anchor the bottom as one quiet strip.
       */}
       <section className="relative overflow-hidden border-b border-white/12">
-        {/*
-          Photograph, then scrim, then the drafting grid on top. The order
-          matters: the grid has to read as an overlay on the image, not as
-          something buried beneath it.
-        */}
-        <Image
-          src="/img/hero.jpg"
-          alt=""
-          aria-hidden
-          fill
-          sizes="100vw"
-          priority
-          className="object-cover"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-linear-to-r from-deep from-25% via-deep/70 to-deep/20"
-        />
+        <HeroSlideshow />
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-[0.13]"

@@ -118,31 +118,31 @@ long term answer because it is unambiguously his own work.
 
 ## Imagery
 
-Background photographs are licensed from Wikimedia Commons, four under CC
-BY-SA and one CC0. They are **atmosphere, not portfolio**.
+Background photographs are original AI generated imagery. They are **atmosphere, not portfolio**.
 
 **The rule: never caption, describe or arrange them so as to suggest they are
-BMG projects.** They are other people's buildings. They sit behind text at low
+BMG projects.** They are not real buildings. They sit behind text at low
 contrast, and each carries an empty alt attribute so screen readers treat them
 as decoration, which is what they are.
 
 Each is duotoned to the brand ramp before it ships, deep navy in the shadows
-through to sky in the highlights. That is why a green heat exchanger can sit
-beside grey ductwork without clashing, and it is what stops them reading as
-stock.
+through to sky in the highlights. This ensures they read as one family and fit
+the brand palette.
 
-The CC BY-SA licences oblige us to name the author, state the licence, link to
-it, and note that the image was modified. That is what the credits page is for
-and why the footer links to it. **Do not remove either without first removing
-the images.** The data lives in `src/lib/credits.ts`.
+Because the images are original, no attribution is owed, and the credits page
+was removed. The art direction and realism constraints bind any future image:
+
+1. **Photorealistic only.** Full frame camera, wide angle, natural existing light,
+   gentle vignetting, focus dropoff, sensor grain.
+2. **Imperfect.** Dust, scuffed paint, uneven grime, worn, asymmetric.
+3. **No text or human figures.** Generative models fail at text, and faces
+   distract from the architecture.
+4. **The quiet zone.** The left 45 percent of any hero or banner must be low
+   detail and dark to ensure headline legibility.
 
 Photographs are served through `next/image`, so Next produces WebP at the
 right width per device. Do not convert them to CSS backgrounds, which would
 ship the full JPEG to a phone.
-
-The hero photograph is a Scan-to-BIM point cloud, chosen because it depicts
-modelling rather than a finished installation. That is the one kind of stock
-image that does not misrepresent a practice which designs but does not build.
 
 ## Still open
 

@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
         { source: `/design/${key}`, destination: "/", permanent: false },
         { source: `/design/${key}/plain`, destination: "/", permanent: false },
       ])
-      .concat([{ source: "/design", destination: "/", permanent: false }]);
+      .concat([
+        { source: "/design", destination: "/", permanent: false },
+        { source: "/credits", destination: "/", permanent: true },
+      ]);
   },
 };
 
