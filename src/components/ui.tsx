@@ -158,7 +158,7 @@ export function PageHero({
             className="absolute inset-0 bg-linear-to-r from-deep from-20% via-deep/75 to-deep/25"
           />
         </>
-      )}
+      ) : null}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-[0.13]"
