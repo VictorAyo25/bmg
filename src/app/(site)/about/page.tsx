@@ -19,7 +19,7 @@ export default function AboutPage() {
         label="About"
         title="Engineering excellence, built on trust."
         lead="We deliver timely, accurate and code compliant designs, from first concept through to handover. The same standard runs through everything we teach."
-        image="/img/about.jpg"
+        image="/img/about.mp4"
       />
 
       <section>

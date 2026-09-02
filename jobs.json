@@ -1,0 +1,74 @@
+[
+  {
+    "prompt": "A cinematic, slow push-in on the vast, dark mechanical plant room. Subtle atmospheric dust motes floating. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/hero/01.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/hero/01.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow continuous upward tracking shot rising inside the building services riser shaft, revealing strong vertical repetition of pipes. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/hero/02.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/hero/02.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow push-in on the rooftop HVAC machinery at dusk. The city lights twinkle subtly in the distant background. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/hero/03.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/hero/03.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow panning shot across an abstract, heavily defocused field of overhead ductwork. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/hero/04.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/hero/04.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow symmetrical push-in on a large chilled water mechanical system in low light. Atmospheric and moody. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/hero/05.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/hero/05.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow tracking shot forward along a walkway inside a mechanical plant room. Sense of scale. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/training.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/training.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow push-in on a building exterior at dusk, mechanical floors lit. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/projects.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/projects.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow panning shot across an empty, unfinished services floor. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/consultancy.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/consultancy.mp4",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "prompt": "A cinematic, slow tracking shot panning across an abstract close pattern of mechanical pipes, heavily defocused. Gentle parallax drift. Continuous unbroken shot. No dialogue, no text, no people.",
+    "first_frame": "public/img/about.jpg",
+    "resolution": "720p",
+    "duration": 6,
+    "output": "public/img/about.mp4",
+    "aspect_ratio": "16:9"
+  }
+]

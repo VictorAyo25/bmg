@@ -75,3 +75,4 @@ for pattern, (dst_rel, size, factor) in mapping.items():
         process_image(src, dst, size, factor)
     else:
         print(f"No match for {pattern}")
+

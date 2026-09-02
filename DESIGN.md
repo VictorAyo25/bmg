@@ -70,12 +70,9 @@ display weights, the drafting grid.
 
 ## Rejected, do not reopen without new information
 
-- **Animated abstract HVAC background graphics.** Requested after Favour saw
-  dephy-ng.com and marandmor.com. Neither site has them. Dephy has a static
-  construction photograph, Mar&Mor has a carousel of real project photography.
-  What reads as "alive" on both is imagery, not animation. Abstract motion
-  would be decoration that claims nothing, costs real performance on the phones
-  visitors arrive on from WhatsApp, and repeats the technical accuracy risk.
+- **Animated abstract HVAC background graphics.** Previously rejected, but the strategy has shifted to embrace a more dynamic, modern experience. Background videos with slow push-ins and parallax drifts are now used across all hero and banner sections to bring the site to life.
+
+- **Animation restraint.** The strategy has shifted to include more pronounced, dynamic structural animations across the site, moving away from strict minimalism to a more engaging presentation.
 - **Copying installer sites.** Dephy and Mar&Mor install. Photographs of
   installed ductwork prove their work, not BMG's.
 - **Buying `bmgengineeringlimited.com` alternatives.** Client chose the long

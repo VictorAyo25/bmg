@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const SLIDES = [
-  "/img/hero/01.jpg",
-  "/img/hero/02.jpg",
-  "/img/hero/03.jpg",
-  "/img/hero/04.jpg",
-  "/img/hero/05.jpg",
+  "/img/hero/01.mp4",
+  "/img/hero/02.mp4",
+  "/img/hero/03.mp4",
+  "/img/hero/04.mp4",
+  "/img/hero/05.mp4",
 ];
 
 export function HeroSlideshow() {
@@ -55,14 +55,14 @@ export function HeroSlideshow() {
               isActive ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
-            <Image
+            <video
               src={src}
-              alt=""
               aria-hidden="true"
-              fill
-              sizes="100vw"
-              priority={idx === 0}
-              className="object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="object-cover w-full h-full"
             />
           </div>
         );

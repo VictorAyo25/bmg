@@ -121,7 +121,23 @@ export function PageHero({
 }) {
   return (
     <section className="relative overflow-hidden border-b border-white/12">
-      {image && (
+      {image && image.endsWith(".mp4") ? (
+        <>
+          <video
+            src={image}
+            aria-hidden="true"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 object-cover w-full h-full"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-linear-to-r from-deep from-20% via-deep/75 to-deep/25"
+          />
+        </>
+      ) : image ? (
         <>
           <Image
             src={image}

@@ -17,7 +17,7 @@ export default function TrainingPage() {
         label="The programme"
         title="Become an HVAC design engineer."
         lead="Taught against live project conditions. You finish able to calculate a load, size a system, select the plant and defend every decision in a design review."
-        image="/img/training.jpg"
+        image="/img/training.mp4"
       />
 
       <section className="border-b border-white/12 bg-mid">
