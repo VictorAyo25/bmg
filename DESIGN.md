@@ -175,6 +175,22 @@ ship the full JPEG to a phone.
   Not actioned pending clarification.
 - **Email.** Still a Gmail address in the footer, which undercuts a firm asking
   to design your building's systems. One line in `src/lib/site.ts`.
+- **`WEB3FORMS_KEY` is not set.** Until it is, the contact form refuses and
+  tells visitors to email instead. Get a key from web3forms.com against
+  `bmgengineeringlimited@gmail.com`, add it in Vercel under Settings then
+  Environment Variables across all three environments, then redeploy, because
+  the value is read at build time and an existing deployment will not pick it
+  up. See the enquiry form section below.
+- **This file needs repairing.** The "Rejected, do not reopen" section was
+  rewritten and is now self contradicting: it lists animated backgrounds and
+  animation restraint as rejected while simultaneously describing both as the
+  current strategy. One bullet also breaks off mid sentence at "Client chose
+  the long", and that truncation swallowed the "Content rules" heading, so the
+  rules about never naming a client, never publishing a fee, and never quoting
+  a fixed programme duration now read as things that were rejected. They were
+  not. They are binding. Until this is fixed, treat the bullets between the
+  domain line and the "Technical drawings" heading as content rules rather
+  than as rejected decisions.
 
 ## The enquiry form
 
