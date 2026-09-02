@@ -54,6 +54,19 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${plexMono.variable}`}>
+      <head>
+        {/*
+          Marks that script is running, before first paint. The reveal styles
+          hide content until an observer shows it, so without this a visitor
+          with JavaScript disabled gets a page that is empty below the fold.
+          Content must never depend on script merely to be visible.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add("js")`,
+          }}
+        />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <NavProgress />
         {children}

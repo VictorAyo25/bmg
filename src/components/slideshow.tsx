@@ -105,7 +105,7 @@ export function Slideshow({
       {visible.map((src, i) => (
         <div
           key={src}
-          className={`absolute inset-0 transition-opacity duration-[3000ms] ease-in-out ${
+          className={`absolute inset-0 ease-lux transition-opacity duration-[2200ms] ${
             current === i ? "z-10 opacity-100" : "z-0 opacity-0"
           }`}
         >
@@ -140,7 +140,7 @@ export function Slideshow({
                 setRestMounted(true);
                 setCurrent(i);
               }}
-              className={`h-1 w-12 transition-all ${
+              className={`ease-lux h-1 w-12 transition-all duration-500 ${
                 current === i ? "bg-brand-400" : "bg-white/30 hover:bg-white/50"
               }`}
             />

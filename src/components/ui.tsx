@@ -45,7 +45,7 @@ export function Tab({
 }) {
   return (
     <span
-      className={`inline-block bg-brand-600 px-4 py-2 font-mono text-[0.625rem] tracking-note text-white uppercase ${className}`}
+      className={`edge-lit-strong inline-block bg-brand-600 px-4 py-2 font-mono text-[0.625rem] tracking-note text-white uppercase ${className}`}
       style={{
         clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
       }}
@@ -93,13 +93,14 @@ export function Button({
   ...props
 }: ButtonProps) {
   const looks = {
-    solid: "bg-brand-600 text-white hover:bg-brand-700",
-    outline: "border border-white/30 text-white hover:bg-white/10",
+    solid: "bg-brand-600 text-white edge-lit-strong hover:bg-brand-700",
+    outline:
+      "border border-white/30 text-white hover:border-white/55 hover:bg-white/10",
   } as const;
 
   return (
     <Link
-      className={`inline-flex items-center px-7 py-4 text-sm font-semibold transition-colors duration-200 ${looks[variant]} ${className}`}
+      className={`ease-lux inline-flex items-center px-7 py-4 text-sm font-semibold transition-all duration-500 ${looks[variant]} ${className}`}
       {...props}
     />
   );
@@ -141,9 +142,7 @@ export function PageHero({
           </h1>
           {lead && (
             <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
-              <p className="text-lg leading-relaxed text-white/80">
-                {lead}
-              </p>
+              <p className="text-lg leading-relaxed text-white/80">{lead}</p>
             </div>
           )}
         </div>
