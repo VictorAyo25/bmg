@@ -42,12 +42,12 @@ export function SiteHeader() {
               </Link>
             );
           })}
-          <a
-            href={CONTACT.mailto}
+          <Link
+            href="/contact"
             className="ml-5 bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
           >
             Enquire
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -98,13 +98,13 @@ export function SiteHeader() {
               </li>
             ))}
           </ul>
-          <a
-            href={CONTACT.mailto}
+          <Link
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-4 mb-5 block bg-brand-600 px-6 py-4 text-center text-sm font-semibold text-white"
           >
             Enquire
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

@@ -35,12 +35,12 @@ export function SiteFooter() {
               {COMPANY.tagline}
             </p>
           </div>
-          <a
-            href={CONTACT.mailto}
+          <Link
+            href="/contact"
             className="inline-flex w-fit bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
           >
             Start a conversation
-          </a>
+          </Link>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4">

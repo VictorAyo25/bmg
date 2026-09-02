@@ -254,16 +254,16 @@ export default function Home() {
               </div>
               <div className="lg:col-span-4 lg:col-start-9">
                 <p className="leading-relaxed text-white/65">
-                  Every enquiry reaches an engineer, not a contact form. Write
+                  Every enquiry reaches an engineer. Write
                   to us and you will get a considered answer.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href={CONTACT.mailto}
+                  <Link
+                    href="/contact"
                     className="bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
                   >
-                    {CONTACT.email}
-                  </a>
+                    Contact us
+                  </Link>
                   <a
                     href={CONTACT.tel}
                     className="border border-white/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-white/10"

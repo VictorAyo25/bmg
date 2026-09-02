@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, Note, PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { CONTACT } from "@/lib/site";
@@ -20,22 +21,7 @@ export default function ProjectsPage() {
         image="/img/projects.mp4"
       />
 
-      <section className="border-b border-white/12 bg-mid">
-        <Container className="py-10">
-          <div className="grid gap-4 lg:grid-cols-12">
-            <Note className="text-white/50 lg:col-span-3">
-              On confidentiality
-            </Note>
-            <p className="max-w-3xl leading-relaxed text-white/70 lg:col-span-9">
-              Client names are withheld throughout this record, and so are the
-              drawings. A firm that would publish somebody else&rsquo;s
-              documents to win your work would publish yours to win the next.
-              What follows describes the buildings and the engineering instead,
-              and the list is a selection rather than the whole record.
-            </p>
-          </div>
-        </Container>
-      </section>
+
 
       <section>
         <Container className="py-20 sm:py-28">
@@ -93,12 +79,12 @@ export default function ProjectsPage() {
               title="Bring us the drawing and the constraint."
               lead="A load calculation, a full mechanical design, or a second opinion on somebody else's. Write to us and we will tell you plainly what is involved."
             />
-            <a
-              href={`${CONTACT.mailto}?subject=Project%20enquiry`}
+            <Link
+              href="/contact"
               className="mt-12 inline-flex bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
             >
-              Start a conversation
-            </a>
+              Contact us
+            </Link>
           </Reveal>
         </Container>
       </section>

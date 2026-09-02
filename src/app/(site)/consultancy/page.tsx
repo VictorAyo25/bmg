@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container, Note, PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { CONTACT } from "@/lib/site";
@@ -111,12 +112,12 @@ export default function ConsultancyPage() {
               title="Tell us about the building."
               lead="Send us the scope, the drawings, or just the problem. We will come back with what is involved and what it will take."
             />
-            <a
-              href={`${CONTACT.mailto}?subject=Consultancy%20enquiry`}
+            <Link
+              href="/contact"
               className="mt-12 inline-flex bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
             >
-              Email us
-            </a>
+              Contact us
+            </Link>
           </Reveal>
         </Container>
       </section>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Button, Container, Note, PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { CONTACT } from "@/lib/site";
@@ -143,12 +144,12 @@ export default function TrainingPage() {
                   questions about the curriculum itself.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <a
-                    href={`${CONTACT.mailto}?subject=HVAC%20design%20training%20enquiry`}
+                  <Link
+                    href="/contact"
                     className="bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
                   >
                     Enquire about the programme
-                  </a>
+                  </Link>
                   <Button href="/projects" variant="outline">
                     See our project work
                   </Button>
