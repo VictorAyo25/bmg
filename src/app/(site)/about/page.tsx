@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Container, Note, PageHero } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
 import { Reveal } from "@/components/reveal";
@@ -116,14 +115,10 @@ export default function AboutPage() {
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link
                     href="/contact"
-                    className="bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-                  >
                     Contact us
                   </Link>
                   <a
                     href={CONTACT.tel}
-                    className="border border-white/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-white/10"
-                  >
                     {CONTACT.phone}
                   </a>
                 </div>
