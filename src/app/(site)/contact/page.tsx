@@ -29,13 +29,13 @@ export default function ContactPage() {
               <Reveal>
                 <div className="space-y-8">
                   <div>
-                    <Note className="text-white/45">Email</Note>
+                    <Note className="text-white/70">Email</Note>
                     <p className="mt-2 text-lg text-white">
                       <a href={CONTACT.mailto} className="hover:text-brand-500 transition-colors">{CONTACT.email}</a>
                     </p>
                   </div>
                   <div>
-                    <Note className="text-white/45">Telephone</Note>
+                    <Note className="text-white/70">Telephone</Note>
                     <p className="mt-2 text-lg text-white">
                       <a href={CONTACT.tel} className="hover:text-brand-500 transition-colors">{CONTACT.phone}</a>
                     </p>
@@ -49,21 +49,21 @@ export default function ContactPage() {
                 <form className="grid gap-6">
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-white/70">Name</label>
-                      <input type="text" id="name" name="name" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="John Doe" />
+                      <label htmlFor="name" className="block text-sm font-semibold text-white/80">Name</label>
+                      <input type="text" id="name" name="name" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Adebayo Ogunleye" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-white/70">Email</label>
-                      <input type="email" id="email" name="email" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="john.doe@example.com" />
+                      <label htmlFor="email" className="block text-sm font-semibold text-white/80">Email</label>
+                      <input type="email" id="email" name="email" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="adebayo@example.com" />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-white/70">Subject</label>
-                    <input type="text" id="subject" name="subject" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Project enquiry" />
+                    <label htmlFor="subject" className="block text-sm font-semibold text-white/80">Subject</label>
+                    <input type="text" id="subject" name="subject" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Project enquiry" />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-white/70">Message</label>
-                    <textarea id="message" name="message" rows={5} required className="mt-2 w-full resize-y border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/30 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="How can we help?"></textarea>
+                    <label htmlFor="message" className="block text-sm font-semibold text-white/80">Message</label>
+                    <textarea id="message" name="message" rows={5} required className="mt-2 w-full resize-y border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="How can we help?"></textarea>
                   </div>
                   <button type="submit" className="w-fit bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700">
                     Send message

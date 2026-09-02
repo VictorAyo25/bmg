@@ -61,7 +61,7 @@ export default function ConsultancyPage() {
                   <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] lg:col-span-4">
                     {service.title}
                   </h2>
-                  <p className="max-w-2xl leading-relaxed text-white/70 lg:col-span-7">
+                  <p className="max-w-2xl leading-relaxed text-white/80 lg:col-span-7">
                     {service.summary}
                   </p>
                 </div>
@@ -92,7 +92,7 @@ export default function ConsultancyPage() {
                 <h3 className="mt-5 text-xl font-semibold tracking-tight">
                   {item.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-white/65">
+                <p className="mt-4 leading-relaxed text-white/75">
                   {item.body}
                 </p>
               </Reveal>

@@ -37,7 +37,7 @@ export default function ProjectsPage() {
                   </Note>
 
                   <div className="lg:col-span-4">
-                    <Note className="text-white/45">{project.sector}</Note>
+                    <Note className="text-white/70">{project.sector}</Note>
                     <h2 className="mt-4 text-2xl leading-snug font-bold tracking-[-0.02em] text-balance">
                       {project.title}
                     </h2>
@@ -47,7 +47,7 @@ export default function ProjectsPage() {
                   </div>
 
                   <div className="lg:col-span-7">
-                    <p className="max-w-2xl leading-relaxed text-white/70">
+                    <p className="max-w-2xl leading-relaxed text-white/80">
                       {project.detail}
                     </p>
                     <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                             aria-hidden
                             className="h-1 w-1 rounded-full bg-brand-600"
                           />
-                          <Note className="text-white/50">{h}</Note>
+                          <Note className="text-white/70">{h}</Note>
                         </li>
                       ))}
                     </ul>

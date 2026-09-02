@@ -73,7 +73,7 @@ export function SectionHead({
           {title}
         </h2>
         {lead && (
-          <p className="leading-relaxed text-white/65 lg:col-span-4 lg:col-start-9 lg:pt-2">
+          <p className="leading-relaxed text-white/75 lg:col-span-4 lg:col-start-9 lg:pt-2">
             {lead}
           </p>
         )}
@@ -141,7 +141,7 @@ export function PageHero({
           </h1>
           {lead && (
             <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
-              <p className="text-lg leading-relaxed text-white/70">
+              <p className="text-lg leading-relaxed text-white/80">
                 {lead}
               </p>
             </div>

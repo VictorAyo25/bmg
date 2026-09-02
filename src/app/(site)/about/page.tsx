@@ -26,9 +26,9 @@ export default function AboutPage() {
         <Container className="py-20 sm:py-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-5">
-              <MepPlan className="w-full text-white/60" />
+              <MepPlan className="w-full text-white/75" />
               <p className="mt-5 border-t border-white/12 pt-4">
-                <Note className="text-white/40">
+                <Note className="text-white/70">
                   Typical air side layout, supply and return
                 </Note>
               </p>
@@ -43,7 +43,7 @@ export default function AboutPage() {
               </Reveal>
 
               <Reveal delay={80}>
-                <div className="mt-8 space-y-6 text-lg leading-relaxed text-white/70">
+                <div className="mt-8 space-y-6 text-lg leading-relaxed text-white/80">
                   <p>
                     There is a gap in this industry between an
                     architect&rsquo;s drawing and a building that works. It gets
@@ -94,7 +94,7 @@ export default function AboutPage() {
                 className="border-t border-white/12 py-8 sm:px-8"
               >
                 <dt>
-                  <Note className="text-white/45">{label}</Note>
+                  <Note className="text-white/70">{label}</Note>
                 </dt>
                 <dd className="mt-3 break-words">{value}</dd>
               </div>

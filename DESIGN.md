@@ -42,12 +42,23 @@ tokens are `--color-deep` for the page, `--color-mid` for alternate bands,
 `brand-600` for fills, `--color-sky` for display text that needs to clear
 contrast on deep.
 
-The field was lightened on 2 September 2026 at the client's request:
-`--color-deep` went from `#062147` to `#0a2e5e`, and `--color-mid` from
-`#0b3a76` to `#114a92`. Contrast was rechecked rather than assumed. White
-clears 13:1 on deep and 8.7:1 on mid, and white at 65 percent, which is what
-body copy uses, still clears 4.66:1 on mid. If either token is lightened
-again, recheck that last figure first. It is the one with no headroom left.
+The field has been lightened twice at the client's request, ending at
+`--color-deep` `#103a6f` and `--color-mid` `#17529c`, from `#062147` and
+`#0b3a76` originally.
+
+**There is now an opacity floor: no text may sit below `text-white/70` on
+`mid`.** That is not a style preference, it is where AA stops. Measured on
+`#17529c`, white at 65 percent gives 4.26:1 and fails for normal text, while
+70 percent gives 4.67:1 and passes. The second lightening therefore came with
+a pass over every `text-white/*` value in the codebase, raising the scale so
+nothing fell through. Input placeholders are the one deliberate exception at
+55 percent, which is legal because they sit on `deep` where 55 percent gives
+4.56:1, and because every input has a real label so the placeholder is
+supplementary rather than the only cue.
+
+If the field is lightened a third time, recompute before changing anything.
+The tool is a few lines: relative luminance per WCAG, then compose white at
+each alpha over the background and take the ratio. Do not lighten and hope.
 
 Note that the photographs were duotoned against the older, darker navy. They
 still sit correctly because the scrims are drawn from the tokens, but if the

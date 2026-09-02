@@ -36,7 +36,7 @@ export default function TrainingPage() {
                 }`}
               >
                 <dt>
-                  <Note className="text-white/50">{label}</Note>
+                  <Note className="text-white/70">{label}</Note>
                 </dt>
                 <dd className="mt-3 text-xl font-semibold">{value}</dd>
               </div>
@@ -74,7 +74,7 @@ export default function TrainingPage() {
                       </p>
                     )}
                   </div>
-                  <p className="leading-relaxed text-white/65 lg:col-span-7">
+                  <p className="leading-relaxed text-white/75 lg:col-span-7">
                     {m.description}
                   </p>
                 </div>
@@ -118,7 +118,7 @@ export default function TrainingPage() {
                   className="block border-t border-white/12 py-6 last:border-b"
                 >
                   <h3 className="text-lg font-semibold">{o.title}</h3>
-                  <p className="mt-3 leading-relaxed text-white/65">{o.body}</p>
+                  <p className="mt-3 leading-relaxed text-white/75">{o.body}</p>
                 </Reveal>
               ))}
             </div>
@@ -134,7 +134,7 @@ export default function TrainingPage() {
                 Places are limited, and the group is kept small on purpose.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">
-                <p className="leading-relaxed text-white/65">
+                <p className="leading-relaxed text-white/75">
                   Write to us for the next intake, the fee and how payment
                   works. You will hear back from an engineer who can answer
                   questions about the curriculum itself.

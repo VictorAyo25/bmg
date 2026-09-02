@@ -60,7 +60,7 @@ export default function Home() {
 
             {/* The drawing sits on the field itself, not in a card. */}
             <Reveal delay={140} className="lg:col-span-6">
-              <MepPlan className="w-full text-white/70" />
+              <MepPlan className="w-full text-white/80" />
             </Reveal>
           </div>
         </Container>
@@ -145,7 +145,7 @@ export default function Home() {
                   {m.title}
                 </h3>
                 <div className="sm:col-span-7">
-                  <p className="leading-relaxed text-white/65">
+                  <p className="leading-relaxed text-white/75">
                     {m.description}
                   </p>
                   {m.tools && (
@@ -203,7 +203,7 @@ export default function Home() {
                   <span className="text-xl font-semibold tracking-tight lg:col-span-4 text-white">
                     {p.title}
                   </span>
-                  <span className="text-white/65 lg:col-span-3">
+                  <span className="text-white/75 lg:col-span-3">
                     {p.system}
                   </span>
                   <Note className="text-sky lg:col-span-4">{p.sector}</Note>
@@ -243,7 +243,7 @@ export default function Home() {
                 </h2>
               </div>
               <div className="lg:col-span-4 lg:col-start-9">
-                <p className="leading-relaxed text-white/65">
+                <p className="leading-relaxed text-white/75">
                   Every enquiry reaches an engineer. Write
                   to us and you will get a considered answer.
                 </p>
