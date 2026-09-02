@@ -70,15 +70,12 @@ display weights, the drafting grid.
 
 ## Rejected, do not reopen without new information
 
-- **Animated abstract HVAC background graphics.** Previously rejected, but the strategy has shifted to embrace a more dynamic, modern experience. Background videos with slow push-ins and parallax drifts are now used across all hero and banner sections to bring the site to life.
+- **Animated abstract HVAC background graphics.** Previously rejected, but the strategy has shifted to embrace a more dynamic, modern experience. Background *images* (no longer restricted just to hero sections) combined with richer structural animations bring the site to life.
 
 - **Animation restraint.** The strategy has shifted to include more pronounced, dynamic structural animations across the site, moving away from strict minimalism to a more engaging presentation.
 - **Copying installer sites.** Dephy and Mar&Mor install. Photographs of
   installed ductwork prove their work, not BMG's.
 - **Buying `bmgengineeringlimited.com` alternatives.** Client chose the long
-  form knowingly after being shown shorter available options.
-
-## Content rules
 
 - **Never name a client.** The delivered projects are anonymous. Describe the
   building, the systems and the engineering problem. Never the client, never a

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, SectionHead, Tab } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
@@ -98,8 +99,20 @@ export default function Home() {
       </section>
 
       {/* Statement */}
-      <section className="bg-mid">
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden border-b border-white/12">
+        <Image
+          src="/img/statement.jpg"
+          alt=""
+          aria-hidden
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-deep/80"
+        />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.2] font-bold tracking-[-0.028em] text-balance sm:text-[2.75rem]">
               Most buildings are cooled by systems{" "}
@@ -173,25 +186,29 @@ export default function Home() {
             />
           </Reveal>
 
-          <Reveal className="mt-14 bg-card text-ink-950">
-            <ul>
+          <div className="mt-14">
+            <ul className="border-t border-white/12">
               {PROJECTS.map((p, i) => (
-                <li
+                <Reveal
+                  as="li"
+                  delay={i * 40}
                   key={p.slug}
-                  className="grid gap-1.5 border-b border-ink-950/10 px-6 py-5 last:border-b-0 sm:px-8 lg:grid-cols-12 lg:items-baseline lg:gap-6"
+                  className="grid gap-3 border-b border-white/12 py-6 sm:grid-cols-12 sm:gap-6 lg:items-baseline"
                 >
-                  <Note className="text-brand-600 lg:col-span-1">
+                  <Note className="text-sky lg:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </Note>
-                  <span className="font-semibold lg:col-span-4">{p.title}</span>
-                  <span className="text-sm text-ink-600 lg:col-span-3">
+                  <span className="text-xl font-semibold tracking-tight lg:col-span-4 text-white">
+                    {p.title}
+                  </span>
+                  <span className="text-white/65 lg:col-span-3">
                     {p.system}
                   </span>
-                  <Note className="text-ink-500 lg:col-span-4">{p.sector}</Note>
-                </li>
+                  <Note className="text-sky lg:col-span-4">{p.sector}</Note>
+                </Reveal>
               ))}
             </ul>
-          </Reveal>
+          </div>
 
           <Reveal className="mt-12">
             <Button href="/projects" variant="outline">
@@ -202,8 +219,20 @@ export default function Home() {
       </section>
 
       {/* Close */}
-      <section>
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden">
+        <Image
+          src="/img/statement.jpg"
+          alt=""
+          aria-hidden
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-linear-to-r from-deep from-30% via-deep/90 to-deep/50"
+        />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-7">
