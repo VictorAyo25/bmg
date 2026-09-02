@@ -42,6 +42,17 @@ tokens are `--color-deep` for the page, `--color-mid` for alternate bands,
 `brand-600` for fills, `--color-sky` for display text that needs to clear
 contrast on deep.
 
+The field was lightened on 2 September 2026 at the client's request:
+`--color-deep` went from `#062147` to `#0a2e5e`, and `--color-mid` from
+`#0b3a76` to `#114a92`. Contrast was rechecked rather than assumed. White
+clears 13:1 on deep and 8.7:1 on mid, and white at 65 percent, which is what
+body copy uses, still clears 4.66:1 on mid. If either token is lightened
+again, recheck that last figure first. It is the one with no headroom left.
+
+Note that the photographs were duotoned against the older, darker navy. They
+still sit correctly because the scrims are drawn from the tokens, but if the
+field is lightened further the images should be regraded to match.
+
 On contrast: `#097CCD` measures 4.48:1 on near black and 3.85:1 on warm paper,
 both below the 4.5:1 needed for body text. Display type and fills use the logo
 blue itself, where 3:1 applies. Small text on dark uses `sky`.
