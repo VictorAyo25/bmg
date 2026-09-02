@@ -176,6 +176,22 @@ ship the full JPEG to a phone.
 - **Email.** Still a Gmail address in the footer, which undercuts a firm asking
   to design your building's systems. One line in `src/lib/site.ts`.
 
+## The enquiry form
+
+Posts to `/api/enquiry`, which validates, checks a honeypot, and forwards to
+Web3Forms using `WEB3FORMS_KEY` from the server environment. The key is
+deliberately server side, so it cannot be lifted from the page source and
+abused.
+
+**Without the key set, the form refuses honestly and tells the visitor to
+email instead.** It never reports success it has not achieved. A visitor who
+believes they have reached BMG and has not is worse off than one who was told
+to send an email.
+
+The provider is the replaceable part. When the domain and a real mailbox
+exist, swap the fetch in that route for Resend or similar. Nothing else on the
+site changes.
+
 ## Out of scope
 
 The school software project discussed in the same meetings is a separate

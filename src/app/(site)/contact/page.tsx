@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container, Note, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { EnquiryForm } from "@/components/enquiry-form";
 import { CONTACT } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -31,13 +32,23 @@ export default function ContactPage() {
                   <div>
                     <Note className="text-white/70">Email</Note>
                     <p className="mt-2 text-lg text-white">
-                      <a href={CONTACT.mailto} className="hover:text-brand-500 transition-colors">{CONTACT.email}</a>
+                      <a
+                        href={CONTACT.mailto}
+                        className="hover:text-brand-500 transition-colors"
+                      >
+                        {CONTACT.email}
+                      </a>
                     </p>
                   </div>
                   <div>
                     <Note className="text-white/70">Telephone</Note>
                     <p className="mt-2 text-lg text-white">
-                      <a href={CONTACT.tel} className="hover:text-brand-500 transition-colors">{CONTACT.phone}</a>
+                      <a
+                        href={CONTACT.tel}
+                        className="hover:text-brand-500 transition-colors"
+                      >
+                        {CONTACT.phone}
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -46,29 +57,7 @@ export default function ContactPage() {
 
             <div className="lg:col-span-7">
               <Reveal delay={100}>
-                <form className="grid gap-6">
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-white/80">Name</label>
-                      <input type="text" id="name" name="name" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Adebayo Ogunleye" />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-semibold text-white/80">Email</label>
-                      <input type="email" id="email" name="email" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="adebayo@example.com" />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-white/80">Subject</label>
-                    <input type="text" id="subject" name="subject" required className="mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="Project enquiry" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-white/80">Message</label>
-                    <textarea id="message" name="message" rows={5} required className="mt-2 w-full resize-y border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500" placeholder="How can we help?"></textarea>
-                  </div>
-                  <button type="submit" className="w-fit bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700">
-                    Send message
-                  </button>
-                </form>
+                <EnquiryForm />
               </Reveal>
             </div>
           </div>
@@ -77,4 +66,3 @@ export default function ContactPage() {
     </>
   );
 }
-
