@@ -17,8 +17,7 @@ export default function TrainingPage() {
       <PageHero
         label="The programme"
         title="Become an HVAC design engineer."
-        lead="Taught against live project conditions. You finish able to calculate a load, size a system, select the plant and defend every decision in a design review."
-        image="/img/training.jpg"
+        images={["/img/training.jpg", "/img/hero/04.jpg", "/img/hero/02.jpg"]}
       />
 
       <section className="border-b border-white/12 bg-mid">

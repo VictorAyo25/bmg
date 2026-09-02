@@ -33,7 +33,7 @@ export function HeroSlideshow() {
 
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, [reducedMotion, isHovered, isFocused]);
@@ -51,7 +51,7 @@ export function HeroSlideshow() {
         return (
           <div
             key={src}
-            className={`absolute inset-0 transition-opacity duration-900 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-[3000ms] ease-in-out ${
               isActive ? "opacity-100 z-10" : "opacity-0 z-0"
             }`}
           >
@@ -62,7 +62,7 @@ export function HeroSlideshow() {
               fill
               sizes="100vw"
               priority={idx === 0}
-              className="object-cover"
+              className="object-cover opacity-70 mix-blend-luminosity"
             />
           </div>
         );

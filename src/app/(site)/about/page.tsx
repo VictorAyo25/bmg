@@ -19,8 +19,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         title="Engineering excellence, built on trust."
-        lead="We deliver timely, accurate and code compliant designs, from first concept through to handover. The same standard runs through everything we teach."
-        image="/img/about.jpg"
+        images={["/img/about.jpg", "/img/hero/01.jpg", "/img/hero/04.jpg"]}
       />
 
       <section>

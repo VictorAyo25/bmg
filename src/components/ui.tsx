@@ -107,71 +107,46 @@ export function Button({
 }
 
 /** Page header for every route except the home page. */
+import { BackgroundSlideshow } from "./background-slideshow";
+
 export function PageHero({
   label,
   title,
   lead,
   image,
+  images,
 }: {
   label: string;
   title: string;
-  lead: string;
-  /** Path under /img. Duotoned to the brand blue before it ever ships. */
+  lead?: string;
+  /** Single image path for backward compatibility */
   image?: string;
+  /** Array of image paths for slideshow */
+  images?: string[];
 }) {
+  const bgImages = images || (image ? [image] : []);
+
   return (
     <section className="relative overflow-hidden border-b border-white/12">
-      {image && image.endsWith(".mp4") ? (
-        <>
-          <video
-            src={image}
-            aria-hidden="true"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 object-cover w-full h-full"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-linear-to-r from-deep from-20% via-deep/75 to-deep/25"
-          />
-        </>
-      ) : image ? (
-        <>
-          <Image
-            src={image}
-            alt=""
-            aria-hidden
-            fill
-            sizes="100vw"
-            priority
-            className="object-cover opacity-80"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-linear-to-r from-deep from-30% via-deep/60 to-transparent"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-linear-to-t from-deep/80 via-transparent to-transparent"
-          />
-        </>
-      ) : null}
+      {bgImages.length > 0 && <BackgroundSlideshow images={bgImages} />}
 
       <div
         aria-hidden
         className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-brand-500 opacity-20 blur-3xl"
       />
-      <Container className="relative pt-14 pb-16 sm:pt-20 sm:pb-24">
+      <Container className="relative pt-16 pb-20 sm:pt-28 sm:pb-32">
         <Tab>{label}</Tab>
-        <div className="mt-9 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <h1 className="text-[2.5rem] leading-[0.98] font-bold tracking-[-0.035em] text-balance lg:col-span-7 lg:text-[4rem]">
+        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
+          <h1 className="text-[3rem] leading-[0.95] font-bold tracking-tight text-balance lg:col-span-8 lg:text-[4.5rem]">
             {title}
           </h1>
-          <p className="text-lg leading-relaxed text-white/70 lg:col-span-4 lg:col-start-9 lg:pt-3">
-            {lead}
-          </p>
+          {lead && (
+            <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
+              <p className="text-lg leading-relaxed text-white/70">
+                {lead}
+              </p>
+            </div>
+          )}
         </div>
       </Container>
     </section>

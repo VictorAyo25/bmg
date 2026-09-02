@@ -35,8 +35,7 @@ export default function ConsultancyPage() {
       <PageHero
         label="Consultancy and delivery"
         title="Mechanical systems as a driver of building value."
-        lead="We work with developers, architects and contractors from concept through to handover. Design, installation, and the project management that keeps the two honest."
-        image="/img/consultancy.jpg"
+        images={["/img/consultancy.jpg", "/img/hero/02.jpg", "/img/hero/05.jpg"]}
       />
 
       <section>
