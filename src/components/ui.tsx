@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import type { ComponentProps, ReactNode } from "react";
 
 export function Container({

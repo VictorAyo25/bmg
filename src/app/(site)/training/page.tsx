@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Button, Container, Note, PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { CONTACT } from "@/lib/site";
 import { AUDIENCE, MODULES, OUTCOMES, PROGRAMME } from "@/lib/training";
 
 export const metadata: Metadata = {

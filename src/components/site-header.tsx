@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
 import { Note } from "./ui";
-import { CONTACT, NAV } from "@/lib/site";
+import { NAV } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
