@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Container, Note, PageHero } from "@/components/ui";
-import { MepPlan } from "@/components/mep-plan";
 import { Reveal } from "@/components/reveal";
 import { COMPANY, CONTACT } from "@/lib/site";
 import { DESIGN_PROJECTS } from "@/lib/projects";
@@ -27,7 +26,7 @@ export default function AboutPage() {
         <Container className="py-20 sm:py-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-5">
-              <figure className="mb-10">
+              <figure>
                 <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius)] bg-brand-50">
                   <Image
                     src="/founder.jpg"
@@ -43,13 +42,6 @@ export default function AboutPage() {
                   <Note className="text-fg-subtle">BMG Engineering</Note>
                 </figcaption>
               </figure>
-
-              <MepPlan className="w-full text-fg-muted" />
-              <p className="mt-5 border-t border-rule pt-4">
-                <Note className="text-fg-subtle">
-                  Typical air side layout, supply and return
-                </Note>
-              </p>
             </Reveal>
 
             <div className="lg:col-span-6 lg:col-start-7">
