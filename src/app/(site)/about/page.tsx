@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { Container, Note, PageHero } from "@/components/ui";
+import { Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { COMPANY, CONTACT } from "@/lib/site";
-import { DESIGN_PROJECTS } from "@/lib/projects";
+import { CountUp } from "@/components/count-up";
+import { DESIGN_PROJECTS, DESIGN_PROJECTS_COUNT } from "@/lib/projects";
 import { MODULES } from "@/lib/training";
 
 export const metadata: Metadata = {
@@ -87,28 +88,52 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="surface-dark panel-dark bg-mid">
-        <Container>
-          <dl className="grid sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              ["Registered name", COMPANY.legalName],
-              ["RC number", COMPANY.rcNumber],
-              ["Design projects", String(DESIGN_PROJECTS)],
-              [
-                "Design modules taught",
-                String(MODULES.length).padStart(2, "0"),
-              ],
-              ["Disciplines", "Mechanical, electrical, plumbing"],
-              ["Contact", CONTACT.email],
-            ].map(([label, value]) => (
-              <div key={label} className="border-t border-rule py-8 sm:px-8">
-                <dt>
-                  <Note className="text-fg-subtle">{label}</Note>
-                </dt>
-                <dd className="mt-3 break-words">{value}</dd>
-              </div>
-            ))}
-          </dl>
+      <section className="surface-dark bg-mid">
+        <Container className="py-16 sm:py-20">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
+              <Tab>On the record</Tab>
+              <dl className="mt-10 grid grid-cols-2 gap-8">
+                <div>
+                  <dt>
+                    <Note className="text-fg-subtle">Design projects</Note>
+                  </dt>
+                  <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em] sm:text-[3rem]">
+                    <CountUp to={DESIGN_PROJECTS_COUNT} suffix="+" />
+                  </dd>
+                </div>
+                <div>
+                  <dt>
+                    <Note className="text-fg-subtle">Curriculum modules</Note>
+                  </dt>
+                  <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em] sm:text-[3rem]">
+                    <CountUp to={MODULES.length} />
+                  </dd>
+                </div>
+              </dl>
+            </Reveal>
+
+            <Reveal delay={90} className="lg:col-span-6 lg:col-start-7">
+              <dl>
+                {[
+                  ["Registered name", COMPANY.legalName],
+                  ["RC number", COMPANY.rcNumber],
+                  ["Disciplines", "Mechanical, electrical, plumbing"],
+                  ["Contact", CONTACT.email],
+                ].map(([label, value]) => (
+                  <div
+                    key={label}
+                    className="flex flex-wrap items-baseline justify-between gap-4 border-t border-rule py-5 last:border-b"
+                  >
+                    <dt>
+                      <Note className="text-fg-subtle">{label}</Note>
+                    </dt>
+                    <dd className="break-all">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          </div>
         </Container>
       </section>
 

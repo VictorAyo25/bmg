@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, Note, PageHero, SectionHead } from "@/components/ui";
+import { Container, Note, PageHero } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { PROJECTS, DESIGN_PROJECTS } from "@/lib/projects";
+import { ProjectRecord } from "@/components/project-record";
+import { DESIGN_PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -10,6 +11,14 @@ export const metadata: Metadata = {
     "Mechanical and HVAC design across industrial, commercial, public and residential buildings.",
 };
 
+/**
+ * Projects.
+ *
+ * Structural device for this page: the record is filterable by sector, with
+ * counts on the controls. It is the one page where a visitor arrives with a
+ * question rather than to be persuaded, and a developer should not have to
+ * read five private houses to find the commercial work.
+ */
 export default function ProjectsPage() {
   return (
     <>
@@ -19,69 +28,60 @@ export default function ProjectsPage() {
         images={["/img/projects.jpg", "/img/hero/03.jpg", "/img/hero/01.jpg"]}
       />
 
-
-
-      <section className="panel-section">
-        <Container className="py-20 sm:py-28">
-          <ol>
-            {PROJECTS.map((project, i) => (
-              <Reveal
-                as="li"
-                key={project.slug}
-                delay={(i % 3) * 50}
-                className="block border-t border-rule last:border-b"
-              >
-                <article className="grid gap-6 py-10 lg:grid-cols-12 lg:gap-10">
-                  <Note className="text-accent lg:col-span-1">
-                    {String(i + 1).padStart(2, "0")}
-                  </Note>
-
-                  <div className="lg:col-span-4">
-                    <Note className="text-fg-subtle">{project.sector}</Note>
-                    <h2 className="mt-4 text-2xl leading-snug font-semibold tracking-[-0.016em] text-balance">
-                      {project.title}
-                    </h2>
-                    <p className="mt-3 text-sm font-semibold text-accent">
-                      {project.system}
-                    </p>
-                  </div>
-
-                  <div className="lg:col-span-7">
-                    <p className="max-w-2xl leading-relaxed text-fg-muted">
-                      {project.detail}
-                    </p>
-                    <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                      {project.highlights.map((h) => (
-                        <li key={h} className="flex items-center gap-2.5">
-                          <span
-                            aria-hidden
-                            className="h-1 w-1 rounded-full bg-brand-600"
-                          />
-                          <Note className="text-fg-subtle">{h}</Note>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </ol>
+      {/*
+        The confidentiality note. It had gone missing from this page, which
+        mattered: without it the anonymous entries read as vagueness rather
+        than as a deliberate position.
+      */}
+      <section className="surface-dark bg-mid">
+        <Container className="py-12 sm:py-14">
+          <Reveal>
+            <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
+              <Note className="text-fg-subtle lg:col-span-3">
+                On confidentiality
+              </Note>
+              <p className="max-w-3xl leading-relaxed text-fg-muted lg:col-span-9">
+                Client names are withheld throughout this record, and so are
+                the drawings. A firm that would publish somebody else&rsquo;s
+                documents to win your work would publish yours to win the next.
+                What follows describes the buildings and the engineering
+                instead, and the list is a selection rather than the whole
+                record.
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="surface-dark panel-dark bg-mid">
+      <section>
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionHead
-              label="Your project"
-              title="Bring us the drawing and the constraint."
-            />
-            <Link
-              href="/contact"
-              className="mt-12 inline-flex bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-            >
-              Contact us
-            </Link>
+            <ProjectRecord />
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="panel-section">
+        <Container className="py-16 sm:py-20">
+          <Reveal>
+            <div className="grid gap-10 lg:grid-cols-12">
+              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+                Bring us the drawing and the constraint.
+              </h2>
+              <div className="lg:col-span-5 lg:col-start-8">
+                <p className="leading-relaxed text-fg-muted">
+                  A load calculation, a full mechanical design, or a second
+                  opinion on somebody else&rsquo;s. Write to us and we will
+                  tell you plainly what is involved.
+                </p>
+                <Link
+                  href="/contact"
+                  className="ease-lux mt-8 inline-flex items-center rounded-[var(--radius-sm)] bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-700"
+                >
+                  Contact us
+                </Link>
+              </div>
+            </div>
           </Reveal>
         </Container>
       </section>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, Note, PageHero, SectionHead } from "@/components/ui";
+import { Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { SERVICES } from "@/lib/services";
 
@@ -28,71 +28,103 @@ const APPROACH = [
   },
 ];
 
+/**
+ * Consultancy.
+ *
+ * Structural device for this page: the three principles run as a numbered
+ * sequence with the numeral set enormous, one after another down the page,
+ * rather than as three equal cards side by side. Three equal boxes is the
+ * most deck-like arrangement there is, and these are an argument in order,
+ * not a menu of options.
+ */
 export default function ConsultancyPage() {
   return (
     <>
       <PageHero
         label="Consultancy and delivery"
         title="Mechanical systems as a driver of building value."
-        images={["/img/consultancy.jpg", "/img/hero/02.jpg", "/img/hero/05.jpg"]}
+        images={[
+          "/img/consultancy.jpg",
+          "/img/hero/02.jpg",
+          "/img/hero/05.jpg",
+        ]}
       />
 
       <section className="panel-section">
         <Container className="py-20 sm:py-28">
-          <Reveal>
-            <SectionHead
-              label="Services"
-              title="Three ways we work on your project."
-            />
-          </Reveal>
-
-          <ul className="mt-14">
-            {SERVICES.filter((s) => s.slug !== "training").map((service, i) => (
-              <Reveal
-                as="li"
-                key={service.slug}
-                delay={i * 60}
-                className="block border-t border-rule py-8 last:border-b"
-              >
-                <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
-                  <Note className="pt-2 text-accent lg:col-span-1">
-                    {service.index}
-                  </Note>
-                  <h2 className="text-2xl leading-tight font-semibold tracking-[-0.016em] lg:col-span-4">
-                    {service.title}
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32">
+                <Reveal>
+                  <Tab>Services</Tab>
+                  <h2 className="mt-8 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+                    Three ways we work on your project.
                   </h2>
-                  <p className="max-w-2xl leading-relaxed text-fg-muted lg:col-span-7">
-                    {service.summary}
+                  <p className="mt-6 leading-relaxed text-fg-muted">
+                    Design, delivery, and the oversight that keeps the two
+                    honest. Training sits alongside these rather than under
+                    them.
                   </p>
-                </div>
-              </Reveal>
-            ))}
-          </ul>
+                </Reveal>
+              </div>
+            </div>
+
+            <ul className="lg:col-span-7 lg:col-start-6">
+              {SERVICES.filter((s) => s.slug !== "training").map(
+                (service, i) => (
+                  <Reveal
+                    as="li"
+                    key={service.slug}
+                    delay={i * 60}
+                    className="block border-t border-rule py-8 last:border-b"
+                  >
+                    <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
+                      <Note className="pt-2 text-accent lg:col-span-1">
+                        {service.index}
+                      </Note>
+                      <h2 className="text-2xl leading-tight font-semibold tracking-[-0.016em] lg:col-span-4">
+                        {service.title}
+                      </h2>
+                      <p className="max-w-2xl leading-relaxed text-fg-muted lg:col-span-7">
+                        {service.summary}
+                      </p>
+                    </div>
+                  </Reveal>
+                ),
+              )}
+            </ul>
+          </div>
         </Container>
       </section>
 
-      <section className="surface-dark panel-dark bg-mid">
+      <section className="surface-dark bg-mid">
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionHead
-              label="How we work"
-              title="Three principles that decide every design."
-            />
+            <Tab>How we work</Tab>
+            <h2 className="mt-8 max-w-2xl text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+              Three principles that decide every design.
+            </h2>
+            <p className="mt-6 max-w-xl leading-relaxed text-fg-muted">
+              None of them are unusual. What is unusual is holding to them when
+              the programme is tight and somebody wants a number by Friday.
+            </p>
           </Reveal>
 
-          <ol className="mt-14 grid gap-px bg-white/12 lg:grid-cols-3">
+          <ol className="mt-16">
             {APPROACH.map((item, i) => (
               <Reveal
                 as="li"
                 key={item.index}
-                delay={i * 70}
-                className="block bg-mid py-8 lg:px-8"
+                delay={i * 80}
+                className="grid items-baseline gap-6 border-t border-rule py-12 last:border-b lg:grid-cols-12 lg:gap-12"
               >
-                <Note className="text-accent">{item.index}</Note>
-                <h3 className="mt-5 text-xl font-semibold tracking-tight">
+                <span className="font-mono text-[3rem] leading-none text-white/20 sm:text-[4.5rem] lg:col-span-2">
+                  {item.index}
+                </span>
+                <h3 className="text-xl font-semibold tracking-[-0.014em] lg:col-span-4 lg:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-fg-muted">
+                <p className="leading-relaxed text-fg-muted lg:col-span-6">
                   {item.body}
                 </p>
               </Reveal>
@@ -104,16 +136,23 @@ export default function ConsultancyPage() {
       <section>
         <Container className="py-20 sm:py-28">
           <Reveal>
-            <SectionHead
-              label="Get in touch"
-              title="Tell us about the building."
-            />
-            <Link
-              href="/contact"
-              className="mt-12 inline-flex bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-            >
-              Contact us
-            </Link>
+            <div className="grid gap-10 lg:grid-cols-12">
+              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+                Tell us about the building.
+              </h2>
+              <div className="lg:col-span-5 lg:col-start-8">
+                <p className="leading-relaxed text-fg-muted">
+                  Send us the scope, the drawings, or just the problem. We will
+                  come back with what is involved and what it will take.
+                </p>
+                <Link
+                  href="/contact"
+                  className="ease-lux mt-8 inline-flex items-center rounded-[var(--radius-sm)] bg-brand-600 px-7 py-4 text-sm font-semibold text-white transition-all duration-500 hover:bg-brand-700"
+                >
+                  Contact us
+                </Link>
+              </div>
+            </div>
           </Reveal>
         </Container>
       </section>
