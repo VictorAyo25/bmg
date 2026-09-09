@@ -86,8 +86,17 @@ band, white again, then a dark close. White is their reading surface. Their
 brand colour is the accent on it. Dark is reserved for the hero, one band and
 the footer.
 
-BMG now runs the same rhythm and measures dark for the first 24 percent, white
-for 50, dark for the last 20.
+**Their device was then tried here and rejected.** Full bleed white bands were
+built, and the cut from a photographic blue straight into flat white is an 11:1
+luminance jump with nothing mediating it. It read as two sites stitched
+together. Mar&Mor get away with alternating bands because their dark is nearly
+black and their sections ease through greys first. This palette does not.
+
+**What works here is the flyers' own device: a white panel floating on blue.**
+Blue runs continuously behind and frames the panel on all four sides, so white
+becomes a deliberate object rather than an interruption, and the brand field is
+never cut off. That is why `surface-light` is inset with a margin and a shadow
+rather than being full width. Do not make it full bleed again.
 
 **The rule: anything a visitor studies at length or compares goes on white.**
 Curriculum, project schedules, service detail, the About narrative, the

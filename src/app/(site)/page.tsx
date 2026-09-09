@@ -171,7 +171,7 @@ export default function Home() {
         row, which is easiest on white, and this was the third blue tinted
         image in a row. Removing it is what lets the two that remain land.
       */}
-      <section className="surface-light border-b border-rule">
+      <section className="surface-light">
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <SectionHead

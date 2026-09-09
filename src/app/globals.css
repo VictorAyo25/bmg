@@ -387,6 +387,18 @@ html.js [data-reveal] {
     --danger-c: #fca5a5;
   }
 
+  /*
+   * A white panel floating on blue, which is what the BMG flyers actually do.
+   *
+   * The first attempt made these full bleed bands, and the cut from a
+   * photographic blue straight into flat white was an 11:1 luminance jump
+   * with nothing mediating it. It read as two sites stitched together.
+   *
+   * Inset instead. Blue runs continuously behind and frames the panel on all
+   * four sides, so white becomes a deliberate object rather than an
+   * interruption. The shadow does the separating that the hard edge was
+   * failing to do.
+   */
   .surface-light {
     --fg: #0c2340;
     --fg-muted: #3a566f;
@@ -398,6 +410,18 @@ html.js [data-reveal] {
 
     background-color: #fff;
     color: var(--fg);
+
+    width: min(100% - 2rem, 98rem);
+    margin-inline: auto;
+    margin-block: 2.5rem;
+    box-shadow: 0 32px 80px -34px rgb(2 12 30 / 0.6);
+  }
+
+  @media (min-width: 640px) {
+    .surface-light {
+      width: min(100% - 4rem, 98rem);
+      margin-block: 4rem;
+    }
   }
 }
 
