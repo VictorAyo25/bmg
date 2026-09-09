@@ -301,10 +301,12 @@ ship the full JPEG to a phone.
 
 ## Still open
 
-- **The portrait is now in**, on the About page, in a block of its own. It is
-  the only genuinely real photograph on the site, so it is not buried in a
-  column beside a drawing. Still needed: Favour s job title for the caption,
-  which currently reads name plus company only rather than inventing one.
+- **The portrait is on the About page**, beside the existing narrative. It
+  first went in with a block of invented copy about company size, which the
+  client rejected. Worth remembering: a photograph does not need an essay
+  written to justify it, and inventing positioning nobody asked for is a
+  reliable way to get a change reverted. Still needed: Favour s job title for
+  the caption, which reads name plus company rather than a guessed one.
 - **Photography.** Licensed stock is now in place as atmosphere, which closes
   the gap but does not fill it. Real project imagery, or Revit exports from
   Favour's own models, would replace it and would let the images finally carry

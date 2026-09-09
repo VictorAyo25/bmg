@@ -27,6 +27,23 @@ export default function AboutPage() {
         <Container className="py-20 sm:py-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-5">
+              <figure className="mb-10">
+                <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius)] bg-brand-50">
+                  <Image
+                    src="/founder.jpg"
+                    alt="Favour Olayode of BMG Engineering Limited"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 26rem"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <figcaption className="mt-4 flex items-baseline justify-between border-t border-rule pt-4">
+                  <span className="font-semibold">Favour Olayode</span>
+                  {/* TODO: add the job title once confirmed. */}
+                  <Note className="text-fg-subtle">BMG Engineering</Note>
+                </figcaption>
+              </figure>
+
               <MepPlan className="w-full text-fg-muted" />
               <p className="mt-5 border-t border-rule pt-4">
                 <Note className="text-fg-subtle">
@@ -92,10 +109,7 @@ export default function AboutPage() {
               ["Disciplines", "Mechanical, electrical, plumbing"],
               ["Contact", CONTACT.email],
             ].map(([label, value]) => (
-              <div
-                key={label}
-                className="border-t border-rule py-8 sm:px-8"
-              >
+              <div key={label} className="border-t border-rule py-8 sm:px-8">
                 <dt>
                   <Note className="text-fg-subtle">{label}</Note>
                 </dt>
@@ -103,54 +117,6 @@ export default function AboutPage() {
               </div>
             ))}
           </dl>
-        </Container>
-      </section>
-
-      {/*
-        The one genuinely real photograph on the site. Everything else is
-        licensed atmosphere, so this earns a block of its own rather than
-        being dropped into a column beside a drawing.
-      */}
-      <section className="panel-section">
-        <Container className="py-16 sm:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-            <Reveal className="lg:col-span-4">
-              <figure>
-                <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius)] bg-brand-50">
-                  <Image
-                    src="/founder.jpg"
-                    alt="Favour Olayode of BMG Engineering Limited"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 24rem"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <figcaption className="mt-4 flex items-baseline justify-between border-t border-rule pt-4">
-                  <span className="font-semibold">Favour Olayode</span>
-                  {/* TODO: confirm the job title to run alongside the name. */}
-                  <Note className="text-fg-subtle">BMG Engineering</Note>
-                </figcaption>
-              </figure>
-            </Reveal>
-
-            <Reveal delay={90} className="lg:col-span-7 lg:col-start-6">
-              <Note className="text-accent">Who you deal with</Note>
-              <h2 className="mt-6 text-[1.75rem] leading-[1.12] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
-                Small enough that the person who answers is the person who
-                designs.
-              </h2>
-              <p className="mt-6 leading-relaxed text-fg-muted">
-                There is no account manager between you and the engineering. An
-                enquiry is read by somebody who can tell you straight away
-                whether the thing you are asking for is sensible, what it will
-                involve, and where the cost actually sits.
-              </p>
-              <p className="mt-4 leading-relaxed text-fg-muted">
-                That is a deliberate limit on how much work we take at once,
-                and it is the reason the answers are worth having.
-              </p>
-            </Reveal>
-          </div>
         </Container>
       </section>
 
