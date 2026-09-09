@@ -73,7 +73,7 @@ export function SectionHead({
           {title}
         </h2>
         {lead && (
-          <p className="leading-relaxed text-white/75 lg:col-span-4 lg:col-start-9 lg:pt-2">
+          <p className="leading-relaxed text-fg-muted lg:col-span-4 lg:col-start-9 lg:pt-2">
             {lead}
           </p>
         )}
@@ -95,7 +95,7 @@ export function Button({
   const looks = {
     solid: "bg-brand-600 text-white edge-lit-strong hover:bg-brand-700",
     outline:
-      "border border-white/30 text-white hover:border-white/55 hover:bg-white/10",
+      "border border-rule-strong text-fg hover:bg-tint",
   } as const;
 
   return (
@@ -127,7 +127,7 @@ export function PageHero({
   const bgImages = images || (image ? [image] : []);
 
   return (
-    <section className="relative overflow-hidden border-b border-white/12">
+    <section className="relative overflow-hidden border-b border-rule">
       {bgImages.length > 0 && <BackgroundSlideshow images={bgImages} />}
 
       <div
@@ -142,7 +142,7 @@ export function PageHero({
           </h1>
           {lead && (
             <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
-              <p className="text-lg leading-relaxed text-white/80">{lead}</p>
+              <p className="text-lg leading-relaxed text-fg-muted">{lead}</p>
             </div>
           )}
         </div>

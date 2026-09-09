@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-mid border-b border-white/12">
+      <section className="bg-mid border-b border-rule">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -23,15 +23,15 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section>
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-5">
               <Reveal>
                 <div className="space-y-8">
                   <div>
-                    <Note className="text-white/70">Email</Note>
-                    <p className="mt-2 text-lg text-white">
+                    <Note className="text-fg-subtle">Email</Note>
+                    <p className="mt-2 text-lg text-fg">
                       <a
                         href={CONTACT.mailto}
                         className="hover:text-brand-500 transition-colors"
@@ -41,8 +41,8 @@ export default function ContactPage() {
                     </p>
                   </div>
                   <div>
-                    <Note className="text-white/70">Telephone</Note>
-                    <p className="mt-2 text-lg text-white">
+                    <Note className="text-fg-subtle">Telephone</Note>
+                    <p className="mt-2 text-lg text-fg">
                       <a
                         href={CONTACT.tel}
                         className="hover:text-brand-500 transition-colors"

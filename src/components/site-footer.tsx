@@ -12,16 +12,16 @@ function Cell({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-t border-white/12 px-0 py-6 sm:px-8">
-      <Note className="text-white/70">{label}</Note>
-      <div className="mt-3 text-sm text-white/80">{children}</div>
+    <div className="border-t border-rule px-0 py-6 sm:px-8">
+      <Note className="text-fg-subtle">{label}</Note>
+      <div className="mt-3 text-sm text-fg-muted">{children}</div>
     </div>
   );
 }
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/12 bg-mid">
+    <footer className="border-t border-rule bg-mid">
       <div className="mx-auto max-w-[92rem] px-5 sm:px-8">
         <div className="flex flex-col gap-10 py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -50,7 +50,7 @@ export function SiteFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-white/80 transition-colors hover:text-white"
+                    className="text-fg-muted transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -61,7 +61,7 @@ export function SiteFooter() {
           <Cell label="Email">
             <a
               href={CONTACT.mailto}
-              className="break-all text-white/80 transition-colors hover:text-white"
+              className="break-all text-fg-muted transition-colors hover:text-white"
             >
               {CONTACT.email}
             </a>
@@ -69,22 +69,22 @@ export function SiteFooter() {
           <Cell label="Telephone">
             <a
               href={CONTACT.tel}
-              className="text-white/80 transition-colors hover:text-white"
+              className="text-fg-muted transition-colors hover:text-white"
             >
               {CONTACT.phone}
             </a>
           </Cell>
           <Cell label="Registration">
-            <span className="text-white/80">RC {COMPANY.rcNumber}</span>
+            <span className="text-fg-muted">RC {COMPANY.rcNumber}</span>
           </Cell>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/12 py-7 sm:flex-row sm:items-center sm:justify-between">
-          <Note className="text-white/70">
+        <div className="flex flex-col gap-3 border-t border-rule py-7 sm:flex-row sm:items-center sm:justify-between">
+          <Note className="text-fg-subtle">
             &copy; {new Date().getFullYear()} {COMPANY.legalName}
           </Note>
           <div className="flex items-center gap-6">
-            <Note className="text-white/70">All rights reserved</Note>
+            <Note className="text-fg-subtle">All rights reserved</Note>
           </div>
         </div>
       </div>

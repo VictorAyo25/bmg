@@ -19,7 +19,7 @@ export default function TrainingPage() {
         images={["/img/training.jpg", "/img/hero/04.jpg", "/img/hero/02.jpg"]}
       />
 
-      <section className="border-b border-white/12 bg-mid">
+      <section className="border-b border-rule bg-mid">
         <Container>
           <dl className="grid sm:grid-cols-3">
             {[
@@ -31,12 +31,12 @@ export default function TrainingPage() {
                 key={label}
                 className={`py-8 sm:px-8 ${
                   i > 0
-                    ? "border-t border-white/12 sm:border-t-0 sm:border-l"
+                    ? "border-t border-rule sm:border-t-0 sm:border-l"
                     : ""
                 }`}
               >
                 <dt>
-                  <Note className="text-white/70">{label}</Note>
+                  <Note className="text-fg-subtle">{label}</Note>
                 </dt>
                 <dd className="mt-3 text-xl font-semibold">{value}</dd>
               </div>
@@ -45,7 +45,7 @@ export default function TrainingPage() {
         </Container>
       </section>
 
-      <section>
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -60,21 +60,21 @@ export default function TrainingPage() {
                 as="li"
                 key={m.index}
                 delay={i * 40}
-                className="block border-t border-white/12 py-8 last:border-b"
+                className="block border-t border-rule py-8 last:border-b"
               >
                 <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
-                  <Note className="pt-2 text-sky lg:col-span-1">{m.index}</Note>
+                  <Note className="pt-2 text-accent lg:col-span-1">{m.index}</Note>
                   <div className="lg:col-span-4">
                     <h2 className="text-xl font-semibold tracking-tight lg:text-2xl">
                       {m.title}
                     </h2>
                     {m.tools && (
                       <p className="mt-3">
-                        <Note className="text-sky">{m.tools}</Note>
+                        <Note className="text-accent">{m.tools}</Note>
                       </p>
                     )}
                   </div>
-                  <p className="leading-relaxed text-white/75 lg:col-span-7">
+                  <p className="leading-relaxed text-fg-muted lg:col-span-7">
                     {m.description}
                   </p>
                 </div>
@@ -99,12 +99,12 @@ export default function TrainingPage() {
                 {AUDIENCE.map((who, i) => (
                   <li
                     key={who}
-                    className="flex items-baseline gap-5 border-t border-white/12 py-4 last:border-b"
+                    className="flex items-baseline gap-5 border-t border-rule py-4 last:border-b"
                   >
-                    <Note className="text-sky">
+                    <Note className="text-accent">
                       {String(i + 1).padStart(2, "0")}
                     </Note>
-                    <span className="text-white/85">{who}</span>
+                    <span className="text-fg-muted">{who}</span>
                   </li>
                 ))}
               </ul>
@@ -115,10 +115,10 @@ export default function TrainingPage() {
                 <Reveal
                   key={o.title}
                   delay={i * 60}
-                  className="block border-t border-white/12 py-6 last:border-b"
+                  className="block border-t border-rule py-6 last:border-b"
                 >
                   <h3 className="text-lg font-semibold">{o.title}</h3>
-                  <p className="mt-3 leading-relaxed text-white/75">{o.body}</p>
+                  <p className="mt-3 leading-relaxed text-fg-muted">{o.body}</p>
                 </Reveal>
               ))}
             </div>
@@ -134,7 +134,7 @@ export default function TrainingPage() {
                 Places are limited, and the group is kept small on purpose.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">
-                <p className="leading-relaxed text-white/75">
+                <p className="leading-relaxed text-fg-muted">
                   Write to us for the next intake, the fee and how payment
                   works. You will hear back from an engineer who can answer
                   questions about the curriculum itself.

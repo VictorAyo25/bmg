@@ -21,7 +21,7 @@ export default function ProjectsPage() {
 
 
 
-      <section>
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <ol>
             {PROJECTS.map((project, i) => (
@@ -29,25 +29,25 @@ export default function ProjectsPage() {
                 as="li"
                 key={project.slug}
                 delay={(i % 3) * 50}
-                className="block border-t border-white/12 last:border-b"
+                className="block border-t border-rule last:border-b"
               >
                 <article className="grid gap-6 py-10 lg:grid-cols-12 lg:gap-10">
-                  <Note className="text-sky lg:col-span-1">
+                  <Note className="text-accent lg:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </Note>
 
                   <div className="lg:col-span-4">
-                    <Note className="text-white/70">{project.sector}</Note>
+                    <Note className="text-fg-subtle">{project.sector}</Note>
                     <h2 className="mt-4 text-2xl leading-snug font-bold tracking-[-0.02em] text-balance">
                       {project.title}
                     </h2>
-                    <p className="mt-3 text-sm font-semibold text-sky">
+                    <p className="mt-3 text-sm font-semibold text-accent">
                       {project.system}
                     </p>
                   </div>
 
                   <div className="lg:col-span-7">
-                    <p className="max-w-2xl leading-relaxed text-white/80">
+                    <p className="max-w-2xl leading-relaxed text-fg-muted">
                       {project.detail}
                     </p>
                     <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                             aria-hidden
                             className="h-1 w-1 rounded-full bg-brand-600"
                           />
-                          <Note className="text-white/70">{h}</Note>
+                          <Note className="text-fg-subtle">{h}</Note>
                         </li>
                       ))}
                     </ul>

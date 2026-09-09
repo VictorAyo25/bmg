@@ -20,7 +20,7 @@ export default function Home() {
         underneath, the drawing sits alongside as evidence rather than as a
         rival, and the four services anchor the bottom as one quiet strip.
       */}
-      <section className="relative overflow-hidden border-b border-white/12">
+      <section className="relative overflow-hidden border-b border-rule">
         <HeroSlideshow />
 
         <div
@@ -42,7 +42,7 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
+                <p className="mt-8 max-w-xl text-lg leading-relaxed text-fg-muted">
                   Mechanical, electrical and plumbing, from load calculation
                   through to handover. And we train the engineers who do it.
                 </p>
@@ -60,25 +60,25 @@ export default function Home() {
 
             {/* The drawing sits on the field itself, not in a card. */}
             <Reveal delay={140} className="lg:col-span-6">
-              <MepPlan className="w-full text-white/80" />
+              <MepPlan className="w-full text-fg-muted" />
             </Reveal>
           </div>
         </Container>
 
         {/* Services strip, anchoring the composition. */}
-        <div className="border-t border-white/12">
+        <div className="border-t border-rule">
           <Container>
             <ul className="grid sm:grid-cols-2 lg:grid-cols-4">
               {SERVICES.map((service, i) => (
                 <li
                   key={service.slug}
-                  className="border-b border-white/10 sm:border-b-0 lg:border-l lg:border-white/10 lg:first:border-l-0"
+                  className="border-b border-rule sm:border-b-0 lg:border-l lg:border-rule lg:first:border-l-0"
                 >
                   <Link
                     href={service.href}
-                    className="flex items-baseline gap-4 px-0 py-5 transition-colors hover:text-sky lg:px-6"
+                    className="flex items-baseline gap-4 px-0 py-5 transition-colors hover:text-accent lg:px-6"
                   >
-                    <Note className="text-sky">
+                    <Note className="text-accent">
                       {String(i + 1).padStart(2, "0")}
                     </Note>
                     <span className="font-semibold">{service.title}</span>
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* Statement */}
-      <section className="relative overflow-hidden border-b border-white/12">
+      <section className="relative overflow-hidden border-b border-rule">
         <Image
           src="/img/statement.jpg"
           alt=""
@@ -108,15 +108,15 @@ export default function Home() {
           <Reveal>
             <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.2] font-bold tracking-[-0.028em] text-balance sm:text-[2.75rem]">
               Most buildings are cooled by systems{" "}
-              <span className="text-sky">nobody calculated.</span> Every
+              <span className="text-accent">nobody calculated.</span> Every
               uncomfortable room was a decision somebody made at design stage.
             </p>
           </Reveal>
         </Container>
       </section>
 
-      {/* Training */}
-      <section>
+      {/* Training. White, because six modules is reading, not atmosphere. */}
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -124,7 +124,7 @@ export default function Home() {
               title={
                 <>
                   {PROGRAMME.name}.
-                  <span className="mt-3 block text-sky">
+                  <span className="mt-3 block text-accent">
                     {PROGRAMME.promise}
                   </span>
                 </>
@@ -138,19 +138,19 @@ export default function Home() {
                 as="li"
                 key={m.index}
                 delay={i * 40}
-                className="grid gap-3 border-t border-white/12 py-6 last:border-b sm:grid-cols-12 sm:gap-6"
+                className="grid gap-3 border-t border-rule py-6 last:border-b sm:grid-cols-12 sm:gap-6"
               >
-                <Note className="pt-2 text-sky sm:col-span-1">{m.index}</Note>
+                <Note className="pt-2 text-accent sm:col-span-1">{m.index}</Note>
                 <h3 className="text-xl font-semibold tracking-tight sm:col-span-4">
                   {m.title}
                 </h3>
                 <div className="sm:col-span-7">
-                  <p className="leading-relaxed text-white/75">
+                  <p className="leading-relaxed text-fg-muted">
                     {m.description}
                   </p>
                   {m.tools && (
                     <p className="mt-3">
-                      <Note className="text-sky">{m.tools}</Note>
+                      <Note className="text-accent">{m.tools}</Note>
                     </p>
                   )}
                 </div>
@@ -166,20 +166,12 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Work */}
-      <section className="relative overflow-hidden border-b border-white/12">
-        <Image
-          src="/img/projects.jpg"
-          alt=""
-          aria-hidden
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-deep/80"
-        />
+      {/*
+        Work. White, and no photograph. A schedule is compared row against
+        row, which is easiest on white, and this was the third blue tinted
+        image in a row. Removing it is what lets the two that remain land.
+      */}
+      <section className="surface-light border-b border-rule">
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -189,24 +181,24 @@ export default function Home() {
           </Reveal>
 
           <div className="mt-14">
-            <ul className="border-t border-white/12">
+            <ul className="border-t border-rule">
               {PROJECTS.map((p, i) => (
                 <Reveal
                   as="li"
                   delay={i * 40}
                   key={p.slug}
-                  className="grid gap-3 border-b border-white/12 py-6 sm:grid-cols-12 sm:gap-6 lg:items-baseline"
+                  className="grid gap-3 border-b border-rule py-6 sm:grid-cols-12 sm:gap-6 lg:items-baseline"
                 >
-                  <Note className="text-sky lg:col-span-1">
+                  <Note className="text-accent lg:col-span-1">
                     {String(i + 1).padStart(2, "0")}
                   </Note>
-                  <span className="text-xl font-semibold tracking-tight lg:col-span-4 text-white">
+                  <span className="text-xl font-semibold tracking-tight lg:col-span-4 text-fg">
                     {p.title}
                   </span>
-                  <span className="text-white/75 lg:col-span-3">
+                  <span className="text-fg-muted lg:col-span-3">
                     {p.system}
                   </span>
-                  <Note className="text-sky lg:col-span-4">{p.sector}</Note>
+                  <Note className="text-accent lg:col-span-4">{p.sector}</Note>
                 </Reveal>
               ))}
             </ul>
@@ -243,7 +235,7 @@ export default function Home() {
                 </h2>
               </div>
               <div className="lg:col-span-4 lg:col-start-9">
-                <p className="leading-relaxed text-white/75">
+                <p className="leading-relaxed text-fg-muted">
                   Every enquiry reaches an engineer. Write
                   to us and you will get a considered answer.
                 </p>
@@ -256,7 +248,7 @@ export default function Home() {
                   </Link>
                   <a
                     href={CONTACT.tel}
-                    className="border border-white/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-white/10"
+                    className="border border-rule-strong px-7 py-4 text-sm font-semibold transition-colors hover:bg-tint"
                   >
                     {CONTACT.phone}
                   </a>

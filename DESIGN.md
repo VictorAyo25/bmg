@@ -34,13 +34,19 @@ nothing.
 Earlier navy values eyeballed off the flyers were wrong. Vectors were traced
 from the raster logos and live in `brand/`.
 
-**Blue is the substrate, not the accent.** This is the single most important
-visual rule. The flyers use deep navy fields, bright blue panels and white
-cards floating on blue. Three earlier attempts failed review because they were
-white, cream or black pages with a blue trim, which read as generic. The theme
-tokens are `--color-deep` for the page, `--color-mid` for alternate bands,
-`brand-600` for fills, `--color-sky` for display text that needs to clear
-contrast on deep.
+**Blue is the substrate, not the accent.** The flyers use deep navy fields,
+bright blue panels and white cards floating on blue. Three earlier attempts
+failed review because they were white, cream or black pages with a blue trim,
+which read as generic. The theme tokens are `--color-deep` for the page,
+`--color-mid` for alternate bands, `brand-600` for fills, `--color-sky` for
+display text that needs to clear contrast on deep.
+
+**This was later refined rather than reversed. Read the Surfaces section
+below before acting on the paragraph above.** Blue remained the substrate for
+too long: with every band blue, there was nothing for it to assert against and
+the client reported the site as relentless. Blue still owns the hero, the
+punctuation bands, the close and the footer. It no longer owns the pages a
+visitor reads. Making the body white is what gives the blue its force back.
 
 The field has been lightened twice at the client's request, ending at
 `--color-deep` `#103a6f` and `--color-mid` `#17529c`, from `#062147` and
@@ -67,6 +73,43 @@ field is lightened further the images should be regraded to match.
 On contrast: `#097CCD` measures 4.48:1 on near black and 3.85:1 on warm paper,
 both below the 4.5:1 needed for body text. Display type and fills use the logo
 blue itself, where 3:1 applies. Small text on dark uses `sky`.
+
+## Surfaces: blue asserts, white reads
+
+The site was blue from top to bottom and the client reported it as relentless.
+The fix was not less blue, it was giving blue something to be measured against.
+
+The reference the client keeps citing, marandmor.com, was measured rather than
+guessed at. Sampling its background luminance down the page gives: dark hero
+for the first 16 percent, then **white for 43 percent**, one dark punctuation
+band, white again, then a dark close. White is their reading surface. Their
+brand colour is the accent on it. Dark is reserved for the hero, one band and
+the footer.
+
+BMG now runs the same rhythm and measures dark for the first 24 percent, white
+for 50, dark for the last 20.
+
+**The rule: anything a visitor studies at length or compares goes on white.**
+Curriculum, project schedules, service detail, the About narrative, the
+enquiry form. Blue keeps the hero, one punctuation band per page, the close
+and the footer.
+
+Sections do not restyle their children. Everything reads from variables, so a
+section becomes light by adding `surface-light` and nothing else changes.
+`--fg`, `--fg-muted`, `--fg-subtle`, `--accent-c`, `--rule-c`,
+`--rule-strong-c`, `--tint-c`, `--danger-c`.
+
+Light values measured against `#ffffff`: fg `#0c2340` at 15.79:1, fg-muted
+`#3a566f` at 7.66:1, fg-subtle `#5c7893` at 4.60:1, accent `#0a62a5` at 6.36:1.
+
+**The accent differs by surface on purpose.** The logo blue `#097CCD` only
+reaches 4.40:1 on white and fails for body text, so light surfaces use
+brand-700 for anything small. The logo blue is still correct for large display
+type, which only needs 3:1.
+
+The home Work section also lost its background photograph. It was the third
+blue tinted image in a row, and a schedule is compared row against row rather
+than felt. Removing it is what lets the images that remain register at all.
 
 ## Type
 

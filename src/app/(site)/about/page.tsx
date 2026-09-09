@@ -22,13 +22,13 @@ export default function AboutPage() {
         images={["/img/about.jpg", "/img/hero/01.jpg", "/img/hero/04.jpg"]}
       />
 
-      <section>
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-5">
-              <MepPlan className="w-full text-white/75" />
-              <p className="mt-5 border-t border-white/12 pt-4">
-                <Note className="text-white/70">
+              <MepPlan className="w-full text-fg-muted" />
+              <p className="mt-5 border-t border-rule pt-4">
+                <Note className="text-fg-subtle">
                   Typical air side layout, supply and return
                 </Note>
               </p>
@@ -36,14 +36,14 @@ export default function AboutPage() {
 
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal>
-                <Note className="text-sky">Why we exist</Note>
+                <Note className="text-accent">Why we exist</Note>
                 <h2 className="mt-7 text-[2rem] leading-[1.08] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
                   Most buildings are cooled by systems nobody calculated.
                 </h2>
               </Reveal>
 
               <Reveal delay={80}>
-                <div className="mt-8 space-y-6 text-lg leading-relaxed text-white/80">
+                <div className="mt-8 space-y-6 text-lg leading-relaxed text-fg-muted">
                   <p>
                     There is a gap in this industry between an architect&rsquo;s
                     drawing and a building that works. It gets filled by rules
@@ -68,7 +68,7 @@ export default function AboutPage() {
               </Reveal>
 
               <Reveal delay={140}>
-                <p className="mt-10 border-t border-white/12 pt-8 text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] text-sky sm:text-[1.75rem]">
+                <p className="mt-10 border-t border-rule pt-8 text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] text-accent sm:text-[1.75rem]">
                   {COMPANY.tagline}
                 </p>
               </Reveal>
@@ -77,7 +77,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-white/12 bg-mid">
+      <section className="border-y border-rule bg-mid">
         <Container>
           <dl className="grid sm:grid-cols-2 lg:grid-cols-3">
             {[
@@ -93,10 +93,10 @@ export default function AboutPage() {
             ].map(([label, value]) => (
               <div
                 key={label}
-                className="border-t border-white/12 py-8 sm:px-8"
+                className="border-t border-rule py-8 sm:px-8"
               >
                 <dt>
-                  <Note className="text-white/70">{label}</Note>
+                  <Note className="text-fg-subtle">{label}</Note>
                 </dt>
                 <dd className="mt-3 break-words">{value}</dd>
               </div>
@@ -113,7 +113,7 @@ export default function AboutPage() {
                 That is the standard we work to. Hold us to it.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">
-                <p className="leading-relaxed text-white/75">
+                <p className="leading-relaxed text-fg-muted">
                   Send us a drawing, a scope, or a problem you have not been
                   able to solve. We will tell you plainly what is involved and
                   what it will take.
@@ -128,7 +128,7 @@ export default function AboutPage() {
                   </Link>
                   <a
                     href={CONTACT.tel}
-                    className="border border-white/30 px-7 py-4 text-sm font-semibold transition-colors hover:bg-white/10"
+                    className="border border-rule-strong px-7 py-4 text-sm font-semibold transition-colors hover:bg-tint"
                   >
                     {CONTACT.phone}
                   </a>

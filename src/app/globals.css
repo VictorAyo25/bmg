@@ -354,3 +354,92 @@ html.js [data-reveal] {
   animation: reveal-in 0.85s var(--ease-lux) both;
   animation-delay: var(--reveal-delay, 0ms);
 }
+
+/* ------------------------------------------------------------------ */
+/* Surfaces                                                            */
+/* ------------------------------------------------------------------ */
+
+/**
+ * The site runs two surfaces, and components should not care which one they
+ * are on. Everything reads its colour from these variables, so a section
+ * becomes light by adding one class rather than by rewriting its children.
+ *
+ * The rule the design follows: blue asserts, white reads. Blue carries the
+ * hero, one punctuation band per page, and the close. Anything a visitor
+ * studies at length or compares, a curriculum, a project schedule, a form,
+ * sits on white where reading is easiest.
+ *
+ * Every light value below is measured against #ffffff:
+ *   fg 15.79:1, fg-muted 7.66:1, fg-subtle 4.60:1, accent 6.36:1.
+ *
+ * Note the accent. The logo blue #097CCD only reaches 4.40:1 on white and
+ * fails for body text, so light surfaces use brand-700 for anything small.
+ * The logo blue is still correct for large display type, which needs 3:1.
+ */
+@layer base {
+  :root {
+    --fg: #ffffff;
+    --fg-muted: rgb(255 255 255 / 0.8);
+    --fg-subtle: rgb(255 255 255 / 0.7);
+    --rule-c: rgb(255 255 255 / 0.12);
+    --rule-strong-c: rgb(255 255 255 / 0.3);
+    --accent-c: var(--color-sky);
+    --danger-c: #fca5a5;
+  }
+
+  .surface-light {
+    --fg: #0c2340;
+    --fg-muted: #3a566f;
+    --fg-subtle: #5c7893;
+    --rule-c: rgb(12 35 64 / 0.14);
+    --rule-strong-c: rgb(12 35 64 / 0.28);
+    --accent-c: #0a62a5;
+    --danger-c: #b91c1c;
+
+    background-color: #fff;
+    color: var(--fg);
+  }
+}
+
+@utility text-fg {
+  color: var(--fg);
+}
+
+@utility text-fg-muted {
+  color: var(--fg-muted);
+}
+
+@utility text-fg-subtle {
+  color: var(--fg-subtle);
+}
+
+@utility text-accent {
+  color: var(--accent-c);
+}
+
+@utility text-danger {
+  color: var(--danger-c);
+}
+
+@utility border-rule {
+  border-color: var(--rule-c);
+}
+
+@utility border-rule-strong {
+  border-color: var(--rule-strong-c);
+}
+
+/* Hover wash that follows the surface rather than always being white. */
+@layer base {
+  :root {
+    --tint-c: rgb(255 255 255 / 0.1);
+  }
+
+  .surface-light {
+    --tint-c: rgb(12 35 64 / 0.05);
+  }
+}
+
+@utility bg-tint {
+  background-color: var(--tint-c);
+}

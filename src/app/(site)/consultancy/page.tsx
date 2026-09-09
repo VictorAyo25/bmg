@@ -37,7 +37,7 @@ export default function ConsultancyPage() {
         images={["/img/consultancy.jpg", "/img/hero/02.jpg", "/img/hero/05.jpg"]}
       />
 
-      <section>
+      <section className="surface-light">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -52,16 +52,16 @@ export default function ConsultancyPage() {
                 as="li"
                 key={service.slug}
                 delay={i * 60}
-                className="block border-t border-white/12 py-8 last:border-b"
+                className="block border-t border-rule py-8 last:border-b"
               >
                 <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
-                  <Note className="pt-2 text-sky lg:col-span-1">
+                  <Note className="pt-2 text-accent lg:col-span-1">
                     {service.index}
                   </Note>
                   <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] lg:col-span-4">
                     {service.title}
                   </h2>
-                  <p className="max-w-2xl leading-relaxed text-white/80 lg:col-span-7">
+                  <p className="max-w-2xl leading-relaxed text-fg-muted lg:col-span-7">
                     {service.summary}
                   </p>
                 </div>
@@ -88,11 +88,11 @@ export default function ConsultancyPage() {
                 delay={i * 70}
                 className="block bg-mid py-8 lg:px-8"
               >
-                <Note className="text-sky">{item.index}</Note>
+                <Note className="text-accent">{item.index}</Note>
                 <h3 className="mt-5 text-xl font-semibold tracking-tight">
                   {item.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-white/75">
+                <p className="mt-4 leading-relaxed text-fg-muted">
                   {item.body}
                 </p>
               </Reveal>

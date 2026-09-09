@@ -4,9 +4,9 @@ import { useState } from "react";
 import { CONTACT } from "@/lib/site";
 
 const FIELD =
-  "mt-2 w-full border border-white/20 bg-deep px-4 py-3 text-white placeholder:text-white/55 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 focus:outline-none disabled:opacity-60";
+  "mt-2 w-full border border-rule-strong bg-transparent px-4 py-3 text-fg placeholder:text-fg-subtle focus:border-brand-500 focus:ring-1 focus:ring-brand-500 focus:outline-none disabled:opacity-60";
 
-const LABEL = "block text-sm font-semibold text-white/80";
+const LABEL = "block text-sm font-semibold text-fg-muted";
 
 type State = "idle" | "sending" | "sent" | "error";
 
@@ -55,14 +55,14 @@ export function EnquiryForm() {
         className="border border-brand-500/40 bg-brand-600/10 p-8"
       >
         <p className="text-xl font-semibold">Thank you, that has reached us.</p>
-        <p className="mt-3 leading-relaxed text-white/75">
+        <p className="mt-3 leading-relaxed text-fg-muted">
           An engineer will read it and reply to you directly. If it is urgent,
           call {CONTACT.phone}.
         </p>
         <button
           type="button"
           onClick={() => setState("idle")}
-          className="mt-6 text-sm font-semibold text-sky underline underline-offset-4"
+          className="mt-6 text-sm font-semibold text-accent underline underline-offset-4"
         >
           Send another message
         </button>
@@ -156,7 +156,7 @@ export function EnquiryForm() {
       {error && (
         <p
           role="alert"
-          className="border-l-2 border-red-400 pl-4 text-sm text-red-200"
+          className="border-l-2 border-danger pl-4 text-sm text-danger"
         >
           {error}
         </p>
@@ -170,11 +170,11 @@ export function EnquiryForm() {
         >
           {busy ? "Sending" : "Send message"}
         </button>
-        <p className="text-sm text-white/70">
+        <p className="text-sm text-fg-subtle">
           Or email{" "}
           <a
             href={CONTACT.mailto}
-            className="underline underline-offset-4 hover:text-white"
+            className="underline underline-offset-4 hover:text-fg"
           >
             {CONTACT.email}
           </a>
