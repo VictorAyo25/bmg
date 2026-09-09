@@ -182,6 +182,35 @@ what matter:
 - Weight is the budget. Most visitors arrive from a WhatsApp link on mobile
   data, so animation that costs bytes has to earn them.
 
+## Why the page is not a slide deck
+
+The client said the pages read like a slide deck rather than a website, and
+that was accurate. Worse, it was caused by an earlier fix: once every section
+became a rounded card of similar height holding a heading and a list, the page
+was literally a stack of slides.
+
+**A deck is uniform bands, one idea each, same height, same padding, stacked,
+nothing overlapping, nothing responding.** A page is none of those things.
+
+So sections must differ from their neighbours on purpose. On the home page:
+full bleed hero, then a thin band travelling sideways, then an asymmetric
+split, then a tall quiet centred image, then a card with a sticky column, then
+an interactive list, then a short numeric band, then a light close.
+
+Three devices carry most of the difference, and none should be removed without
+replacing them with something equivalent:
+
+- **The marquee.** Everything else moves down the page. One element moving
+  sideways is what stops it reading as a sequence.
+- **The sticky column.** The programme heading holds while its modules scroll
+  past. It is the clearest single thing a slide cannot do.
+- **The project filter.** A list you can interrogate rather than scroll past.
+  It also happens to be useful, since a developer only wants the commercial
+  work.
+
+Uniformity is the enemy here, not ugliness. If a new section is added, check
+what its neighbours are doing and do something else.
+
 ## Motion, and why it is restrained
 
 Every transition uses one curve, `--ease-lux`, a slow start with a long

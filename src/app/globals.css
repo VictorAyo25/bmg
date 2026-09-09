@@ -542,3 +542,41 @@ html.js [data-reveal] {
     transform: translateY(-2px);
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Structure                                                           */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Horizontal drift. The track is duplicated and travels exactly minus half
+ * its width, so the loop seam falls where the content repeats and is
+ * invisible. Slow on purpose: this is texture, not a headline.
+ */
+@keyframes marquee-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-drift 46s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* A full bleed band that escapes whatever container it sits in. */
+@utility full-bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

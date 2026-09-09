@@ -161,4 +161,11 @@ export const PROJECTS: Project[] = [
  */
 export const DESIGN_PROJECTS = "30+";
 
+/**
+ * The same figure as a number, for anything that has to count or compare.
+ * DESIGN_PROJECTS carries the "+" because most of the site is displaying it
+ * as text, and the two must be changed together.
+ */
+export const DESIGN_PROJECTS_COUNT = 30;
+
 export const PROJECT_COUNT = PROJECTS.length;
