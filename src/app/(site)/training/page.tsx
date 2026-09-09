@@ -130,7 +130,7 @@ export default function TrainingPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] lg:col-span-7">
+              <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance sm:text-[2.25rem] lg:col-span-7">
                 Places are limited, and the group is kept small on purpose.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">

@@ -37,13 +37,13 @@ export default function AboutPage() {
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal>
                 <Note className="text-accent">Why we exist</Note>
-                <h2 className="mt-7 text-[2rem] leading-[1.08] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
+                <h2 className="mt-7 text-[1.75rem] leading-[1.12] font-bold tracking-[-0.028em] text-balance sm:text-[2.125rem]">
                   Most buildings are cooled by systems nobody calculated.
                 </h2>
               </Reveal>
 
               <Reveal delay={80}>
-                <div className="mt-8 space-y-6 text-lg leading-relaxed text-fg-muted">
+                <div className="mt-8 space-y-6 leading-relaxed text-fg-muted">
                   <p>
                     There is a gap in this industry between an architect&rsquo;s
                     drawing and a building that works. It gets filled by rules
@@ -109,7 +109,7 @@ export default function AboutPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem] lg:col-span-7">
+              <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance sm:text-[2.25rem] lg:col-span-7">
                 That is the standard we work to. Hold us to it.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">

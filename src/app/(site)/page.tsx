@@ -36,13 +36,13 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={60}>
-                <h1 className="mt-9 text-[2.75rem] leading-[0.95] font-bold tracking-[-0.035em] text-balance sm:text-[4rem] xl:text-[4.75rem]">
+                <h1 className="mt-9 text-[2.25rem] leading-[1.02] font-bold tracking-[-0.03em] text-balance sm:text-[2.875rem] xl:text-[3.5rem]">
                   We design the systems that make a building work.
                 </h1>
               </Reveal>
 
               <Reveal delay={120}>
-                <p className="mt-8 max-w-xl text-lg leading-relaxed text-fg-muted">
+                <p className="mt-8 max-w-xl leading-relaxed text-fg-muted">
                   Mechanical, electrical and plumbing, from load calculation
                   through to handover. And we train the engineers who do it.
                 </p>
@@ -76,7 +76,7 @@ export default function Home() {
                 >
                   <Link
                     href={service.href}
-                    className="flex items-baseline gap-4 px-0 py-5 transition-colors hover:text-accent lg:px-6"
+                    className="lift flex items-baseline gap-4 px-0 py-5 hover:text-accent lg:px-6"
                   >
                     <Note className="text-accent">
                       {String(i + 1).padStart(2, "0")}
@@ -100,13 +100,10 @@ export default function Home() {
           sizes="100vw"
           className="object-cover"
         />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-deep/80"
-        />
+        <div aria-hidden className="absolute inset-0 bg-deep/80" />
         <Container className="relative py-20 sm:py-28">
           <Reveal>
-            <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.2] font-bold tracking-[-0.028em] text-balance sm:text-[2.75rem]">
+            <p className="mx-auto max-w-4xl text-center text-[1.5rem] leading-[1.24] font-bold tracking-[-0.024em] text-balance sm:text-[2.125rem]">
               Most buildings are cooled by systems{" "}
               <span className="text-accent">nobody calculated.</span> Every
               uncomfortable room was a decision somebody made at design stage.
@@ -140,7 +137,9 @@ export default function Home() {
                 delay={i * 40}
                 className="grid gap-3 border-t border-rule py-6 last:border-b sm:grid-cols-12 sm:gap-6"
               >
-                <Note className="pt-2 text-accent sm:col-span-1">{m.index}</Note>
+                <Note className="pt-2 text-accent sm:col-span-1">
+                  {m.index}
+                </Note>
                 <h3 className="text-xl font-semibold tracking-tight sm:col-span-4">
                   {m.title}
                 </h3>
@@ -187,7 +186,7 @@ export default function Home() {
                   as="li"
                   delay={i * 40}
                   key={p.slug}
-                  className="grid gap-3 border-b border-rule py-6 sm:grid-cols-12 sm:gap-6 lg:items-baseline"
+                  className="lift -mx-4 grid gap-3 border-b border-rule px-4 py-6 hover:bg-tint sm:grid-cols-12 sm:gap-6 lg:items-baseline"
                 >
                   <Note className="text-accent lg:col-span-1">
                     {String(i + 1).padStart(2, "0")}
@@ -230,14 +229,14 @@ export default function Home() {
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-7">
-                <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.75rem]">
+                <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance sm:text-[2.25rem]">
                   Tell us what you are building, or what you want to learn.
                 </h2>
               </div>
               <div className="lg:col-span-4 lg:col-start-9">
                 <p className="leading-relaxed text-fg-muted">
-                  Every enquiry reaches an engineer. Write
-                  to us and you will get a considered answer.
+                  Every enquiry reaches an engineer. Write to us and you will
+                  get a considered answer.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link

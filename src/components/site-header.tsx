@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./logo";
@@ -9,11 +9,37 @@ import { NAV } from "@/lib/site";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  /*
+   * Condense once the page has moved. The bar shortens and gains a shadow, so
+   * it reads as lifting off the content rather than sitting in it.
+   *
+   * Passive, because a scroll listener that can block scrolling is worse than
+   * having no effect at all. The opacity stays high in both states: at 85 the
+   * dark hero showed through and muddied the logo.
+   */
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-page/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[92rem] items-center justify-between px-5 sm:px-8 lg:h-20">
+    <header
+      className={
+        "ease-lux sticky top-0 z-50 border-b border-rule bg-page/95 backdrop-blur-md transition-shadow duration-500 " +
+        (scrolled ? "shadow-[0_6px_24px_-14px_rgb(12_35_64_/_0.3)]" : "")
+      }
+    >
+      <div
+        className={
+          "ease-lux mx-auto flex max-w-[92rem] items-center justify-between px-5 transition-all duration-500 sm:px-8 " +
+          (scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20")
+        }
+      >
         <Link
           href="/"
           aria-label="BMG Engineering Limited, home"

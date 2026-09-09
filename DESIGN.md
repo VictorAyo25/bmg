@@ -162,12 +162,52 @@ display weights, the drafting grid.
 
 ## Rejected, do not reopen without new information
 
-- **Animated abstract HVAC background graphics.** Previously rejected, but the strategy has shifted to embrace a more dynamic, modern experience. Background *images* (no longer restricted just to hero sections) combined with richer structural animations bring the site to life.
-
-- **Animation restraint.** The strategy has shifted to include more pronounced, dynamic structural animations across the site, moving away from strict minimalism to a more engaging presentation.
 - **Copying installer sites.** Dephy and Mar&Mor install. Photographs of
-  installed ductwork prove their work, not BMG's.
-- **Buying `bmgengineeringlimited.com` alternatives.** Client chose the long
+  installed ductwork prove their work, not BMG's. Borrow their light and dark
+  rhythm, never their proof.
+- **Buying `bmgengineeringlimited.com` alternatives.** The client chose the
+  long form knowingly, after being shown shorter names that were available.
+- **Publishing a technical drawing that has not been checked.** One wrong
+  schematic in front of engineers costs more than no schematic at all.
+
+## Where animation stands
+
+Not rejected. The client has asked for more of it, twice. The constraints are
+what matter:
+
+- Motion must never carry meaning that the page would lose without it, because
+  it is switched off entirely under `prefers-reduced-motion`.
+- No abstract animated HVAC graphics. A moving diagram invites the same
+  scrutiny a static one does, and a wrong one is worse for moving.
+- Weight is the budget. Most visitors arrive from a WhatsApp link on mobile
+  data, so animation that costs bytes has to earn them.
+
+## Motion, and why it is restrained
+
+Every transition uses one curve, `--ease-lux`, a slow start with a long
+decelerating tail. Deceleration is most of what reads as expensive.
+
+Two things learned the hard way:
+
+- **Never scale text in an animation.** The reveal used `scale(0.95)` and it
+  rendered type on fractional pixels the whole way through, which looks soft.
+  Translate only.
+- **Navigation scrolls to the top instantly, not smoothly.** Smooth scrolling
+  to the top of a page you have not seen means watching content you already
+  read rush past, which reads as lag. The upward movement people want is the
+  content settling in, which is what the enter animation does.
+
+Durations: page enter 0.55s, scroll reveal 0.62s, hover 0.45s. Earlier values
+were roughly double and felt sluggish rather than considered.
+
+## Type scale
+
+The reference sites run noticeably smaller display type than the first build
+did. Oversized headings read as a template shouting. The hero came down from
+4.75rem to 3.5rem and section headings from 3rem to 2.375rem, with leads
+dropping a step so the ratios still hold.
+
+## Content rules
 
 - **Never name a client.** The delivered projects are anonymous. Describe the
   building, the systems and the engineering problem. Never the client, never a

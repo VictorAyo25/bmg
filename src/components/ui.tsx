@@ -69,7 +69,7 @@ export function SectionHead({
     <header>
       <Tab>{label}</Tab>
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <h2 className="text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance lg:col-span-7 lg:text-[3rem]">
+        <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance lg:col-span-7 lg:text-[2.375rem]">
           {title}
         </h2>
         {lead && (
@@ -137,12 +137,12 @@ export function PageHero({
       <Container className="relative z-10 pt-16 pb-20 sm:pt-28 sm:pb-32">
         <Tab>{label}</Tab>
         <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <h1 className="text-[3rem] leading-[0.95] font-bold tracking-tight text-balance lg:col-span-8 lg:text-[4.5rem]">
+          <h1 className="text-[2.125rem] leading-[1.04] font-bold tracking-[-0.03em] text-balance lg:col-span-8 lg:text-[3.25rem]">
             {title}
           </h1>
           {lead && (
             <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
-              <p className="text-lg leading-relaxed text-fg-muted">{lead}</p>
+              <p className="leading-relaxed text-fg-muted">{lead}</p>
             </div>
           )}
         </div>
