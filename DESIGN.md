@@ -272,10 +272,10 @@ ship the full JPEG to a phone.
 
 ## Still open
 
-- **The portrait.** Favour deferred, wanting broader feedback on the complete
-  layout. Victor advised against it, on the grounds that looking young invites
-  clients to judge the work by age. Favour countered that youth can sell.
-  Currently shipped without.
+- **The portrait is now in**, on the About page, in a block of its own. It is
+  the only genuinely real photograph on the site, so it is not buried in a
+  column beside a drawing. Still needed: Favour s job title for the caption,
+  which currently reads name plus company only rather than inventing one.
 - **Photography.** Licensed stock is now in place as atmosphere, which closes
   the gap but does not fill it. Real project imagery, or Revit exports from
   Favour's own models, would replace it and would let the images finally carry

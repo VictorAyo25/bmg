@@ -52,7 +52,7 @@
   --color-page: #f4f6f9;
 
   /* Modest radius. Soft enough to read as considered, never a pill. */
-  --radius: 0.875rem;
+  --radius: 1.125rem;
   --radius-sm: 0.5rem;
   --color-card: #f4f7fb;
 
@@ -463,8 +463,8 @@ html.js [data-reveal] {
     border: 1px solid var(--rule-c);
     border-radius: var(--radius);
     box-shadow:
-      0 1px 2px rgb(12 35 64 / 0.04),
-      0 14px 36px -18px rgb(12 35 64 / 0.16);
+      0 1px 2px rgb(12 35 64 / 0.03),
+      0 28px 64px -32px rgb(12 35 64 / 0.18);
 
     width: min(100% - 1.75rem, 98rem);
     margin-inline: auto;

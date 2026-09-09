@@ -27,7 +27,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2">
               <Logo mono className="h-7 w-auto text-white" />
-              <span className="text-xl font-bold tracking-tight text-white">
+              <span className="text-xl font-semibold tracking-[-0.014em] text-white">
                 ENGINEERING
               </span>
             </div>

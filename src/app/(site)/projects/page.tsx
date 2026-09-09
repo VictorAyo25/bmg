@@ -38,7 +38,7 @@ export default function ProjectsPage() {
 
                   <div className="lg:col-span-4">
                     <Note className="text-fg-subtle">{project.sector}</Note>
-                    <h2 className="mt-4 text-2xl leading-snug font-bold tracking-[-0.02em] text-balance">
+                    <h2 className="mt-4 text-2xl leading-snug font-semibold tracking-[-0.016em] text-balance">
                       {project.title}
                     </h2>
                     <p className="mt-3 text-sm font-semibold text-accent">

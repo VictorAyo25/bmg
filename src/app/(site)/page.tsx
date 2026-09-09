@@ -36,7 +36,7 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={60}>
-                <h1 className="mt-9 text-[2.25rem] leading-[1.02] font-bold tracking-[-0.03em] text-balance sm:text-[2.875rem] xl:text-[3.5rem]">
+                <h1 className="mt-9 text-[2.25rem] leading-[1.02] font-semibold tracking-[-0.016em] text-balance sm:text-[2.875rem] xl:text-[3.5rem]">
                   We design the systems that make a building work.
                 </h1>
               </Reveal>
@@ -103,7 +103,7 @@ export default function Home() {
         <div aria-hidden className="absolute inset-0 bg-deep/80" />
         <Container className="relative py-20 sm:py-28">
           <Reveal>
-            <p className="mx-auto max-w-4xl text-center text-[1.5rem] leading-[1.24] font-bold tracking-[-0.024em] text-balance sm:text-[2.125rem]">
+            <p className="mx-auto max-w-4xl text-center text-[1.5rem] leading-[1.24] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
               Most buildings are cooled by systems{" "}
               <span className="text-accent">nobody calculated.</span> Every
               uncomfortable room was a decision somebody made at design stage.
@@ -229,7 +229,7 @@ export default function Home() {
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
               <div className="lg:col-span-7">
-                <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance sm:text-[2.25rem]">
+                <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
                   Tell us what you are building, or what you want to learn.
                 </h2>
               </div>

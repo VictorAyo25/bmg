@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container, Note, PageHero } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
 import { Reveal } from "@/components/reveal";
@@ -37,7 +38,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal>
                 <Note className="text-accent">Why we exist</Note>
-                <h2 className="mt-7 text-[1.75rem] leading-[1.12] font-bold tracking-[-0.028em] text-balance sm:text-[2.125rem]">
+                <h2 className="mt-7 text-[1.75rem] leading-[1.12] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
                   Most buildings are cooled by systems nobody calculated.
                 </h2>
               </Reveal>
@@ -105,11 +106,59 @@ export default function AboutPage() {
         </Container>
       </section>
 
+      {/*
+        The one genuinely real photograph on the site. Everything else is
+        licensed atmosphere, so this earns a block of its own rather than
+        being dropped into a column beside a drawing.
+      */}
+      <section className="panel-section">
+        <Container className="py-16 sm:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-4">
+              <figure>
+                <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius)] bg-brand-50">
+                  <Image
+                    src="/founder.jpg"
+                    alt="Favour Olayode of BMG Engineering Limited"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 24rem"
+                    className="object-cover object-top"
+                  />
+                </div>
+                <figcaption className="mt-4 flex items-baseline justify-between border-t border-rule pt-4">
+                  <span className="font-semibold">Favour Olayode</span>
+                  {/* TODO: confirm the job title to run alongside the name. */}
+                  <Note className="text-fg-subtle">BMG Engineering</Note>
+                </figcaption>
+              </figure>
+            </Reveal>
+
+            <Reveal delay={90} className="lg:col-span-7 lg:col-start-6">
+              <Note className="text-accent">Who you deal with</Note>
+              <h2 className="mt-6 text-[1.75rem] leading-[1.12] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
+                Small enough that the person who answers is the person who
+                designs.
+              </h2>
+              <p className="mt-6 leading-relaxed text-fg-muted">
+                There is no account manager between you and the engineering. An
+                enquiry is read by somebody who can tell you straight away
+                whether the thing you are asking for is sensible, what it will
+                involve, and where the cost actually sits.
+              </p>
+              <p className="mt-4 leading-relaxed text-fg-muted">
+                That is a deliberate limit on how much work we take at once,
+                and it is the reason the answers are worth having.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
       <section>
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-bold tracking-[-0.028em] text-balance sm:text-[2.25rem] lg:col-span-7">
+              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-7">
                 That is the standard we work to. Hold us to it.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">

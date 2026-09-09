@@ -13,6 +13,21 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   /*
+   * Clicking the link for the page you are already on changes no pathname, so
+   * the template effect never fires and nothing happens. People reasonably
+   * expect a nav click to take them to the top, so handle that case here.
+   * Smooth, because unlike a real navigation you can see where you came from.
+   */
+  const toTopIfSamePage = (href: string) => () => {
+    setOpen(false);
+    if (href !== pathname) return;
+    const reduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+  };
+
+  /*
    * Condense once the page has moved. The bar shortens and gains a shadow, so
    * it reads as lifting off the content rather than sitting in it.
    *
@@ -43,11 +58,11 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="BMG Engineering Limited, home"
-          onClick={() => setOpen(false)}
+          onClick={toTopIfSamePage("/")}
           className="flex items-center gap-2"
         >
           <Logo className="h-6 w-auto sm:h-7" />
-          <span className="text-lg font-bold tracking-tight text-fg sm:text-xl">
+          <span className="text-lg font-semibold tracking-[-0.014em] text-fg sm:text-xl">
             ENGINEERING
           </span>
         </Link>
@@ -60,6 +75,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
+                onClick={toTopIfSamePage(item.href)}
                 className={`px-4 py-2 text-sm transition-colors ${
                   active ? "text-fg" : "text-fg-muted hover:text-fg"
                 }`}
@@ -113,7 +129,7 @@ export function SiteHeader() {
               >
                 <Link
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={toTopIfSamePage(item.href)}
                   className="flex items-baseline gap-4 py-4"
                 >
                   <Note className="text-accent">

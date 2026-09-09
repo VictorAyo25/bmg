@@ -58,7 +58,7 @@ export default function ConsultancyPage() {
                   <Note className="pt-2 text-accent lg:col-span-1">
                     {service.index}
                   </Note>
-                  <h2 className="text-2xl leading-tight font-bold tracking-[-0.02em] lg:col-span-4">
+                  <h2 className="text-2xl leading-tight font-semibold tracking-[-0.016em] lg:col-span-4">
                     {service.title}
                   </h2>
                   <p className="max-w-2xl leading-relaxed text-fg-muted lg:col-span-7">
