@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-mid border-b border-rule">
+      <section className="surface-dark panel-dark bg-mid">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -23,7 +23,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-5">

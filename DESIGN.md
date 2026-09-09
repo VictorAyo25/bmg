@@ -34,19 +34,28 @@ nothing.
 Earlier navy values eyeballed off the flyers were wrong. Vectors were traced
 from the raster logos and live in `brand/`.
 
-**Blue is the substrate, not the accent.** The flyers use deep navy fields,
-bright blue panels and white cards floating on blue. Three earlier attempts
-failed review because they were white, cream or black pages with a blue trim,
-which read as generic. The theme tokens are `--color-deep` for the page,
-`--color-mid` for alternate bands, `brand-600` for fills, `--color-sky` for
-display text that needs to clear contrast on deep.
+**Blue was the substrate. It is not any more.** This rule was reversed on
+9 September 2026 and the history matters, because it was reversed slowly and
+expensively.
 
-**This was later refined rather than reversed. Read the Surfaces section
-below before acting on the paragraph above.** Blue remained the substrate for
-too long: with every band blue, there was nothing for it to assert against and
-the client reported the site as relentless. Blue still owns the hero, the
-punctuation bands, the close and the footer. It no longer owns the pages a
-visitor reads. Making the body white is what gives the blue its force back.
+The original reasoning: the flyers use deep navy fields, bright blue panels and
+white cards floating on blue, and three early attempts failed review for being
+white, cream or black pages with a blue trim. So the site was built blue.
+
+What that missed is that **flyers are print**. A flyer is glanced at once. A
+website is read. The client then supplied two references, marandmor.com and a
+Seaport Mechanical reel, and both are light dominant with blue as the accent.
+Sampling every frame of that reel gave mean luminance 151 to 241, **14 light
+frames and zero dark ones**.
+
+This is why three separate attempts to add white kept reading as bolted on.
+White was being sprinkled onto an inverted base. The problem was never the
+amount of white, it was which colour was the ground.
+
+**Now: light ground, blue as accent and punctuation.** `--color-page` is the
+ground. Blue keeps the hero, one statement band, the closing call and the
+footer. `brand-600` fills buttons and tabs. `--color-sky` carries display text
+on dark.
 
 The field has been lightened twice at the client's request, ending at
 `--color-deep` `#103a6f` and `--color-mid` `#17529c`, from `#062147` and
@@ -86,17 +95,26 @@ band, white again, then a dark close. White is their reading surface. Their
 brand colour is the accent on it. Dark is reserved for the hero, one band and
 the footer.
 
-**Their device was then tried here and rejected.** Full bleed white bands were
-built, and the cut from a photographic blue straight into flat white is an 11:1
-luminance jump with nothing mediating it. It read as two sites stitched
-together. Mar&Mor get away with alternating bands because their dark is nearly
-black and their sections ease through greys first. This palette does not.
+**Two devices were tried and discarded before the right one.** First, full
+bleed white bands: the cut from photographic blue straight into flat white is
+an 11:1 luminance jump with nothing mediating it, and it read as two sites
+stitched together. Second, white panels floating on a blue page: better, but it
+kept blue as the ground, which the references say is wrong.
 
-**What works here is the flyers' own device: a white panel floating on blue.**
-Blue runs continuously behind and frames the panel on all four sides, so white
-becomes a deliberate object rather than an interruption, and the brand field is
-never cut off. That is why `surface-light` is inset with a margin and a shadow
-rather than being full width. Do not make it full bleed again.
+**What the page actually is now: a light ground carrying cards.** Some cards
+are white, some are dark blue. Both use the same radius, the same inset width
+and the same vertical rhythm, so the page reads as one system rather than two
+languages arguing. `.panel-section` is the light card, `.panel-dark` is the
+dark one.
+
+Three rules that are easy to break by accident:
+
+- `.panel-dark` needs `overflow: hidden`. The hero fills a background image,
+  and without it the image squares off the corners the radius just rounded.
+- Nothing is full bleed except the sticky header and the footer. If a section
+  spans edge to edge it will read as a different language from everything
+  around it, which is the mistake that produced the first two attempts.
+- The header is light, so the logo uses its real colours rather than `mono`.
 
 **The rule: anything a visitor studies at length or compares goes on white.**
 Curriculum, project schedules, service detail, the About narrative, the

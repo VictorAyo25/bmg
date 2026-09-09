@@ -21,7 +21,7 @@ export default function ProjectsPage() {
 
 
 
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <ol>
             {PROJECTS.map((project, i) => (
@@ -69,7 +69,7 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      <section className="bg-mid">
+      <section className="surface-dark panel-dark bg-mid">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead

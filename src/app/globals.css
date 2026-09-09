@@ -47,6 +47,13 @@
   --color-deep: #103a6f;
   --color-mid: #17529c;
   --color-sky: #7cc4f5;
+
+  /* The page ground. Light by default. Cool enough to sit under the blue. */
+  --color-page: #f4f6f9;
+
+  /* Modest radius. Soft enough to read as considered, never a pill. */
+  --radius: 0.875rem;
+  --radius-sm: 0.5rem;
   --color-card: #f4f7fb;
 
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
@@ -63,8 +70,8 @@
   }
 
   body {
-    background-color: var(--color-deep);
-    color: #fff;
+    background-color: var(--color-page);
+    color: var(--fg);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -377,51 +384,107 @@ html.js [data-reveal] {
  * The logo blue is still correct for large display type, which needs 3:1.
  */
 @layer base {
-  :root {
-    --fg: #ffffff;
-    --fg-muted: rgb(255 255 255 / 0.8);
-    --fg-subtle: rgb(255 255 255 / 0.7);
-    --rule-c: rgb(255 255 255 / 0.12);
-    --rule-strong-c: rgb(255 255 255 / 0.3);
-    --accent-c: var(--color-sky);
-    --danger-c: #fca5a5;
-  }
-
   /*
-   * A white panel floating on blue, which is what the BMG flyers actually do.
+   * Light is the default surface. This was inverted on 9 September 2026 after
+   * the client supplied two reference sites, marandmor.com and a Seaport
+   * Mechanical reel. Every one of the reel s 14 frames measured light, mean
+   * luminance 151 to 241, with no dark frame at all.
    *
-   * The first attempt made these full bleed bands, and the cut from a
-   * photographic blue straight into flat white was an 11:1 luminance jump
-   * with nothing mediating it. It read as two sites stitched together.
-   *
-   * Inset instead. Blue runs continuously behind and frames the panel on all
-   * four sides, so white becomes a deliberate object rather than an
-   * interruption. The shadow does the separating that the hard edge was
-   * failing to do.
+   * The old rule, blue is the substrate, came from the flyers. Flyers are
+   * print. It is why repeated attempts to add white kept reading as bolted on:
+   * white was being sprinkled onto an inverted base. Blue is now the accent
+   * and the punctuation, which is what the client has been asking for.
    */
-  .surface-light {
+  :root {
     --fg: #0c2340;
     --fg-muted: #3a566f;
     --fg-subtle: #5c7893;
-    --rule-c: rgb(12 35 64 / 0.14);
-    --rule-strong-c: rgb(12 35 64 / 0.28);
+    --rule-c: rgb(12 35 64 / 0.12);
+    --rule-strong-c: rgb(12 35 64 / 0.24);
     --accent-c: #0a62a5;
     --danger-c: #b91c1c;
+  }
 
-    background-color: #fff;
+  /*
+   * The dark surface. Now the exception rather than the rule: the hero, the
+   * one statement band, the closing call and the footer. Everything else is
+   * light, which is what the reference material actually does.
+   */
+  .surface-dark {
+    --fg: #ffffff;
+    --fg-muted: rgb(255 255 255 / 0.8);
+    --fg-subtle: rgb(255 255 255 / 0.7);
+    --rule-c: rgb(255 255 255 / 0.14);
+    --rule-strong-c: rgb(255 255 255 / 0.3);
+    --accent-c: var(--color-sky);
+    --danger-c: #fca5a5;
+    --tint-c: rgb(255 255 255 / 0.1);
+
+    background-color: var(--color-deep);
     color: var(--fg);
+  }
 
-    width: min(100% - 2rem, 98rem);
+  /*
+   * The dark card. Same geometry as the light one, so the page reads as a
+   * single system: a light ground with cards on it, some light and some dark.
+   * Full bleed dark bands against inset light cards was two languages at once.
+   *
+   * overflow hidden matters. The hero fills a background image, and without
+   * it the image squares off the corners the radius just rounded.
+   */
+  .panel-dark {
+    background-color: var(--color-deep);
+    border-radius: var(--radius);
+    overflow: hidden;
+    width: min(100% - 1.75rem, 98rem);
     margin-inline: auto;
-    margin-block: 2.5rem;
-    box-shadow: 0 32px 80px -34px rgb(2 12 30 / 0.6);
+    margin-block: 1.75rem;
   }
 
   @media (min-width: 640px) {
-    .surface-light {
-      width: min(100% - 4rem, 98rem);
-      margin-block: 4rem;
+    .panel-dark {
+      width: min(100% - 3rem, 98rem);
+      margin-block: 2.5rem;
     }
+  }
+
+  /*
+   * A white card on the page ground. The reference builds almost everything
+   * this way: near white page, pure white cards, a hairline and a soft
+   * shadow doing the separating rather than a hard edge.
+   */
+  /*
+   * A content section rendered as a white card on the page ground. This is
+   * the workhorse: near white page, pure white card, hairline and soft
+   * shadow separating them. No hard edges anywhere.
+   */
+  .panel-section {
+    background-color: #fff;
+    border: 1px solid var(--rule-c);
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 2px rgb(12 35 64 / 0.04),
+      0 14px 36px -18px rgb(12 35 64 / 0.16);
+
+    width: min(100% - 1.75rem, 98rem);
+    margin-inline: auto;
+    margin-block: 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .panel-section {
+      width: min(100% - 3rem, 98rem);
+      margin-block: 2.5rem;
+    }
+  }
+
+  .panel {
+    background-color: #fff;
+    border: 1px solid var(--rule-c);
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 2px rgb(12 35 64 / 0.04),
+      0 12px 32px -16px rgb(12 35 64 / 0.14);
   }
 }
 

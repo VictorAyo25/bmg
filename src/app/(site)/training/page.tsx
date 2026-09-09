@@ -19,7 +19,7 @@ export default function TrainingPage() {
         images={["/img/training.jpg", "/img/hero/04.jpg", "/img/hero/02.jpg"]}
       />
 
-      <section className="border-b border-rule bg-mid">
+      <section className="surface-dark panel-dark bg-mid">
         <Container>
           <dl className="grid sm:grid-cols-3">
             {[
@@ -45,7 +45,7 @@ export default function TrainingPage() {
         </Container>
       </section>
 
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -84,7 +84,7 @@ export default function TrainingPage() {
         </Container>
       </section>
 
-      <section className="bg-mid">
+      <section className="surface-dark panel-dark bg-mid">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead

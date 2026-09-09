@@ -127,7 +127,7 @@ export function PageHero({
   const bgImages = images || (image ? [image] : []);
 
   return (
-    <section className="relative overflow-hidden border-b border-rule">
+    <section className="surface-dark panel-dark relative">
       {bgImages.length > 0 && <BackgroundSlideshow images={bgImages} />}
 
       <div

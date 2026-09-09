@@ -22,7 +22,7 @@ export default function AboutPage() {
         images={["/img/about.jpg", "/img/hero/01.jpg", "/img/hero/04.jpg"]}
       />
 
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
             <Reveal className="lg:col-span-5">
@@ -77,7 +77,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="border-y border-rule bg-mid">
+      <section className="surface-dark panel-dark bg-mid">
         <Container>
           <dl className="grid sm:grid-cols-2 lg:grid-cols-3">
             {[

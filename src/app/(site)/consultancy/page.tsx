@@ -37,7 +37,7 @@ export default function ConsultancyPage() {
         images={["/img/consultancy.jpg", "/img/hero/02.jpg", "/img/hero/05.jpg"]}
       />
 
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -71,7 +71,7 @@ export default function ConsultancyPage() {
         </Container>
       </section>
 
-      <section className="bg-mid">
+      <section className="surface-dark panel-dark bg-mid">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead

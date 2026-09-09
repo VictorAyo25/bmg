@@ -12,7 +12,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-rule bg-deep/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-rule bg-page/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[92rem] items-center justify-between px-5 sm:px-8 lg:h-20">
         <Link
           href="/"
@@ -20,8 +20,8 @@ export function SiteHeader() {
           onClick={() => setOpen(false)}
           className="flex items-center gap-2"
         >
-          <Logo mono className="h-6 w-auto text-white sm:h-7" />
-          <span className="text-lg font-bold tracking-tight text-white sm:text-xl">
+          <Logo className="h-6 w-auto sm:h-7" />
+          <span className="text-lg font-bold tracking-tight text-fg sm:text-xl">
             ENGINEERING
           </span>
         </Link>
@@ -35,7 +35,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={`px-4 py-2 text-sm transition-colors ${
-                  active ? "text-white" : "text-fg-muted hover:text-white"
+                  active ? "text-fg" : "text-fg-muted hover:text-fg"
                 }`}
               >
                 {item.label}
@@ -44,7 +44,7 @@ export function SiteHeader() {
           })}
           <Link
             href="/contact"
-            className="ml-5 bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            className="ml-5 rounded-[var(--radius-sm)] bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
           >
             Enquire
           </Link>
@@ -53,7 +53,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-white lg:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-fg lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}

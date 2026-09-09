@@ -21,7 +21,7 @@ function Cell({
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-rule bg-mid">
+    <footer className="surface-dark bg-mid">
       <div className="mx-auto max-w-[92rem] px-5 sm:px-8">
         <div className="flex flex-col gap-10 py-16 sm:py-20 lg:flex-row lg:items-end lg:justify-between">
           <div>

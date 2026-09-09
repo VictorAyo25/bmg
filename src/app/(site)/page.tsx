@@ -20,7 +20,7 @@ export default function Home() {
         underneath, the drawing sits alongside as evidence rather than as a
         rival, and the four services anchor the bottom as one quiet strip.
       */}
-      <section className="relative overflow-hidden border-b border-rule">
+      <section className="surface-dark panel-dark relative">
         <HeroSlideshow />
 
         <div
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* Statement */}
-      <section className="relative overflow-hidden border-b border-rule">
+      <section className="surface-dark panel-dark relative">
         <Image
           src="/img/statement.jpg"
           alt=""
@@ -116,7 +116,7 @@ export default function Home() {
       </section>
 
       {/* Training. White, because six modules is reading, not atmosphere. */}
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -171,7 +171,7 @@ export default function Home() {
         row, which is easiest on white, and this was the third blue tinted
         image in a row. Removing it is what lets the two that remain land.
       */}
-      <section className="surface-light">
+      <section className="panel-section">
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <SectionHead
@@ -213,7 +213,7 @@ export default function Home() {
       </section>
 
       {/* Close */}
-      <section className="relative overflow-hidden">
+      <section className="surface-dark panel-dark relative">
         <Image
           src="/img/statement.jpg"
           alt=""
