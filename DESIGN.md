@@ -199,6 +199,44 @@ display weights, the drafting grid.
 - **Publishing a technical drawing that has not been checked.** One wrong
   schematic in front of engineers costs more than no schematic at all.
 
+## The psychrometric chart
+
+The reviewers asked for 2D motion graphics and pointed at FieldEdge, which runs
+59 live animations. Inspected, those turn out to be simple and cheap: floating
+images on a 2s loop, slow orbits on 30s, a background pattern drifting on 16s,
+and SVG lines drawing themselves with `strokeDashoffset`. No video, no heavy
+library.
+
+The technical version of "lines drawing themselves" is a psychrometric chart,
+`src/components/psychro-chart.tsx`. It is the most recognisable image in HVAC
+design and the tool load calculation is done on, which is BMG s first module.
+
+**It is computed, not drawn, and that is the whole point.** A hand sketched
+schematic can be subtly wrong, and Favour caught exactly that once. This chart
+is generated from the Magnus relation and the standard humidity ratio formula
+at sea level pressure. Checked against ASHRAE: saturation at 20C comes out at
+14.66 g/kg against 14.75 published, at 30C 27.14 against 27.33, both within one
+percent. The plotted process was checked for physical sense: the coil removes
+moisture, supply air is colder and drier than the room, nothing is
+supersaturated. **If the process points are ever changed, rerun those checks.**
+
+It sits beside the line "most buildings are cooled by systems nobody
+calculated", replacing a stock photograph. The claim now has its proof next to
+it.
+
+Three rules it depends on:
+
+- Without JavaScript, and under reduced motion, it renders fully drawn. The
+  hidden starting state only applies when script is present and the observer
+  has not fired. Verified all three cases.
+- The travelling marker is hidden entirely under reduced motion, since a
+  moving dot is exactly what that setting asks us not to show.
+- Monospace in the axis labels is deliberate. This is a technical drawing,
+  which is the one place the no monospace rule allows it.
+
+Every hero also carries the drafting grid drifting on a 40s loop, the
+FieldEdge background movement in a form that suits a design practice.
+
 ## Where animation stands
 
 Not rejected. The client has asked for more of it, twice. The constraints are

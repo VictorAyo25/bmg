@@ -149,6 +149,21 @@ export function PageHero({
     <section className="surface-dark panel-dark relative">
       {bgImages.length > 0 && <BackgroundSlideshow images={bgImages} />}
 
+      {/*
+        The drafting grid, drifting slowly over the photograph. Every page
+        hero now has some ambient movement, which is most of what makes a
+        page read as live rather than printed. Stops under reduced motion.
+      */}
+      <div
+        aria-hidden
+        className="grid-drift pointer-events-none absolute inset-0 z-[1] opacity-[0.08]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
+        }}
+      />
+
       <div
         aria-hidden
         className="pointer-events-none absolute -top-48 -right-48 h-[34rem] w-[34rem] rounded-full bg-brand-500 opacity-20 blur-3xl"

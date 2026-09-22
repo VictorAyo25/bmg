@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, Tab } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
+import { PsychroChart } from "@/components/psychro-chart";
 import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { CountUp } from "@/components/count-up";
@@ -135,27 +135,42 @@ export default function Home() {
       </section>
 
       {/*
-        4. Full bleed image, tall and quiet. A held breath between two dense
-        sections, and the only centred thing on the page.
+        4. The claim, and the proof beside it. The line says most buildings
+        are cooled by systems nobody calculated; the chart is the calculation,
+        drawing itself in. It replaces a stock photograph that asserted
+        nothing, and it is the motion the reviewers asked for, in a form an
+        engineer will recognise and cannot fault, because it is computed.
       */}
-      <section className="surface-dark relative overflow-hidden">
-        <Image
-          src="/img/statement.jpg"
-          alt=""
+      <section className="surface-dark relative overflow-hidden bg-deep">
+        <div
           aria-hidden
-          fill
-          sizes="100vw"
-          className="object-cover"
+          className="grid-drift pointer-events-none absolute inset-0 opacity-[0.09]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
         />
-        <div aria-hidden className="absolute inset-0 bg-deep/80" />
-        <Container className="relative py-24 sm:py-36">
-          <Reveal>
-            <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.18] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
-              Most buildings are cooled by systems{" "}
-              <span className="text-accent">nobody calculated.</span> Every
-              uncomfortable room was a decision somebody made at design stage.
-            </p>
-          </Reveal>
+        <Container className="relative py-20 sm:py-28">
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-5">
+              <p className="text-[1.75rem] leading-[1.18] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
+                Most buildings are cooled by systems{" "}
+                <span className="text-accent">nobody calculated.</span>
+              </p>
+              <p className="mt-6 text-lg leading-relaxed text-fg-muted">
+                This is the calculation. Outside air and room air mix, pass
+                through the cooling coil, and leave as cold, dry supply air.
+                Size that coil by rule of thumb and the room ends up clammy or
+                over cooled. Every uncomfortable room was a decision somebody
+                made at design stage.
+              </p>
+            </Reveal>
+
+            <Reveal delay={120} className="lg:col-span-7">
+              <PsychroChart className="w-full text-white" />
+            </Reveal>
+          </div>
         </Container>
       </section>
 

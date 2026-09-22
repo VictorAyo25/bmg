@@ -580,3 +580,105 @@ html.js [data-reveal] {
     animation: none;
   }
 }
+
+/* ------------------------------------------------------------------ */
+/* Technical motion                                                    */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Lines that draw themselves, the device the reviewers' references use.
+ *
+ * pathLength="1" on each path means a dash of 1 is the whole line, so one
+ * keyframe works for every curve whatever its real length.
+ *
+ * The resting state is fully drawn. The hidden starting state only applies
+ * where script is present and the observer has not fired yet, so with no
+ * JavaScript, or under reduced motion, the chart is simply there.
+ */
+.psy-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+html.js [data-reveal]:not([data-shown]) .psy-draw {
+  stroke-dashoffset: 1;
+}
+
+html.js [data-reveal]:not([data-shown]) .psy-fade {
+  opacity: 0;
+}
+
+[data-reveal][data-shown] .psy-draw {
+  animation: psy-draw 1.5s var(--ease-lux) both;
+  animation-delay: var(--d, 0ms);
+}
+
+[data-reveal][data-shown] .psy-fade {
+  animation: psy-fade 0.9s var(--ease-lux) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@keyframes psy-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes psy-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The marker only appears once the process it travels has been drawn. */
+.psy-dot {
+  opacity: 0;
+}
+
+[data-reveal][data-shown] .psy-dot {
+  animation: psy-dot-in 0.6s 2.4s var(--ease-lux) forwards;
+}
+
+@keyframes psy-dot-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Drafting grid drift. The slow background movement FieldEdge uses on a 16s
+ * loop, applied to the grid that already sits behind the dark heroes. A
+ * page that is very slightly moving reads as live rather than printed.
+ */
+@keyframes grid-drift {
+  to {
+    background-position: 72px 72px;
+  }
+}
+
+.grid-drift {
+  animation: grid-drift 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psy-draw,
+  .psy-fade,
+  [data-reveal][data-shown] .psy-draw,
+  [data-reveal][data-shown] .psy-fade {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  /* A moving marker is exactly what reduced motion asks us not to show. */
+  .psy-dot {
+    display: none;
+  }
+
+  .grid-drift {
+    animation: none;
+  }
+}
