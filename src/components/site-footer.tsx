@@ -27,11 +27,11 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-2">
               <Logo mono className="h-7 w-auto text-white" />
-              <span className="text-xl font-semibold tracking-[-0.014em] text-white">
+              <span className="text-xl font-bold tracking-[-0.022em] text-white">
                 ENGINEERING
               </span>
             </div>
-            <p className="mt-6 max-w-sm text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] sm:text-[1.875rem]">
+            <p className="mt-6 max-w-sm text-[1.5rem] leading-snug font-bold tracking-[-0.035em] sm:text-[1.875rem]">
               {COMPANY.tagline}
             </p>
           </div>
@@ -45,12 +45,12 @@ export function SiteFooter() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4">
           <Cell label="Pages">
-            <ul className="space-y-2">
+            <ul className="sm:space-y-2">
               {NAV.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-fg-muted transition-colors hover:text-white"
+                    className="inline-flex min-h-11 items-center text-fg-muted transition-colors hover:text-white sm:min-h-0"
                   >
                     {item.label}
                   </Link>
@@ -61,7 +61,7 @@ export function SiteFooter() {
           <Cell label="Email">
             <a
               href={CONTACT.mailto}
-              className="break-all text-fg-muted transition-colors hover:text-white"
+              className="inline-flex min-h-11 items-center break-all text-fg-muted transition-colors hover:text-white sm:min-h-0"
             >
               {CONTACT.email}
             </a>
@@ -69,7 +69,7 @@ export function SiteFooter() {
           <Cell label="Telephone">
             <a
               href={CONTACT.tel}
-              className="text-fg-muted transition-colors hover:text-white"
+              className="inline-flex min-h-11 items-center text-fg-muted transition-colors hover:text-white sm:min-h-0"
             >
               {CONTACT.phone}
             </a>

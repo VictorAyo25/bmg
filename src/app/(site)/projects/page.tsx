@@ -41,8 +41,8 @@ export default function ProjectsPage() {
                 On confidentiality
               </Note>
               <p className="max-w-3xl leading-relaxed text-fg-muted lg:col-span-9">
-                Client names are withheld throughout this record, and so are
-                the drawings. A firm that would publish somebody else&rsquo;s
+                Client names are withheld throughout this record, and so are the
+                drawings. A firm that would publish somebody else&rsquo;s
                 documents to win your work would publish yours to win the next.
                 What follows describes the buildings and the engineering
                 instead, and the list is a selection rather than the whole
@@ -65,14 +65,14 @@ export default function ProjectsPage() {
         <Container className="py-16 sm:py-20">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+              <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-6">
                 Bring us the drawing and the constraint.
               </h2>
               <div className="lg:col-span-5 lg:col-start-8">
                 <p className="leading-relaxed text-fg-muted">
                   A load calculation, a full mechanical design, or a second
-                  opinion on somebody else&rsquo;s. Write to us and we will
-                  tell you plainly what is involved.
+                  opinion on somebody else&rsquo;s. Write to us and we will tell
+                  you plainly what is involved.
                 </p>
                 <Link
                   href="/contact"

@@ -57,7 +57,7 @@ export default function ConsultancyPage() {
               <div className="lg:sticky lg:top-32">
                 <Reveal>
                   <Tab>Services</Tab>
-                  <h2 className="mt-8 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+                  <h2 className="mt-8 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
                     Three ways we work on your project.
                   </h2>
                   <p className="mt-6 leading-relaxed text-fg-muted">
@@ -82,7 +82,7 @@ export default function ConsultancyPage() {
                       <Note className="pt-2 text-accent lg:col-span-1">
                         {service.index}
                       </Note>
-                      <h2 className="text-2xl leading-tight font-semibold tracking-[-0.016em] lg:col-span-4">
+                      <h2 className="text-2xl leading-tight font-bold tracking-[-0.03em] lg:col-span-4">
                         {service.title}
                       </h2>
                       <p className="max-w-2xl leading-relaxed text-fg-muted lg:col-span-7">
@@ -101,7 +101,7 @@ export default function ConsultancyPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <Tab>How we work</Tab>
-            <h2 className="mt-8 max-w-2xl text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+            <h2 className="mt-8 max-w-2xl text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
               Three principles that decide every design.
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-fg-muted">
@@ -118,10 +118,10 @@ export default function ConsultancyPage() {
                 delay={i * 80}
                 className="grid items-baseline gap-6 border-t border-rule py-12 last:border-b lg:grid-cols-12 lg:gap-12"
               >
-                <span className="font-mono text-[3rem] leading-none text-white/20 sm:text-[4.5rem] lg:col-span-2">
+                <span className="text-[3rem] leading-none font-bold tracking-[-0.04em] tabular-nums text-white/25 sm:text-[4.5rem] lg:col-span-2">
                   {item.index}
                 </span>
-                <h3 className="text-xl font-semibold tracking-[-0.014em] lg:col-span-4 lg:text-2xl">
+                <h3 className="text-xl font-bold tracking-[-0.022em] lg:col-span-4 lg:text-2xl">
                   {item.title}
                 </h3>
                 <p className="leading-relaxed text-fg-muted lg:col-span-6">
@@ -137,7 +137,7 @@ export default function ConsultancyPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+              <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-6">
                 Tell us about the building.
               </h2>
               <div className="lg:col-span-5 lg:col-start-8">

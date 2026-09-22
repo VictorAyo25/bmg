@@ -15,7 +15,23 @@ export function Container({
   );
 }
 
-/** Monospace annotation. The drawing callout of the system. */
+/**
+ * A small label. Sentence case, in the body face, at a size a phone can read.
+ *
+ * This used to be 10px monospace in wide tracked capitals, and it was on
+ * almost everything: section eyebrows, sector tags, numbers, highlights. On
+ * the Projects page it accounted for 49 of 101 text elements. The four HVAC
+ * reference sites the reviewers supplied were measured for the same thing and
+ * used between 0 and 4, and none of them used a monospace face anywhere.
+ *
+ * Tiny tracked mono capitals applied to everything is one of the most
+ * recognisable tics of generated design, which is precisely what the
+ * reviewers meant by the typesetting feeling AI generated. Used on every
+ * element it reads as a system nobody made decisions in.
+ *
+ * Monospace survives only inside the technical drawing, where annotation is
+ * genuinely what it is.
+ */
 export function Note({
   className = "",
   children,
@@ -25,7 +41,7 @@ export function Note({
 }) {
   return (
     <span
-      className={`font-mono text-[0.625rem] leading-none tracking-note uppercase ${className}`}
+      className={`text-[0.8125rem] leading-snug font-medium tabular-nums ${className}`}
     >
       {children}
     </span>
@@ -35,6 +51,10 @@ export function Note({
 /**
  * Angled section label, lifted from the flyers. The cut corner is the one
  * device on those flyers that nothing else in this market is using.
+ *
+ * Set in the bold sans, not monospace. The flyers set these in heavy capitals
+ * ("WHAT YOU WILL LEARN"), so this is closer to the source as well as easier
+ * to read.
  */
 export function Tab({
   children,
@@ -45,7 +65,7 @@ export function Tab({
 }) {
   return (
     <span
-      className={`edge-lit-strong inline-block bg-brand-600 px-4 py-2 font-mono text-[0.625rem] tracking-note text-white uppercase ${className}`}
+      className={`edge-lit-strong inline-block bg-brand-600 px-4 py-2 text-[0.75rem] font-bold tracking-[0.06em] text-white uppercase ${className}`}
       style={{
         clipPath: "polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%)",
       }}
@@ -69,7 +89,7 @@ export function SectionHead({
     <header>
       <Tab>{label}</Tab>
       <div className="mt-8 grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance lg:col-span-7 lg:text-[2.375rem]">
+        <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance lg:col-span-7 lg:text-[3rem]">
           {title}
         </h2>
         {lead && (
@@ -94,8 +114,7 @@ export function Button({
 }: ButtonProps) {
   const looks = {
     solid: "bg-brand-600 text-white edge-lit-strong hover:bg-brand-700",
-    outline:
-      "border border-rule-strong text-fg hover:bg-tint",
+    outline: "border border-rule-strong text-fg hover:bg-tint",
   } as const;
 
   return (
@@ -137,12 +156,14 @@ export function PageHero({
       <Container className="relative z-10 pt-16 pb-20 sm:pt-28 sm:pb-32">
         <Tab>{label}</Tab>
         <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
-          <h1 className="text-[2.125rem] leading-[1.04] font-semibold tracking-[-0.016em] text-balance lg:col-span-8 lg:text-[3.25rem]">
+          <h1 className="text-[2.5rem] leading-[1.02] font-bold tracking-[-0.03em] text-balance lg:col-span-8 lg:text-[4rem]">
             {title}
           </h1>
           {lead && (
             <div className="lg:col-span-4 lg:col-start-9 lg:pt-3">
-              <p className="leading-relaxed text-fg-muted">{lead}</p>
+              <p className="text-lg leading-relaxed text-fg-muted sm:text-xl">
+                {lead}
+              </p>
             </div>
           )}
         </div>

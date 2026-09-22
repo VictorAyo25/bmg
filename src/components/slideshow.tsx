@@ -130,20 +130,33 @@ export function Slideshow({
       />
 
       {controls && images.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 z-30 flex -translate-x-1/2 gap-3">
+        <div className="absolute bottom-3 left-1/2 z-30 flex -translate-x-1/2 gap-1">
           {images.map((_, i) => (
+            /*
+              The bar stays 4px so it reads as a quiet indicator, but the
+              button around it is 44px tall so a thumb can actually hit it.
+              The visible mark and the target are different things.
+            */
             <button
               key={i}
               type="button"
               aria-label={`Show slide ${i + 1} of ${images.length}`}
+              aria-current={current === i ? "true" : undefined}
               onClick={() => {
                 setRestMounted(true);
                 setCurrent(i);
               }}
-              className={`ease-lux h-1 w-12 transition-all duration-500 ${
-                current === i ? "bg-brand-400" : "bg-white/30 hover:bg-white/50"
-              }`}
-            />
+              className="group flex h-11 items-center px-1"
+            >
+              <span
+                aria-hidden
+                className={`ease-lux block h-1 w-12 transition-all duration-500 ${
+                  current === i
+                    ? "bg-brand-400"
+                    : "bg-white/30 group-hover:bg-white/50"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

@@ -46,7 +46,7 @@ export function ProjectIndex() {
               onClick={() => setSector(s)}
               aria-pressed={active}
               className={
-                "ease-lux rounded-[var(--radius-sm)] border px-4 py-2 font-mono text-[0.625rem] tracking-note uppercase transition-all duration-400 " +
+                "ease-lux min-h-11 rounded-[var(--radius-sm)] border px-4 py-2.5 text-sm font-medium transition-all duration-400 " +
                 (active
                   ? "border-transparent bg-brand-600 text-white"
                   : "border-rule text-fg-subtle hover:border-rule-strong hover:text-fg")
@@ -73,7 +73,7 @@ export function ProjectIndex() {
             <Note className="text-accent lg:col-span-1">
               {String(i + 1).padStart(2, "0")}
             </Note>
-            <span className="text-lg font-semibold tracking-[-0.014em] lg:col-span-4">
+            <span className="text-lg font-bold tracking-[-0.022em] lg:col-span-4">
               {p.title}
             </span>
             <span className="text-sm text-fg-muted lg:col-span-3">

@@ -31,7 +31,7 @@ export default function ContactPage() {
                 <Reveal>
                   <div className="space-y-8">
                     <div>
-                      <p className="text-[1.375rem] leading-snug font-semibold tracking-[-0.014em] text-balance sm:text-[1.625rem]">
+                      <p className="text-[1.5rem] leading-snug font-bold tracking-[-0.022em] text-balance sm:text-[1.875rem]">
                         Send the scope, the drawings, or just the problem you
                         cannot solve.
                       </p>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                       <p className="mt-2 text-lg text-fg">
                         <a
                           href={CONTACT.mailto}
-                          className="hover:text-brand-500 transition-colors"
+                          className="inline-flex min-h-11 items-center break-all transition-colors hover:text-brand-500"
                         >
                           {CONTACT.email}
                         </a>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                       <p className="mt-2 text-lg text-fg">
                         <a
                           href={CONTACT.tel}
-                          className="hover:text-brand-500 transition-colors"
+                          className="inline-flex min-h-11 items-center break-all transition-colors hover:text-brand-500"
                         >
                           {CONTACT.phone}
                         </a>

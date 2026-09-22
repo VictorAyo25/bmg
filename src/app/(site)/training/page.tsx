@@ -40,7 +40,7 @@ export default function TrainingPage() {
               <dt>
                 <Note className="text-fg-subtle">Modules</Note>
               </dt>
-              <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em]">
+              <dd className="mt-3 text-[2.5rem] leading-none font-bold tracking-[-0.035em]">
                 <CountUp to={MODULES.length} />
               </dd>
             </Reveal>
@@ -71,7 +71,7 @@ export default function TrainingPage() {
             <div className="grid gap-8 lg:grid-cols-12">
               <div className="lg:col-span-6">
                 <Tab>Curriculum</Tab>
-                <h2 className="mt-8 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+                <h2 className="mt-8 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
                   {PROGRAMME.promise}
                 </h2>
               </div>
@@ -97,11 +97,11 @@ export default function TrainingPage() {
                   className="absolute top-2 -left-[5px] h-2.5 w-2.5 rounded-full bg-brand-600 ring-4 ring-white"
                 />
                 <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
-                  <span className="font-mono text-[2.5rem] leading-none text-brand-100 sm:text-[3.5rem] lg:col-span-2">
+                  <span className="text-[2.5rem] leading-none font-bold tracking-[-0.04em] tabular-nums text-brand-100 sm:text-[3.5rem] lg:col-span-2">
                     {m.index}
                   </span>
                   <div className="lg:col-span-4">
-                    <h3 className="text-xl font-semibold tracking-[-0.014em] lg:text-2xl">
+                    <h3 className="text-xl font-bold tracking-[-0.022em] lg:text-2xl">
                       {m.title}
                     </h3>
                     {m.tools && (
@@ -132,7 +132,7 @@ export default function TrainingPage() {
               <div className="lg:sticky lg:top-32">
                 <Reveal>
                   <Tab>Who it is for</Tab>
-                  <h2 className="mt-8 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+                  <h2 className="mt-8 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
                     For engineers who want to design, not just install.
                   </h2>
                   <p className="mt-6 leading-relaxed text-fg-muted">
@@ -164,7 +164,7 @@ export default function TrainingPage() {
                     <Note className="text-accent">
                       {String(i + 1).padStart(2, "0")}
                     </Note>
-                    <h3 className="text-lg font-semibold tracking-[-0.014em]">
+                    <h3 className="text-lg font-bold tracking-[-0.022em]">
                       {o.title}
                     </h3>
                   </div>
@@ -182,7 +182,7 @@ export default function TrainingPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+              <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-6">
                 Places are limited, and the group is kept small on purpose.
               </h2>
               <div className="lg:col-span-5 lg:col-start-8">

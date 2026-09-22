@@ -59,10 +59,10 @@ export function SiteHeader() {
           href="/"
           aria-label="BMG Engineering Limited, home"
           onClick={toTopIfSamePage("/")}
-          className="flex items-center gap-2"
+          className="flex min-h-11 items-center gap-2"
         >
           <Logo className="h-6 w-auto sm:h-7" />
-          <span className="text-lg font-semibold tracking-[-0.014em] text-fg sm:text-xl">
+          <span className="text-lg font-bold tracking-[-0.022em] text-fg sm:text-xl">
             ENGINEERING
           </span>
         </Link>

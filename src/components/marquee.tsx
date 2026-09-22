@@ -23,7 +23,7 @@ export function Marquee({
     <ul className="flex shrink-0 items-center">
       {items.map((item) => (
         <li key={item} className="flex items-center gap-6 px-6">
-          <span className="font-mono text-[0.6875rem] tracking-note whitespace-nowrap uppercase">
+          <span className="text-[0.9375rem] font-medium whitespace-nowrap">
             {item}
           </span>
           <span aria-hidden className="h-1 w-1 rounded-full bg-brand-600" />

@@ -174,7 +174,7 @@ export function EnquiryForm() {
           Or email{" "}
           <a
             href={CONTACT.mailto}
-            className="underline underline-offset-4 hover:text-fg"
+            className="inline-flex min-h-11 items-center break-all underline underline-offset-4 hover:text-fg"
           >
             {CONTACT.email}
           </a>

@@ -140,6 +140,35 @@ than felt. Removing it is what lets the images that remain register at all.
 
 ## Type
 
+**Measured against the references, not chosen by taste.** Reviewers said the
+typesetting felt AI generated, particularly on Projects and on mobile, and that
+the type should be bolder. The four HVAC sites they supplied (Carrier, Trane
+TRACE, Wrightsoft, FieldEdge) were measured with the same script as this site:
+
+| | Caps tracked labels | Monospace | H1 | Section heads |
+|---|---|---|---|---|
+| References | 0 to 4 | none, on any of them | 50 to 70px | 28 to 60px |
+| This site before | 52 of 127 on home | 52 | 56px w600 | 36px w600 |
+| This site after | 2 | 0 | 68px w700 | 48px w700 |
+
+**Two rules follow, and both reverse earlier decisions of mine.**
+
+1. **No monospace outside the technical drawing.** The `Note` component was
+   10px mono in wide tracked capitals, applied to nearly every label. On the
+   Projects page it was 49 of 101 text elements. Tiny tracked mono capitals
+   everywhere is one of the most recognisable tics of generated design, and it
+   is what the reviewers were reacting to. Plex Mono is still loaded, for the
+   annotations inside `mep-plan.tsx` where it is genuinely annotation.
+2. **Display type is bold, large and tight.** An earlier pass moved headings
+   from bold to semibold for a "classier" feel. The reviewers read it as weak,
+   and the references run heavier and larger. Do not lighten it again without
+   new evidence.
+
+Also: leads are larger than body text (18 to 20px against 16px), because the
+references all do this and a lead the same size as its body flattens the page.
+Nothing on a phone is set below 12px, and every tap target is at least 44px.
+
+
 Archivo for everything structural, IBM Plex Mono for the annotation layer.
 Two families only. Instrument Serif and Space Grotesk were loaded while three
 directions were compared and were removed with the rejected designs.

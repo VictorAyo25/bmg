@@ -48,7 +48,7 @@ export default function AboutPage() {
             <div className="lg:col-span-6 lg:col-start-7">
               <Reveal>
                 <Note className="text-accent">Why we exist</Note>
-                <h2 className="mt-7 text-[1.75rem] leading-[1.12] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
+                <h2 className="mt-7 text-[2rem] leading-[1.06] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
                   Most buildings are cooled by systems nobody calculated.
                 </h2>
               </Reveal>
@@ -79,7 +79,7 @@ export default function AboutPage() {
               </Reveal>
 
               <Reveal delay={140}>
-                <p className="mt-10 border-t border-rule pt-8 text-[1.5rem] leading-snug font-semibold tracking-[-0.02em] text-accent sm:text-[1.75rem]">
+                <p className="mt-10 border-t border-rule pt-8 text-[1.5rem] leading-snug font-bold tracking-[-0.035em] text-accent sm:text-[1.75rem]">
                   {COMPANY.tagline}
                 </p>
               </Reveal>
@@ -98,7 +98,7 @@ export default function AboutPage() {
                   <dt>
                     <Note className="text-fg-subtle">Design projects</Note>
                   </dt>
-                  <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em] sm:text-[3rem]">
+                  <dd className="mt-3 text-[2.5rem] leading-none font-bold tracking-[-0.035em] sm:text-[3rem]">
                     <CountUp to={DESIGN_PROJECTS_COUNT} suffix="+" />
                   </dd>
                 </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   <dt>
                     <Note className="text-fg-subtle">Curriculum modules</Note>
                   </dt>
-                  <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em] sm:text-[3rem]">
+                  <dd className="mt-3 text-[2.5rem] leading-none font-bold tracking-[-0.035em] sm:text-[3rem]">
                     <CountUp to={MODULES.length} />
                   </dd>
                 </div>
@@ -141,7 +141,7 @@ export default function AboutPage() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-7">
+              <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-7">
                 That is the standard we work to. Hold us to it.
               </h2>
               <div className="lg:col-span-4 lg:col-start-9">

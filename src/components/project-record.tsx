@@ -35,9 +35,7 @@ export function ProjectRecord() {
 
   const shown = useMemo(
     () =>
-      sector === "All"
-        ? PROJECTS
-        : PROJECTS.filter((p) => p.sector === sector),
+      sector === "All" ? PROJECTS : PROJECTS.filter((p) => p.sector === sector),
     [sector],
   );
 
@@ -58,7 +56,7 @@ export function ProjectRecord() {
               onClick={() => setSector(s)}
               aria-pressed={active}
               className={
-                "ease-lux flex items-center gap-2.5 rounded-[var(--radius-sm)] border px-4 py-2.5 font-mono text-[0.625rem] tracking-note uppercase transition-all duration-400 " +
+                "ease-lux flex items-center gap-2.5 min-h-11 rounded-[var(--radius-sm)] border px-4 py-2.5 text-sm font-medium transition-all duration-400 " +
                 (active
                   ? "border-transparent bg-brand-600 text-white"
                   : "border-rule text-fg-subtle hover:border-rule-strong hover:text-fg")
@@ -73,46 +71,78 @@ export function ProjectRecord() {
         })}
       </div>
 
+      {/*
+        Each entry used to open with the number alone on one line and the
+        sector alone on the next, both in 10px tracked capitals, and close
+        with a row of tiny tracked tags. On a phone that was floating orphan
+        metadata above and below every entry, ten times over, which is the
+        mechanical rhythm the reviewers read as generated.
+
+        Now the number and sector share a line, the title carries the weight,
+        and the highlights are ordinary readable text. The first entry in view
+        is set larger, so the list opens on a lead rather than on item one of
+        ten identical items.
+      */}
       <ol className="mt-12">
-        {shown.map((project, i) => (
-          <li
-            key={project.slug}
-            className="block border-t border-rule last:border-b"
-          >
-            <article className="grid gap-6 py-10 lg:grid-cols-12 lg:gap-10">
-              <Note className="text-accent lg:col-span-1">
-                {String(i + 1).padStart(2, "0")}
-              </Note>
+        {shown.map((project, i) => {
+          const lead = i === 0;
+          return (
+            <li
+              key={project.slug}
+              className="block border-t border-rule last:border-b"
+            >
+              <article
+                className={`grid gap-5 lg:grid-cols-12 lg:gap-10 ${
+                  lead ? "py-12 sm:py-14" : "py-9 sm:py-10"
+                }`}
+              >
+                <div className="lg:col-span-5">
+                  <p className="text-sm font-medium text-fg-subtle">
+                    <span className="font-bold text-accent tabular-nums">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span aria-hidden className="mx-2.5 opacity-40">
+                      /
+                    </span>
+                    {project.sector}
+                  </p>
+                  <h2
+                    className={`mt-3 leading-[1.08] font-bold tracking-[-0.028em] text-balance ${
+                      lead
+                        ? "text-[2rem] sm:text-[2.5rem]"
+                        : "text-[1.625rem] sm:text-[1.875rem]"
+                    }`}
+                  >
+                    {project.title}
+                  </h2>
+                  <p className="mt-3 font-semibold text-accent">
+                    {project.system}
+                  </p>
+                </div>
 
-              <div className="lg:col-span-4">
-                <Note className="text-fg-subtle">{project.sector}</Note>
-                <h2 className="mt-4 text-2xl leading-snug font-semibold tracking-[-0.016em] text-balance">
-                  {project.title}
-                </h2>
-                <p className="mt-3 text-sm font-semibold text-accent">
-                  {project.system}
-                </p>
-              </div>
-
-              <div className="lg:col-span-7">
-                <p className="max-w-2xl leading-relaxed text-fg-muted">
-                  {project.detail}
-                </p>
-                <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                  {project.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2.5">
-                      <span
-                        aria-hidden
-                        className="h-1 w-1 rounded-full bg-brand-600"
-                      />
-                      <Note className="text-fg-subtle">{h}</Note>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          </li>
-        ))}
+                <div className="lg:col-span-7">
+                  <p
+                    className={`max-w-2xl leading-relaxed text-fg-muted ${
+                      lead ? "text-lg" : ""
+                    }`}
+                  >
+                    {project.detail}
+                  </p>
+                  <ul className="mt-5 flex flex-wrap gap-2">
+                    {project.highlights.map((h) => (
+                      <li
+                        key={h}
+                        className="rounded-full border border-rule bg-white px-3 py-1 text-sm text-fg-muted"
+                      >
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </li>
+          );
+        })}
       </ol>
 
       <p className="mt-8" aria-live="polite">

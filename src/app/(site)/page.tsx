@@ -57,12 +57,12 @@ export default function Home() {
                 <Tab>MEP design and training</Tab>
               </Reveal>
               <Reveal delay={60}>
-                <h1 className="mt-9 text-[2.25rem] leading-[1.02] font-semibold tracking-[-0.016em] text-balance sm:text-[2.875rem] xl:text-[3.5rem]">
+                <h1 className="mt-9 text-[2.625rem] leading-[1] font-bold tracking-[-0.03em] text-balance sm:text-[3.5rem] xl:text-[4.25rem]">
                   We design the systems that make a building work.
                 </h1>
               </Reveal>
               <Reveal delay={120}>
-                <p className="mt-7 max-w-xl leading-relaxed text-fg-muted">
+                <p className="mt-7 max-w-xl text-lg leading-relaxed text-fg-muted sm:text-xl">
                   Mechanical, electrical and plumbing, from load calculation
                   through to handover. And we train the engineers who do it.
                 </p>
@@ -95,7 +95,7 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-12">
             <Reveal className="lg:col-span-4">
               <Note className="text-accent">What we do</Note>
-              <h2 className="mt-6 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+              <h2 className="mt-6 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
                 Four disciplines, one standard.
               </h2>
               <p className="mt-6 leading-relaxed text-fg-muted">
@@ -115,11 +115,11 @@ export default function Home() {
                     href={service.href}
                     className="lift -mx-4 flex items-baseline gap-6 px-4 py-7 hover:bg-tint sm:gap-10"
                   >
-                    <span className="font-mono text-2xl leading-none text-brand-200 sm:text-3xl">
+                    <span className="text-3xl leading-none font-bold tracking-[-0.03em] tabular-nums text-brand-200 sm:text-4xl">
                       {service.index}
                     </span>
                     <span>
-                      <span className="block text-xl font-semibold tracking-[-0.014em]">
+                      <span className="block text-xl font-bold tracking-[-0.022em]">
                         {service.title}
                       </span>
                       <span className="mt-2 block max-w-xl text-sm leading-relaxed text-fg-muted">
@@ -150,7 +150,7 @@ export default function Home() {
         <div aria-hidden className="absolute inset-0 bg-deep/80" />
         <Container className="relative py-24 sm:py-36">
           <Reveal>
-            <p className="mx-auto max-w-4xl text-center text-[1.5rem] leading-[1.24] font-semibold tracking-[-0.016em] text-balance sm:text-[2.125rem]">
+            <p className="mx-auto max-w-4xl text-center text-[1.75rem] leading-[1.18] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
               Most buildings are cooled by systems{" "}
               <span className="text-accent">nobody calculated.</span> Every
               uncomfortable room was a decision somebody made at design stage.
@@ -170,7 +170,7 @@ export default function Home() {
               <div className="lg:sticky lg:top-32">
                 <Reveal>
                   <Tab>The programme</Tab>
-                  <h2 className="mt-8 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
+                  <h2 className="mt-8 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
                     {PROGRAMME.name}.
                   </h2>
                   <p className="mt-3 text-[1.25rem] font-semibold text-accent sm:text-[1.5rem]">
@@ -198,7 +198,7 @@ export default function Home() {
                 >
                   <div className="flex items-baseline gap-5">
                     <Note className="text-accent">{m.index}</Note>
-                    <h3 className="text-xl font-semibold tracking-[-0.014em]">
+                    <h3 className="text-xl font-bold tracking-[-0.022em]">
                       {m.title}
                     </h3>
                   </div>
@@ -224,9 +224,9 @@ export default function Home() {
             <div className="grid gap-8 lg:grid-cols-12">
               <div className="lg:col-span-6">
                 <Note className="text-accent">Delivered work</Note>
-                <h2 className="mt-6 text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem]">
-                  <CountUp to={DESIGN_PROJECTS_COUNT} suffix="+" /> design projects,
-                  homes to industrial plant.
+                <h2 className="mt-6 text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
+                  <CountUp to={DESIGN_PROJECTS_COUNT} suffix="+" /> design
+                  projects, homes to industrial plant.
                 </h2>
               </div>
               <p className="leading-relaxed text-fg-muted lg:col-span-5 lg:col-start-8 lg:pt-8">
@@ -249,7 +249,11 @@ export default function Home() {
         <Container className="py-16 sm:py-20">
           <dl className="grid gap-10 sm:grid-cols-3">
             {[
-              { value: DESIGN_PROJECTS_COUNT, suffix: "+", label: "Design projects" },
+              {
+                value: DESIGN_PROJECTS_COUNT,
+                suffix: "+",
+                label: "Design projects",
+              },
               {
                 value: MODULES.length,
                 suffix: "",
@@ -261,7 +265,7 @@ export default function Home() {
                 <dt>
                   <Note className="text-fg-subtle">{stat.label}</Note>
                 </dt>
-                <dd className="mt-3 text-[2.5rem] leading-none font-semibold tracking-[-0.02em] sm:text-[3.25rem]">
+                <dd className="mt-3 text-[2.5rem] leading-none font-bold tracking-[-0.035em] sm:text-[3.25rem]">
                   <CountUp to={stat.value} suffix={stat.suffix} />
                 </dd>
               </Reveal>
@@ -275,7 +279,7 @@ export default function Home() {
         <Container className="py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
-              <h2 className="text-[1.75rem] leading-[1.1] font-semibold tracking-[-0.016em] text-balance sm:text-[2.25rem] lg:col-span-6">
+              <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-6">
                 Tell us what you are building, or what you want to learn.
               </h2>
               <div className="lg:col-span-5 lg:col-start-8">
