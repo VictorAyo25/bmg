@@ -9,6 +9,7 @@ import { DESIGN_PROJECTS, DESIGN_PROJECTS_COUNT } from "@/lib/projects";
 import { MODULES } from "@/lib/training";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "About",
   description:
     "BMG Engineering Limited is a mechanical engineering practice delivering MEP training, consultancy, installation and project management.",

@@ -416,6 +416,48 @@ The provider is the replaceable part. When the domain and a real mailbox
 exist, swap the fetch in that route for Resend or similar. Nothing else on the
 site changes.
 
+## Search and sharing
+
+A reviewer named the site s purpose plainly: visibility and organic numbers.
+Until September 2026 there was no sitemap, no robots file, no structured data
+and no share image.
+
+**The domain bug, found first, and the most important.** Every page declared
+its URL as bmgengineeringlimited.com, a domain not yet bought, which does not
+resolve. The override meant to cover this was never set in Vercel. So every
+WhatsApp and social preview pointed at a dead address, and a sitemap would
+have too. Google ignores sitemap URLs on a host it cannot reach.
+
+`SITE_URL` in `src/lib/seo.ts` now resolves from
+`VERCEL_PROJECT_PRODUCTION_URL`, which Vercel sets on every build: per its
+docs, the shortest custom production domain, or the vercel.app domain when
+none is attached. It is correct today and switches to the real domain by
+itself once the domain is added in Vercel. **Do not hardcode a domain here
+again.**
+
+Also fixed: `openGraph.url` was set once at the root, so every page told
+crawlers it was the home page. Each page now declares its own canonical.
+
+What exists now, all generated at build time:
+
+- `/sitemap.xml` from the single `PAGES` list in `lib/seo.ts`. Add a page
+  there and it is discovered.
+- `/robots.txt`, everything crawlable except `/api/`.
+- `/opengraph-image`, the link preview. Set in Archivo from a static TrueType
+  file in `src/assets`, because the renderer cannot read variable fonts or
+  WOFF2. Archivo is under the SIL Open Font License, which permits bundling.
+- Organization structured data on every page, and a Course on Training that
+  links back to it by `@id`.
+
+**The location trade off, which is the client s call.** Structured data uses
+`Organization`, not `LocalBusiness`, because LocalBusiness expects a street
+address and the site publishes none at the client s request. That is the
+single largest thing standing between this site and local search. A Lagos firm
+that never says Lagos is hard for Google to place. When an address can be
+published, upgrade the type in `organizationJsonLd` and add a Google Business
+Profile; together those will do more for "organic numbers" than anything else
+left.
+
 ## Out of scope
 
 The school software project discussed in the same meetings is a separate

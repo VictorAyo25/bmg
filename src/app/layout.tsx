@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { NavProgress } from "@/components/nav-progress";
+import { SITE_URL, jsonLd, organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 /**
@@ -21,11 +22,8 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-const SITE =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://bmgengineeringlimited.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "BMG Engineering Limited | MEP training and engineering consultancy",
@@ -36,7 +34,6 @@ export const metadata: Metadata = {
     "We teach engineers to design, calculate, select and deliver building systems that work.",
   openGraph: {
     type: "website",
-    url: SITE,
     siteName: "BMG Engineering Limited",
     title: "BMG Engineering Limited",
     description:
@@ -65,6 +62,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `document.documentElement.classList.add("js")`,
           }}
+        />
+        {/* Who the firm is, for search engines. See lib/seo.ts. */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd()) }}
         />
       </head>
       <body className="flex min-h-dvh flex-col">

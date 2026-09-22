@@ -296,7 +296,9 @@ html.js [data-reveal] {
   h1,
   h2 {
     text-wrap: balance;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings:
+      "kern" 1,
+      "liga" 1;
   }
 
   /* A thin, quiet scrollbar rather than the browser's default slab. */

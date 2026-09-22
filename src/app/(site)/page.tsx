@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, Tab } from "@/components/ui";
@@ -11,6 +12,12 @@ import { CONTACT } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 import { MODULES, PROGRAMME } from "@/lib/training";
 import { DESIGN_PROJECTS_COUNT } from "@/lib/projects";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  description:
+    "Mechanical, electrical and plumbing design, engineering consultancy, and HVAC design training for engineers. From cooling load calculation through to handover.",
+};
 
 const DISCIPLINES = [
   "Cooling load calculation",

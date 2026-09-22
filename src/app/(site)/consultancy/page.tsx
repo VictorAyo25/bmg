@@ -5,6 +5,7 @@ import { Reveal } from "@/components/reveal";
 import { SERVICES } from "@/lib/services";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/consultancy" },
   title: "Engineering consultancy",
   description:
     "Mechanical and MEP consultancy, installation and project management for commercial, industrial and residential buildings.",

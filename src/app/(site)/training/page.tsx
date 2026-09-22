@@ -4,8 +4,10 @@ import { Button, Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 import { CountUp } from "@/components/count-up";
 import { AUDIENCE, MODULES, OUTCOMES, PROGRAMME } from "@/lib/training";
+import { courseJsonLd, jsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/training" },
   title: "HVAC design training",
   description:
     "HVAC design training taught by practising engineers. Cooling load calculation, duct design, equipment selection, chilled water, air handling units and rooftop systems.",
@@ -26,6 +28,20 @@ export const metadata: Metadata = {
 export default function TrainingPage() {
   return (
     <>
+      {/* The programme as a Course, so it can appear in course results. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(
+            courseJsonLd({
+              name: `${PROGRAMME.name} training`,
+              description:
+                "HVAC design training taught by practising engineers: cooling load calculation, duct design, equipment selection, chilled water, air handling units and rooftop systems.",
+              modules: MODULES,
+            }),
+          ),
+        }}
+      />
       <PageHero
         label="The programme"
         title="Become an HVAC design engineer."

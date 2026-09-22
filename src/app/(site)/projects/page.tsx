@@ -6,6 +6,7 @@ import { ProjectRecord } from "@/components/project-record";
 import { DESIGN_PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/projects" },
   title: "Projects",
   description:
     "Mechanical and HVAC design across industrial, commercial, public and residential buildings.",

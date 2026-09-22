@@ -5,6 +5,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { CONTACT } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description: "Get in touch with an engineer.",
 };
