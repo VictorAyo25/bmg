@@ -255,7 +255,9 @@ page is actually about:
 | Home band   | `airflow-field`   | Streamlines squeezing through a constriction |
 | Training    | `load-profile`    | A cooling load over twenty four hours        |
 | Consultancy | `duty-point`      | Fan curve, system curves, and the crossing   |
+| Projects    | `pressure-drop`   | Static pressure falling along a duct run     |
 | About       | `thermal-field`   | Quiet, in white, on the dark band            |
+| Contact     | `pressure-drop`   | The same run, in white, behind the dark panel |
 
 **Abstract or computed, never in between.** A background is decoration, and
 decoration must not make claims an engineer could fault. The thermal field,
@@ -266,6 +268,14 @@ are computed, and the reasoning is in each file's header.
 **Every page carries motion below the hero, not only in it.** That was asked
 for explicitly. Training has the profile as a band and again as a horizon
 behind the curriculum; consultancy has the chart in three places.
+
+**Projects and contact were chosen, not guessed.** After the plumes were
+rejected, three candidates were built and shown to the client running at full
+width before anything was pushed: pressure drop along a run, a trunk splitting
+into six branches at proportional widths, and flow developing in a duct. The
+client picked the pressure drop, and the other two were deleted rather than
+kept around. Worth repeating the method when a device is contentious: build
+them, show them moving, let the client pick, delete the losers.
 
 **Rejected: buoyancy plumes.** A `stack-plumes` device backed the whole projects
 record and the contact band. The client did not like it, so it is deleted

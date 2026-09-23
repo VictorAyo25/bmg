@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Container, Note, SectionHead } from "@/components/ui";
+import { PressureDrop } from "@/components/pressure-drop";
 import { Reveal } from "@/components/reveal";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CONTACT } from "@/lib/site";
@@ -13,8 +14,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="surface-dark panel-dark bg-mid">
-        <Container className="py-20 sm:py-28">
+      <section className="surface-dark panel-dark relative overflow-hidden bg-mid">
+        <PressureDrop
+          stroke="#ffffff"
+          className="absolute inset-x-0 bottom-0 h-[18rem] w-full opacity-25"
+        />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <SectionHead
               label="Contact"

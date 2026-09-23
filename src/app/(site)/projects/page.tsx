@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Container, Note, PageHero } from "@/components/ui";
+import { GraphicBand } from "@/components/graphic-band";
+import { PressureDrop } from "@/components/pressure-drop";
 import { Reveal } from "@/components/reveal";
 import { ProjectRecord } from "@/components/project-record";
 import { DESIGN_PROJECTS } from "@/lib/projects";
@@ -53,6 +55,11 @@ export default function ProjectsPage() {
           </Reveal>
         </Container>
       </section>
+
+      <GraphicBand
+        height="h-64 sm:h-80"
+        graphic={<PressureDrop className="absolute inset-0 h-full w-full" />}
+      />
 
       <section className="bg-white">
         <Container className="relative py-20 sm:py-28">
