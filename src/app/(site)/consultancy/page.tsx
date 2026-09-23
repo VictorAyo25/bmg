@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { AirflowBand } from "@/components/airflow-band";
-import { TechBackdrop } from "@/components/tech-backdrop";
+import { GraphicBand } from "@/components/graphic-band";
+import { DutyPoint } from "@/components/duty-point";
 import Link from "next/link";
 import { Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -100,8 +100,12 @@ export default function ConsultancyPage() {
         </Container>
       </section>
 
-      <section className="surface-dark bg-mid">
-        <Container className="py-20 sm:py-28">
+      <section className="surface-dark relative overflow-hidden bg-mid">
+        <DutyPoint
+          stroke="#ffffff"
+          className="absolute right-0 bottom-0 h-[24rem] w-[46%] opacity-25"
+        />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <Tab>How we work</Tab>
             <h2 className="mt-8 max-w-2xl text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem]">
@@ -136,10 +140,19 @@ export default function ConsultancyPage() {
         </Container>
       </section>
 
-      <AirflowBand />
+      <GraphicBand
+        graphic={
+          <DutyPoint className="absolute inset-y-0 right-0 h-full w-[62%] py-6 sm:w-[52%]" />
+        }
+      >
+        A fan does not have a flow rate. It has a curve, and{" "}
+        <span className="text-accent">
+          the ductwork decides where on it you land.
+        </span>
+      </GraphicBand>
 
       <section className="relative overflow-hidden">
-        <TechBackdrop tone="ink" />
+        <DutyPoint className="absolute right-0 bottom-0 h-[22rem] w-[48%] opacity-40" />
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">

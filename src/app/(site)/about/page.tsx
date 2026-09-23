@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
+import { ThermalField } from "@/components/thermal-field";
 import { COMPANY, CONTACT } from "@/lib/site";
 import { CountUp } from "@/components/count-up";
 import { DESIGN_PROJECTS, DESIGN_PROJECTS_COUNT } from "@/lib/projects";
@@ -89,8 +90,9 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="surface-dark bg-mid">
-        <Container className="py-16 sm:py-20">
+      <section className="surface-dark relative overflow-hidden bg-mid">
+        <ThermalField className="absolute inset-0 h-full w-full opacity-70" />
+        <Container className="relative py-16 sm:py-20">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-5">
               <Tab>On the record</Tab>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { AirflowBand } from "@/components/airflow-band";
-import { TechBackdrop } from "@/components/tech-backdrop";
+import { StackPlumes } from "@/components/stack-plumes";
 import Link from "next/link";
 import { Container, Note, PageHero } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -36,8 +35,12 @@ export default function ProjectsPage() {
         mattered: without it the anonymous entries read as vagueness rather
         than as a deliberate position.
       */}
-      <section className="surface-dark bg-mid">
-        <Container className="py-12 sm:py-14">
+      <section className="surface-dark relative overflow-hidden bg-mid">
+        <StackPlumes
+          stroke="#ffffff"
+          className="absolute inset-0 h-full w-full opacity-30"
+        />
+        <Container className="relative py-12 sm:py-14">
           <Reveal>
             <div className="grid gap-4 lg:grid-cols-12 lg:gap-10">
               <Note className="text-fg-subtle lg:col-span-3">
@@ -56,10 +59,12 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      <AirflowBand />
-
-      <section className="relative overflow-hidden">
-        <TechBackdrop tone="ink" />
+      {/*
+        Plumes stretch rather than slice, so unlike the other devices this
+        one can back a whole tall section without tearing.
+      */}
+      <section className="relative overflow-hidden bg-white">
+        <StackPlumes className="absolute inset-0 h-full w-full opacity-75" />
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <ProjectRecord />

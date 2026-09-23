@@ -686,27 +686,6 @@ html.js [data-reveal]:not([data-shown]) .psy-fade {
 }
 
 /**
- * Air travelling along the background streams. Very slow, so it reads as the
- * page being alive rather than as something demanding attention. Only the
- * dash offset moves, which the compositor handles without touching layout.
- */
-@keyframes air-stream {
-  to {
-    stroke-dashoffset: -260;
-  }
-}
-
-.air-stream {
-  animation: air-stream 26s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .air-stream {
-    animation: none;
-  }
-}
-
-/**
  * The airflow field. Highlights travel along each streamline; the duration is
  * set per line in the component, from how tightly the flow is squeezed there.
  * The paths carry pathLength="100", so 50 is exactly one dash period and the
@@ -726,6 +705,71 @@ html.js [data-reveal]:not([data-shown]) .psy-fade {
 
 @media (prefers-reduced-motion: reduce) {
   .air-flow {
+    animation: none;
+  }
+}
+
+/**
+ * A highlight travelling the whole length of a path in one cycle, for paths
+ * carrying pathLength="100". Use it where the dash period is the full 100, so
+ * a single mark crosses once: the duty point sliding along a fan curve, or the
+ * running total of a load profile. Where the period is 50, use air-flow above.
+ */
+@keyframes trace-100 {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+.trace-100 {
+  animation-name: trace-100;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/** The hour under consideration, crossing a twenty four hour profile. */
+@keyframes load-sweep {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(1440px);
+  }
+}
+
+.load-sweep {
+  animation: load-sweep 16s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-100,
+  .load-sweep {
+    animation: none;
+  }
+}
+
+/**
+ * The thermal field. Each isotherm turns at its own speed, and its neighbours
+ * turn against it. Nothing morphs; the interference between counter-rotating
+ * irregular rings is what makes the field look like it is reorganising. The
+ * origin is the source the rings are drawn around, which sits at 0,0 in the
+ * group above them.
+ */
+@keyframes thermal-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.thermal-turn {
+  transform-origin: 0 0;
+  animation-name: thermal-turn;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thermal-turn {
     animation: none;
   }
 }

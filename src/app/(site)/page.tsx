@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { TechBackdrop } from "@/components/tech-backdrop";
-import { AirflowBand } from "@/components/airflow-band";
+import { GraphicBand } from "@/components/graphic-band";
+import { AirflowField } from "@/components/airflow-field";
+import { ThermalField } from "@/components/thermal-field";
 import Link from "next/link";
-import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, Tab } from "@/components/ui";
 import { MepPlan } from "@/components/mep-plan";
 import { PsychroChart } from "@/components/psychro-chart";
@@ -51,13 +51,34 @@ const DISCIPLINES = [
 export default function Home() {
   return (
     <>
-      {/* 1. Full bleed, tall, immersive. Nothing else on the page is this. */}
-      <section className="surface-dark relative overflow-hidden">
-        <HeroSlideshow />
-        <TechBackdrop tone="light" className="z-[1] opacity-70" />
+      {/*
+        1. Full bleed, tall, immersive. Nothing else on the page is this.
+
+        The photograph that used to sit here was blended to luminosity at 70
+        percent under a heavy navy scrim, which turned a picture of real plant
+        into flat murk and left the drawing fighting it for contrast. The
+        ground is now a thermal field: isotherms nesting around two sources,
+        tight and bright near the heat, loose and faint at the edge. The
+        drawing reads properly against it, and the motion is finally visible
+        because white lines on navy are not competing with a photograph.
+
+        The inner pages keep their photographs. Home no longer looks like
+        them, which was the other complaint.
+      */}
+      <section className="surface-dark relative overflow-hidden bg-deep">
+        <ThermalField className="absolute inset-0 h-full w-full" />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-56 -right-56 h-[44rem] w-[44rem] rounded-full bg-mid opacity-55 blur-3xl"
+          className="grid-drift pointer-events-none absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px)",
+            backgroundSize: "72px 72px",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-56 -right-56 h-[44rem] w-[44rem] rounded-full bg-mid opacity-45 blur-3xl"
         />
 
         <Container className="relative pt-16 pb-20 sm:pt-24 sm:pb-28">
@@ -101,12 +122,14 @@ export default function Home() {
         happens when you halve the area. It is the one deliberately large
         graphic on the page, and the widest stretch of white.
       */}
-      <AirflowBand>
+      <GraphicBand
+        graphic={<AirflowField className="absolute inset-0 h-full w-full" />}
+      >
         Air goes where the pressure tells it to.{" "}
         <span className="text-accent">
           Deciding where that is, is the work.
         </span>
-      </AirflowBand>
+      </GraphicBand>
 
       {/* 3. A thin band travelling sideways. Breaks the vertical stack. */}
       <div className="border-b border-rule py-4 text-fg-subtle">

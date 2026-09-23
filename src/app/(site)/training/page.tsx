@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { AirflowBand } from "@/components/airflow-band";
-import { TechBackdrop } from "@/components/tech-backdrop";
+import { GraphicBand } from "@/components/graphic-band";
+import { LoadProfile } from "@/components/load-profile";
 import Link from "next/link";
 import { Button, Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -83,10 +83,22 @@ export default function TrainingPage() {
         hanging off it, so the curriculum reads as a route rather than a list
         of equal blocks.
       */}
-      <AirflowBand />
+      <GraphicBand
+        graphic={<LoadProfile className="absolute inset-0 h-full w-full" />}
+      >
+        Four loads, four different peaks.{" "}
+        <span className="text-accent">
+          Size for the peak of the sum, not the sum of the peaks.
+        </span>
+      </GraphicBand>
 
       <section className="relative overflow-hidden">
-        <TechBackdrop tone="ink" />
+        {/*
+          The same profile again, sitting along the bottom of the section
+          like a horizon. Fixed height rather than stretched, because a wide
+          graphic sliced to cover a tall column tears into diagonal bars.
+        */}
+        <LoadProfile className="absolute inset-x-0 bottom-0 h-[26rem] w-full opacity-40" />
         <Container className="relative py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-12">

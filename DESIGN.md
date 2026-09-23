@@ -237,24 +237,59 @@ Three rules it depends on:
 Every hero also carries the drafting grid drifting on a 40s loop, the
 FieldEdge background movement in a form that suits a design practice.
 
-## The background layer
+## The background layer: one device per page
 
-`src/components/tech-backdrop.tsx`. A drifting drafting grid plus four long
-shallow curves with dashes travelling along them, the same device as the duct
-plan but abstract.
+There was a single shared backdrop, `tech-backdrop.tsx`, a drifting drafting
+grid plus four faint curves, on every page. It is deleted. Two rounds of
+feedback killed it: first that it did not register at all, then that putting
+the same replacement graphic on four pages "feels lazy and monotonous". Both
+were right. A system is not the same picture repeated; it is the same
+reasoning applied to different subjects.
 
-**Abstract on purpose.** A background is decoration, and decoration must not
-make claims an engineer could fault. The duct plan and the psychrometric chart
-state things and are therefore computed and checked. This states nothing.
+So each page now has its own device, and each one is drawn from what that
+page is actually about:
 
-It exists because the first answer to "more 2D motion graphics for the
-background" was one drifting grid on a single band, which is a section, not a
-background. The client was right to push back. Home went from 8 live
-animations to 18, and every page now carries the layer.
+| Page        | Device            | What it is                                   |
+| ----------- | ----------------- | -------------------------------------------- |
+| Home hero   | `thermal-field`   | Isotherms nesting around two heat sources    |
+| Home band   | `airflow-field`   | Streamlines squeezing through a constriction |
+| Training    | `load-profile`    | A cooling load over twenty four hours        |
+| Consultancy | `duty-point`      | Fan curve, system curves, and the crossing   |
+| Projects    | `stack-plumes`    | Buoyant plumes rising, for a tall building   |
+| About       | `thermal-field`   | Quiet, in white, on the dark band            |
+| Contact     | `stack-plumes`    | Quiet, in white, on the dark band            |
 
-Cheap by construction: six stroked paths and a dash offset, no images, no
-library, nothing per frame that touches layout. Off entirely under reduced
-motion, verified at zero elements still animating.
+**Abstract or computed, never in between.** A background is decoration, and
+decoration must not make claims an engineer could fault. The thermal field,
+the airflow field and the plumes state nothing: no numbers, no labels, no
+components. The load profile and the duty point do assert something, so they
+are computed, and the reasoning is in each file's header.
+
+**Every page carries motion below the hero, not only in it.** That was asked
+for explicitly. Training has the profile as a band and again as a horizon
+behind the curriculum; consultancy has the chart in three places; projects
+has plumes behind the whole record and again on the dark band.
+
+**Three ways a graphic meets its frame, and picking wrong looks broken.**
+
+- `slice` fills the frame and crops. Only safe when the frame's shape is
+  close to the graphic's. This is what tore the airflow field into diagonal
+  bars when it was stretched behind a tall column of body copy.
+- `none` stretches. Right for the plumes, which are near vertical lines, and
+  for the load profile, which is a stacked area chart: both survive being
+  squashed or pulled. Pair it with `vectorEffect="non-scaling-stroke"` or the
+  stretch thickens every line.
+- `meet` scales uniformly and letterboxes. Required for the duty point. It
+  was stretched first, and the system curves flattened into straight rays
+  from the origin, which is the exact opposite of the thing the picture
+  exists to show. A family of curves cannot be stretched.
+
+**The home hero has no photograph.** It was a slideshow blended to luminosity
+at 70 percent under a heavy navy scrim, which turned pictures of real plant
+into flat murk and left the duct plan with almost no contrast to sit against.
+The client called it boring and that was fair. The thermal field replaced it,
+`hero-slideshow.tsx` is deleted, and the inner page heroes keep their
+photographs, so home no longer looks like every other page.
 
 ## The airflow field
 
