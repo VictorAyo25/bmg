@@ -256,6 +256,54 @@ Cheap by construction: six stroked paths and a dash offset, no images, no
 library, nothing per frame that touches layout. Off entirely under reduced
 motion, verified at zero elements still animating.
 
+## The airflow field
+
+`src/components/airflow-field.tsx`, placed by `src/components/airflow-band.tsx`.
+Thirty streamlines squeezing through a constriction and opening out again,
+which is what air does passing a reducer or a damper. Abstract for the same
+reason the backdrop is: it states nothing an engineer could mark wrong.
+
+It exists because the backdrop above, at 1.25px and 6 percent opacity, still
+did not register. The client's words were that the motion was "still not
+notable" and that it needed to be "very visible, and beautiful and
+intelligent". That is a fair charge. A line that faint is a texture, not a
+graphic.
+
+**Two layers, and the split is the whole trick.** The streamlines are drawn
+continuous and quiet, so the eye reads the shape of the flow field. The motion
+rides on top as bright travelling highlights, so the eye reads speed. The first
+attempt put both jobs on one dashed stroke and got neither: every line came
+apart into disconnected ticks and the field looked like stipple rather than
+flow. Screenshot it before believing it works.
+
+**Speed comes from the geometry.** The throat closes to 42 percent of the open
+width, so flow through it runs about 1 / 0.42 times faster. A line near the
+centre spends more of its length inside the squeeze, so it carries more of that
+speed into its average. The duration is derived, not picked by eye.
+
+**A band, never a page background.** Stretched behind a long column of body
+copy, a 1440x460 frame has to cover thousands of pixels of height, and `slice`
+zooms the streamlines into fat diagonal bars that cross the text. It was tried
+and it read as damage. Motion this strong gets a full bleed band of its own,
+and the reading sections keep the quiet backdrop. Home carries the band with
+copy in the open left of the field; the three inner pages carry a shorter
+silent one as a breath between sections.
+
+**The throat sits off centre, at 62 percent.** A symmetrical pinch with text
+over the middle puts the copy on the one part of the frame worth looking at,
+and then needs that same part scrubbed white to stay readable. Off centre, the
+open left carries the words and the constriction survives.
+
+`pathLength="100"` normalises every line regardless of its real length, so one
+dash pattern and one keyframe cover all thirty and the loop closes without a
+jump. The keyframe travels exactly one dash period.
+
+**Mobile needs a different clearing.** At 390px the copy runs the full width,
+so clearing the left of the frame does nothing and a streamline draws itself
+through the words like a strikethrough. Narrow viewports clear a horizontal
+band instead, at 84 percent rather than opaque, so the field still reads above
+and below the text.
+
 ## Where animation stands
 
 Not rejected. The client has asked for more of it, twice. The constraints are

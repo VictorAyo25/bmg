@@ -705,3 +705,27 @@ html.js [data-reveal]:not([data-shown]) .psy-fade {
     animation: none;
   }
 }
+
+/**
+ * The airflow field. Highlights travel along each streamline; the duration is
+ * set per line in the component, from how tightly the flow is squeezed there.
+ * The paths carry pathLength="100", so 50 is exactly one dash period and the
+ * loop closes without a jump no matter how long the line really is.
+ */
+@keyframes air-flow {
+  to {
+    stroke-dashoffset: -50;
+  }
+}
+
+.air-flow {
+  animation-name: air-flow;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .air-flow {
+    animation: none;
+  }
+}

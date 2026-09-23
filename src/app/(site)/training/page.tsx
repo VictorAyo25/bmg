@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AirflowBand } from "@/components/airflow-band";
 import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { Button, Container, Note, PageHero, Tab } from "@/components/ui";
@@ -82,6 +83,8 @@ export default function TrainingPage() {
         hanging off it, so the curriculum reads as a route rather than a list
         of equal blocks.
       */}
+      <AirflowBand />
+
       <section className="relative overflow-hidden">
         <TechBackdrop tone="ink" />
         <Container className="relative py-20 sm:py-28">

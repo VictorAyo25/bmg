@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { TechBackdrop } from "@/components/tech-backdrop";
+import { AirflowBand } from "@/components/airflow-band";
 import Link from "next/link";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, Tab } from "@/components/ui";
@@ -93,8 +94,22 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* 2. A thin band travelling sideways. Breaks the vertical stack. */}
-      <div className="border-b border-rule bg-white py-4 text-fg-subtle">
+      {/*
+        2. The airflow band. A full bleed white field of streamlines squeezing
+        through a constriction, which is what air does through a reducer. The
+        highlights run faster where the lines bunch, because that is what
+        happens when you halve the area. It is the one deliberately large
+        graphic on the page, and the widest stretch of white.
+      */}
+      <AirflowBand>
+        Air goes where the pressure tells it to.{" "}
+        <span className="text-accent">
+          Deciding where that is, is the work.
+        </span>
+      </AirflowBand>
+
+      {/* 3. A thin band travelling sideways. Breaks the vertical stack. */}
+      <div className="border-b border-rule py-4 text-fg-subtle">
         <Marquee items={DISCIPLINES} />
       </div>
 

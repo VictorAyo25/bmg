@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AirflowBand } from "@/components/airflow-band";
 import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { Container, Note, PageHero } from "@/components/ui";
@@ -54,6 +55,8 @@ export default function ProjectsPage() {
           </Reveal>
         </Container>
       </section>
+
+      <AirflowBand />
 
       <section className="relative overflow-hidden">
         <TechBackdrop tone="ink" />
