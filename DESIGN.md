@@ -255,9 +255,7 @@ page is actually about:
 | Home band   | `airflow-field`   | Streamlines squeezing through a constriction |
 | Training    | `load-profile`    | A cooling load over twenty four hours        |
 | Consultancy | `duty-point`      | Fan curve, system curves, and the crossing   |
-| Projects    | `stack-plumes`    | Buoyant plumes rising, for a tall building   |
 | About       | `thermal-field`   | Quiet, in white, on the dark band            |
-| Contact     | `stack-plumes`    | Quiet, in white, on the dark band            |
 
 **Abstract or computed, never in between.** A background is decoration, and
 decoration must not make claims an engineer could fault. The thermal field,
@@ -267,8 +265,21 @@ are computed, and the reasoning is in each file's header.
 
 **Every page carries motion below the hero, not only in it.** That was asked
 for explicitly. Training has the profile as a band and again as a horizon
-behind the curriculum; consultancy has the chart in three places; projects
-has plumes behind the whole record and again on the dark band.
+behind the curriculum; consultancy has the chart in three places.
+
+**Rejected: buoyancy plumes.** A `stack-plumes` device backed the whole projects
+record and the contact band. The client did not like it, so it is deleted
+rather than dialled down, and projects and contact currently carry nothing
+below their heroes. Worth knowing why it was tried, so nobody rebuilds it:
+plumes rise while every other device travels across, and they stretch rather
+than slice, so they were the only one that could back a tall section. Behind a
+long column of records they still read as scratches over the text.
+
+**Copy on a band is the client's, not mine.** Three lines were written to sit
+beside these graphics. Two were removed on request: the rule is that a
+graphic may be added freely, but words on the page are not mine to invent.
+The one that stayed, on the home band, stayed because the client asked for it
+to stay. Training and consultancy bands are silent.
 
 **Three ways a graphic meets its frame, and picking wrong looks broken.**
 

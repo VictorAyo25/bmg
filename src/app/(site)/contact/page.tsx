@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Container, Note, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
-import { StackPlumes } from "@/components/stack-plumes";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CONTACT } from "@/lib/site";
 
@@ -14,12 +13,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="surface-dark panel-dark relative overflow-hidden bg-mid">
-        <StackPlumes
-          stroke="#ffffff"
-          className="absolute inset-0 h-full w-full opacity-30"
-        />
-        <Container className="relative py-20 sm:py-28">
+      <section className="surface-dark panel-dark bg-mid">
+        <Container className="py-20 sm:py-28">
           <Reveal>
             <SectionHead
               label="Contact"

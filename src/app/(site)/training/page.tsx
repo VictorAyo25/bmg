@@ -84,13 +84,9 @@ export default function TrainingPage() {
         of equal blocks.
       */}
       <GraphicBand
+        height="h-64 sm:h-80"
         graphic={<LoadProfile className="absolute inset-0 h-full w-full" />}
-      >
-        Four loads, four different peaks.{" "}
-        <span className="text-accent">
-          Size for the peak of the sum, not the sum of the peaks.
-        </span>
-      </GraphicBand>
+      />
 
       <section className="relative overflow-hidden">
         {/*

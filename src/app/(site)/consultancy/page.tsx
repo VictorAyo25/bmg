@@ -141,15 +141,9 @@ export default function ConsultancyPage() {
       </section>
 
       <GraphicBand
-        graphic={
-          <DutyPoint className="absolute inset-y-0 right-0 h-full w-[62%] py-6 sm:w-[52%]" />
-        }
-      >
-        A fan does not have a flow rate. It has a curve, and{" "}
-        <span className="text-accent">
-          the ductwork decides where on it you land.
-        </span>
-      </GraphicBand>
+        height="h-80 sm:h-[28rem]"
+        graphic={<DutyPoint className="absolute inset-0 h-full w-full" />}
+      />
 
       <section className="relative overflow-hidden">
         <DutyPoint className="absolute right-0 bottom-0 h-[22rem] w-[48%] opacity-40" />
