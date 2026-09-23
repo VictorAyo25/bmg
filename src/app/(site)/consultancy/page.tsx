@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -134,8 +135,9 @@ export default function ConsultancyPage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden">
+        <TechBackdrop tone="ink" />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-10 lg:grid-cols-12">
               <h2 className="text-[2rem] leading-[1.05] font-bold tracking-[-0.03em] text-balance sm:text-[2.625rem] lg:text-[3rem] lg:col-span-6">

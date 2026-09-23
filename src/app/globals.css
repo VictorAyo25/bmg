@@ -684,3 +684,24 @@ html.js [data-reveal]:not([data-shown]) .psy-fade {
     animation: none;
   }
 }
+
+/**
+ * Air travelling along the background streams. Very slow, so it reads as the
+ * page being alive rather than as something demanding attention. Only the
+ * dash offset moves, which the compositor handles without touching layout.
+ */
+@keyframes air-stream {
+  to {
+    stroke-dashoffset: -260;
+  }
+}
+
+.air-stream {
+  animation: air-stream 26s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .air-stream {
+    animation: none;
+  }
+}

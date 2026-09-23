@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { HeroSlideshow } from "@/components/hero-slideshow";
 import { Button, Container, Note, Tab } from "@/components/ui";
@@ -52,6 +53,7 @@ export default function Home() {
       {/* 1. Full bleed, tall, immersive. Nothing else on the page is this. */}
       <section className="surface-dark relative overflow-hidden">
         <HeroSlideshow />
+        <TechBackdrop tone="light" className="z-[1] opacity-70" />
         <div
           aria-hidden
           className="pointer-events-none absolute -top-56 -right-56 h-[44rem] w-[44rem] rounded-full bg-mid opacity-55 blur-3xl"

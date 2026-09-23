@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { Button, Container, Note, PageHero, Tab } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -81,8 +82,9 @@ export default function TrainingPage() {
         hanging off it, so the curriculum reads as a route rather than a list
         of equal blocks.
       */}
-      <section>
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden">
+        <TechBackdrop tone="ink" />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <div className="grid gap-8 lg:grid-cols-12">
               <div className="lg:col-span-6">

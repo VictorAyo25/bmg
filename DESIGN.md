@@ -237,6 +237,25 @@ Three rules it depends on:
 Every hero also carries the drafting grid drifting on a 40s loop, the
 FieldEdge background movement in a form that suits a design practice.
 
+## The background layer
+
+`src/components/tech-backdrop.tsx`. A drifting drafting grid plus four long
+shallow curves with dashes travelling along them, the same device as the duct
+plan but abstract.
+
+**Abstract on purpose.** A background is decoration, and decoration must not
+make claims an engineer could fault. The duct plan and the psychrometric chart
+state things and are therefore computed and checked. This states nothing.
+
+It exists because the first answer to "more 2D motion graphics for the
+background" was one drifting grid on a single band, which is a section, not a
+background. The client was right to push back. Home went from 8 live
+animations to 18, and every page now carries the layer.
+
+Cheap by construction: six stroked paths and a dash offset, no images, no
+library, nothing per frame that touches layout. Off entirely under reduced
+motion, verified at zero elements still animating.
+
 ## Where animation stands
 
 Not rejected. The client has asked for more of it, twice. The constraints are

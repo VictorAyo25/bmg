@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TechBackdrop } from "@/components/tech-backdrop";
 import Link from "next/link";
 import { Container, Note, PageHero } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
@@ -54,8 +55,9 @@ export default function ProjectsPage() {
         </Container>
       </section>
 
-      <section>
-        <Container className="py-20 sm:py-28">
+      <section className="relative overflow-hidden">
+        <TechBackdrop tone="ink" />
+        <Container className="relative py-20 sm:py-28">
           <Reveal>
             <ProjectRecord />
           </Reveal>
