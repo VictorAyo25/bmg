@@ -216,11 +216,18 @@ export default function Home() {
                 Why some buildings cost so much{" "}
                 <span className="text-accent">to keep cool.</span>
               </p>
+              {/*
+                "too big for the building" rather than "bigger than the
+                building needs". The second one is a garden path: the reader
+                takes "the building needs" as a noun phrase, hits "switches"
+                expecting a thing, and has to go back and re-read the sentence.
+                Do not reintroduce it.
+              */}
               <p className="mt-6 text-lg leading-relaxed text-fg-muted">
-                An air conditioning system bigger than the building needs
-                switches on and off all day, cools without drying the air, and
-                costs more to run every month. Getting the size right is a
-                calculation made before anything is ordered.
+                An air conditioning system too big for the building will switch
+                on and off all day, cool without drying the air, and cost more
+                to run every month. The right size is worked out before anything
+                is bought.
               </p>
             </Reveal>
 
