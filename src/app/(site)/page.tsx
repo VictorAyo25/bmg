@@ -217,12 +217,10 @@ export default function Home() {
                 <span className="text-accent">to keep cool.</span>
               </p>
               <p className="mt-6 text-lg leading-relaxed text-fg-muted">
-                An air conditioning system bigger than the building needs will
-                switch itself on and off all day, cool the air without pulling
-                the damp out of it, and cost more to run every month for as long
-                as the building stands. Getting the size right is arithmetic
-                done at design stage, before anything is ordered or installed,
-                which is the last point at which it costs nothing to correct.
+                An air conditioning system bigger than the building needs
+                switches on and off all day, cools without drying the air, and
+                costs more to run every month. Getting the size right is a
+                calculation made before anything is ordered.
               </p>
             </Reveal>
 
