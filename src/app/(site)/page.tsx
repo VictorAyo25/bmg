@@ -182,11 +182,22 @@ export default function Home() {
       </section>
 
       {/*
-        4. The claim, and the proof beside it. The line says most buildings
-        are cooled by systems nobody calculated; the chart is the calculation,
-        drawing itself in. It replaces a stock photograph that asserted
-        nothing, and it is the motion the reviewers asked for, in a form an
-        engineer will recognise and cannot fault, because it is computed.
+        4. The cost of getting it wrong, with the calculation drawing itself in
+        beside it.
+
+        The copy here is aimed at a building owner rather than an engineer,
+        which is a deliberate change: the home page is the widest part of the
+        funnel and the people paying for plant are not the people who can read
+        a psychrometric chart. So it names a bill, a unit cycling on and off
+        and damp air, and it does not refer to the chart at all. The chart
+        still earns its place with the engineers who do read it, and it is the
+        motion the reviewers asked for, in a form that cannot be faulted
+        because it is computed.
+
+        On register: the copy this replaced was written in an aphoristic style
+        that reads as machine generated. Measured against Arup, Buro Happold,
+        WSP, Max Fordham, Carrier and Wrightsoft, that style appears nowhere in
+        this industry. See DESIGN.md for what the measurement found.
       */}
       <section className="surface-dark relative overflow-hidden bg-deep">
         <div
@@ -202,15 +213,16 @@ export default function Home() {
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
             <Reveal className="lg:col-span-5">
               <p className="text-[1.75rem] leading-[1.18] font-bold tracking-[-0.03em] text-balance sm:text-[2.5rem]">
-                Most buildings are cooled by systems{" "}
-                <span className="text-accent">nobody calculated.</span>
+                Why some buildings cost so much{" "}
+                <span className="text-accent">to keep cool.</span>
               </p>
               <p className="mt-6 text-lg leading-relaxed text-fg-muted">
-                This is the calculation. Outside air and room air mix, pass
-                through the cooling coil, and leave as cold, dry supply air.
-                Size that coil by rule of thumb and the room ends up clammy or
-                over cooled. Every uncomfortable room was a decision somebody
-                made at design stage.
+                An air conditioning system bigger than the building needs will
+                switch itself on and off all day, cool the air without pulling
+                the damp out of it, and cost more to run every month for as long
+                as the building stands. Getting the size right is arithmetic
+                done at design stage, before anything is ordered or installed,
+                which is the last point at which it costs nothing to correct.
               </p>
             </Reveal>
 

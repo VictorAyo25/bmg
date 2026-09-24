@@ -189,6 +189,52 @@ The antidote is committing to the client's own visual language rather than a
 tasteful general one. Angled tabs, blue fields, white cards on blue, heavy
 display weights, the drafting grid.
 
+## Copy that reads as AI generated, measured
+
+The same charge was later levelled at the writing, not the design, and it was
+correct. Rather than guess, ten hero headlines and about fifty five body
+sentences were collected from Arup, Buro Happold, WSP, Max Fordham, Carrier,
+Trane, Wrightsoft and Dephy. The tells turned out to be structural, not
+stylistic. These firms stack adjectives freely and write twenty five word
+sentences without sounding synthetic.
+
+**Four things that appear zero times in the whole corpus, and that I kept
+writing:**
+
+1. **The aphoristic headline.** Five of ten heroes are literally just the name
+   of the discipline. There is no equivalent anywhere of "Comfort is
+   calculated, or it is luck". The punch in this industry lives in short
+   labelled subheads like Buro Happold's "Planning pays", never in the hero.
+2. **The "X, not Y" antithesis.** Zero instances. When these firms have two
+   ideas in tension the native move is to claim both: "at once innovative and
+   integrated", "safe, healthy and comfortable while being easy to maintain".
+   Rejecting one half is the machine instinct; keeping both is the human one.
+3. **The short punchy closing sentence.** No paragraph in the corpus ends
+   under nineteen words. They build to a pile of nouns and stop. There is no
+   mic drop anywhere.
+4. **Abstraction.** They average roughly one proper noun, standard, number or
+   named method per fifteen to twenty five words. Abstraction is what makes
+   copy smell generated, and concreteness is the cure.
+
+**Also worth knowing:** dramatic short then long sentence rhythm is an AI
+signature in this sector, not a human one. Only Max Fordham uses a genuinely
+short sentence, "We are Max Fordham.", and it is the first one on the site,
+used for identification. Everywhere else the range is a flat fifteen to thirty.
+
+**On the "nobody notices good engineering" idea,** which is a real one and
+tempting: Arup writes it, and what they do with it is the lesson. "When
+thoughtfully designed, mechanical services such as ventilation, heating and
+cooling can go unnoticed. Yet these essential services help make offices and
+apartments attractive to tenants." First not last, hedged to "can go
+unnoticed", then immediately undercut with "Yet" and taken to tenants. The
+machine instinct is to save that line for the end and land on it.
+
+**Home page copy is aimed at a building owner, not an engineer.** Decided
+24 September 2026. The home page is the widest part of the funnel and the
+people paying for plant cannot read a psychrometric chart. Concreteness there
+has to come from a bill, a thermostat, a unit cycling on and off, not from
+dew point and latent gain. The inner pages can and should be technical.
+
 ## Rejected, do not reopen without new information
 
 - **Copying installer sites.** Dephy and Mar&Mor install. Photographs of
